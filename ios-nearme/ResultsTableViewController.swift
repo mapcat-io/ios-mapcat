@@ -23,7 +23,11 @@ class ResultsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ResultCell") as UITableViewCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("ResultCell") as! ResultTableViewCell!
+        
+        cell.titleLabel.text = "Mario's Locksmith"
+        cell.addressLabel.text = "4322 Mission St."
+        cell.descriptionLabel.text = "Hella narwhal Cosby sweater McSweeney's, salvia kitsch before they sold out High Life. We can go on and on and on."
         
         return cell
     }
