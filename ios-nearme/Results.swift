@@ -6,6 +6,20 @@
 //  Copyright © 2015 Ryan Walton. All rights reserved.
 //
 
-import UIKit
-
-var results: [String:String] = ["id":"1", "title":"value"]
+var results: [[String:AnyObject]] = [
+    [
+        "title": "Mario’s Locksmith",
+        "address": "4352 Mission St.",
+        "description": "Portland ugh fashion axe Helvetica, YOLO Echo Park Austin gastropub roof party. Megging."
+    ],
+    [
+        "title": "Pickbuster Locksmith",
+        "address": "Outer Mission, serving SF",
+        "description": "Portland ugh fashion axe Helvetica, YOLO Echo Park Austin gastropub roof party. Megging."
+    ],
+    [
+        "title": "Don’s Key & Lock",
+        "address": "3227 Mission St.",
+        "description": "Portland ugh fashion axe Helvetica, YOLO Echo Park Austin gastropub roof party. Megging."
+    ]
+]

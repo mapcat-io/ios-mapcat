@@ -18,16 +18,16 @@ class ResultsTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return results.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ResultCell") as! ResultTableViewCell!
         
-        cell.titleLabel.text = "Mario's Locksmith"
-        cell.addressLabel.text = "4322 Mission St."
-        cell.descriptionLabel.text = "Hella narwhal Cosby sweater McSweeney's, salvia kitsch before they sold out High Life. We can go on and on and on."
+        let result = results[indexPath.row]
+        cell.configureWithResult(result)
+        
         
         return cell
     }
