@@ -47,6 +47,7 @@
 		6C47BF5E1BD0AD5100D52EF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C47BF5C1BD0AD5100D52EF4 /* LaunchScreen.storyboard */; };
 		6C47BF691BD0AD5100D52EF4 /* ios_nearmeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C47BF681BD0AD5100D52EF4 /* ios_nearmeTests.swift */; };
 		6C47BF741BD0AD5100D52EF4 /* ios_nearmeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C47BF731BD0AD5100D52EF4 /* ios_nearmeUITests.swift */; };
+		6C4AEFE31BD7F07000AA726A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4AEFE21BD7F07000AA726A /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		6C47BF6F1BD0AD5100D52EF4 /* ios-nearmeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-nearmeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C47BF731BD0AD5100D52EF4 /* ios_nearmeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_nearmeUITests.swift; sourceTree = "<group>"; };
 		6C47BF751BD0AD5100D52EF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C4AEFE21BD7F07000AA726A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				6C202DE41BD1A98B00CF0B93 /* HomeViewController.swift */,
 				6C384C1E1BD7135900F2637C /* ResultsTableViewController.swift */,
 				6C384C201BD72F9F00F2637C /* ResultTableViewCell.swift */,
+				6C4AEFE21BD7F07000AA726A /* DetailViewController.swift */,
 				6C384C221BD7372D00F2637C /* Results.swift */,
 				6C47BF541BD0AD5100D52EF4 /* Main.storyboard */,
 				6C47BF5A1BD0AD5100D52EF4 /* Assets.xcassets */,
@@ -367,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C2322A81BD1A15200D4ACBA /* DesignableLabel.swift in Sources */,
+				6C4AEFE31BD7F07000AA726A /* DetailViewController.swift in Sources */,
 				6C2322B71BD1A15200D4ACBA /* SpringImageView.swift in Sources */,
 				6C202DE51BD1A98B00CF0B93 /* HomeViewController.swift in Sources */,
 				6C2322A41BD1A15200D4ACBA /* AutoTextView.swift in Sources */,

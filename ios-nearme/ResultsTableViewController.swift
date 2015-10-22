@@ -9,11 +9,11 @@
 import UIKit
 
 class ResultsTableViewController: UITableViewController {
+    
+    var selectedCell: UITableViewCell?
 
     @IBAction func HomeButtonDidTouch(sender: AnyObject) {
-        
         performSegueWithIdentifier("HomeSegue", sender: self)
-        
     }
 
     
@@ -22,20 +22,24 @@ class ResultsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("ResultCell") as! ResultTableViewCell!
-        
+        selectedCell = cell
         let result = results[indexPath.row]
         cell.configureWithResult(result)
-        
-        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("DetailSegue", sender: self)
-        
+        performSegueWithIdentifier("DetailSegue", sender: selectedCell)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "DetailSegue" {
+            let toView = segue.destinationViewController as! DetailViewController
+            toView.result = results[self.tableView.indexPathForSelectedRow!.row]
+            
+        }
     }
     
 
