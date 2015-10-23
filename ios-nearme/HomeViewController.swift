@@ -17,15 +17,14 @@ class HomeViewController: UIViewController {
 
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
         performSegueWithIdentifier("SearchSegue", sender: self)
-        
-        
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SearchSegue" {
+            let toNav = segue.destinationViewController as! UINavigationController
+            let toView = toNav.topViewController as! ResultsTableViewController
+            toView.q = self.searchTextField.text!
+        }
     }
 
 }
