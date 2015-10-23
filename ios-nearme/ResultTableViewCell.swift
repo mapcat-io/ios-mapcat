@@ -17,7 +17,7 @@ class ResultTableViewCell: UITableViewCell {
     func configureWithResult(result: AnyObject) {
         
         let title = result["title"] as! String
-        let address = result["address"] as! String
+        let address = result["place"]!![0]!["location"]!!["street1"]! as? String
         let description = result["description"] as! String
         
         titleLabel.text = title
