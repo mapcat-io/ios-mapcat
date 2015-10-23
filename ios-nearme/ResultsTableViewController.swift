@@ -20,10 +20,10 @@ class ResultsTableViewController: UITableViewController {
         
         Alamofire.request(.GET, "http://heroku-nearme.herokuapp.com/api/v1/things", parameters: ["q" : q])
             .responseJSON { response in
-                let swiftyJSONObject = JSON(response.result.value!)
-                //now you can use swiftyJSONObject as intended
-                print(swiftyJSONObject["things"])
-                self.results = swiftyJSONObject["things"]
+                let JSONObject = JSON(response.result.value!)
+                //now you can use the JSONObject as intended
+                //print(JSONObject["things"])
+                self.results = JSONObject["things"]
                 self.tableView.reloadData()
         }
         
