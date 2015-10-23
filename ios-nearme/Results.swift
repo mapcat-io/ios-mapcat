@@ -9,20 +9,17 @@
 import Foundation
 import Alamofire
 
-class Networking {
+public class Networking {
+    
     class func getThings() {
-        Alamofire.request(.GET, "http://heroku-nearme.herokuapp.com/api/v1/things", parameters: ["q": "bar"])
+        
+        Alamofire.request(.GET, "http://heroku-nearme.herokuapp.com/api/v1/things", parameters: ["q" : ""])
             .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result.value)   // result of response serialization
-                
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON.valueForKey("things"))")
-                }
+                let swiftyJSONObject = JSON(response.result.value!)
+                //now you can use swiftyJSONObject as intended
+                print(swiftyJSONObject["things"])
         }
+        
     }
 }
 

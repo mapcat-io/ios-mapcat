@@ -12,9 +12,21 @@ import Alamofire
 class ResultsTableViewController: UITableViewController {
     
     var selectedCell: UITableViewCell?
+    var results: JSON = []
+    var q: String = ""
     
     override func viewDidLoad() {
-        Networking.getThings();
+        super.viewDidLoad()
+        
+        Alamofire.request(.GET, "http://heroku-nearme.herokuapp.com/api/v1/things", parameters: ["q" : q])
+            .responseJSON { response in
+                let swiftyJSONObject = JSON(response.result.value!)
+                //now you can use swiftyJSONObject as intended
+                print(swiftyJSONObject["things"])
+                self.results = swiftyJSONObject["things"]
+                self.tableView.reloadData()
+        }
+        
     }
 
     @IBAction func HomeButtonDidTouch(sender: AnyObject) {
