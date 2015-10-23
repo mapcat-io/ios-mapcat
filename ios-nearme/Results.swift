@@ -10,26 +10,25 @@ import Foundation
 import Alamofire
 
 class Networking {
-    
     class func getThings() {
-        Alamofire.request(.GET, "http://heroku-nearme.herokuapp.com/api/v1/things")
+        Alamofire.request(.GET, "http://heroku-nearme.herokuapp.com/api/v1/things", parameters: ["q": "bar"])
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response
                 print(response.data)     // server data
-                print(response.result)   // result of response serialization
-
+                print(response.result.value)   // result of response serialization
+                
+                
                 if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                    print("JSON: \(JSON.valueForKey("things"))")
                 }
         }
     }
 }
 
-
 var results: JSON = [
     //
-    
+
     [
         "_id": "5612a9d5f3d5e8c440539a0c",
         "slug": "dolores-park-bench-south-west-side",

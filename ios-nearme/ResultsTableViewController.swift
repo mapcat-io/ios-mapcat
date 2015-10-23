@@ -7,14 +7,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class ResultsTableViewController: UITableViewController {
     
-    //var results: JSON = []
     var selectedCell: UITableViewCell?
     
     override func viewDidLoad() {
-        //Networking.getThings();
+        Networking.getThings();
     }
 
     @IBAction func HomeButtonDidTouch(sender: AnyObject) {
