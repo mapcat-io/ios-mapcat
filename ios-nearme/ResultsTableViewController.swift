@@ -10,7 +10,12 @@ import UIKit
 
 class ResultsTableViewController: UITableViewController {
     
+    //var results: JSON = []
     var selectedCell: UITableViewCell?
+    
+    override func viewDidLoad() {
+        //Networking.getThings();
+    }
 
     @IBAction func HomeButtonDidTouch(sender: AnyObject) {
         performSegueWithIdentifier("HomeSegue", sender: self)

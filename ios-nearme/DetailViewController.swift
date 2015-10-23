@@ -14,12 +14,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var result = [String:AnyObject]()
+    var result: JSON!
     
     override func viewDidLoad() {
-        titleLabel.text = result["title"] as? String
-        addressLabel.text = result["place"]![0]!["location"]!!["street1"]! as? String
-        descriptionLabel.text = result["description"] as? String
+        titleLabel.text = result["title"].string!
+        addressLabel.text = result["place"][0]["location"]["street1"].string!
+        descriptionLabel.text = result["description"].string!
     }
     
     

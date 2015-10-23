@@ -14,11 +14,11 @@ class ResultTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    func configureWithResult(result: AnyObject) {
+    func configureWithResult(result: JSON) {
         
-        let title = result["title"] as! String
-        let address = result["place"]!![0]!["location"]!!["street1"]! as? String
-        let description = result["description"] as! String
+        let title = result["title"].string!
+        let address = result["place"][0]["location"]["street1"].string!
+        let description = result["description"].string!
         
         titleLabel.text = title
         addressLabel.text = address
