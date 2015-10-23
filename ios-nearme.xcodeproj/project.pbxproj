@@ -51,6 +51,7 @@
 		6CA192F71BD9F05D004AD27D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA192EA1BD9F04B004AD27D /* Alamofire.framework */; };
 		6CA192F81BD9F05D004AD27D /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA192EA1BD9F04B004AD27D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6CA192FD1BD9F069004AD27D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA192FC1BD9F069004AD27D /* SwiftyJSON.swift */; };
+		6CCB5EE01BDAF072005E58C0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +192,7 @@
 		6C4AEFE21BD7F07000AA726A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		6CA192DF1BD9F04B004AD27D /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../../../Downloads/Alamofire-master 2/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		6CA192FC1BD9F069004AD27D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CCB5EE01BDAF072005E58C0 /* MapKit.framework in Frameworks */,
 				6CA192F71BD9F05D004AD27D /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +262,7 @@
 		6C47BF441BD0AD5000D52EF4 = {
 			isa = PBXGroup;
 			children = (
+				6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */,
 				6CA192DF1BD9F04B004AD27D /* Alamofire.xcodeproj */,
 				6C47BF4F1BD0AD5000D52EF4 /* ios-nearme */,
 				6C47BF671BD0AD5100D52EF4 /* ios-nearmeTests */,
@@ -398,6 +402,7 @@
 				TargetAttributes = {
 					6C47BF4C1BD0AD5000D52EF4 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = RNQB466K9U;
 					};
 					6C47BF631BD0AD5100D52EF4 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -700,6 +705,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "ios-nearme/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -712,6 +718,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "ios-nearme/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

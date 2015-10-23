@@ -16,7 +16,13 @@ class HomeViewController: UIViewController {
     
 
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
-        performSegueWithIdentifier("SearchSegue", sender: self)
+        if self.searchTextField.text == "" {
+            searchBar.animation = "shake"
+            searchBar.animate()
+        }
+        else {
+            performSegueWithIdentifier("SearchSegue", sender: self)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

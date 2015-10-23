@@ -17,11 +17,12 @@ class ResultTableViewCell: UITableViewCell {
     func configureWithResult(result: JSON) {
         
         let title = result["title"].string!
-        //let address = result["place"][0]["location"]["street1"].string!
+        let address = result["place"][0]["location"]["street1"].string ?? "address unknown"
+        let place = result["place"][0]["title"].string ?? "Place unknown"
         let description = result["description"].string!
         
         titleLabel.text = title
-        //addressLabel.text = address
+        addressLabel.text = place + ", " + address
         descriptionLabel.text = description
         
         

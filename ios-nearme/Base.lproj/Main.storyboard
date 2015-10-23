@@ -109,13 +109,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHD-zM-mly">
-                                            <rect key="frame" x="10" y="8" width="265" height="20.5"/>
+                                            <rect key="frame" x="10" y="8" width="355" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGZ-X4-06k">
-                                            <rect key="frame" x="10" y="31" width="265" height="18"/>
+                                            <rect key="frame" x="10" y="31" width="355" height="18"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -141,9 +141,9 @@
                                         <constraint firstItem="xHD-zM-mly" firstAttribute="top" secondItem="TRI-0E-hSj" secondAttribute="top" constant="8" id="NXp-Oh-QJ6"/>
                                         <constraint firstItem="OGZ-X4-06k" firstAttribute="leading" secondItem="TRI-0E-hSj" secondAttribute="leading" constant="10" id="UXU-k7-FYF"/>
                                         <constraint firstItem="xHD-zM-mly" firstAttribute="leading" secondItem="TRI-0E-hSj" secondAttribute="leading" constant="10" id="Xh3-Td-PeF"/>
-                                        <constraint firstAttribute="trailing" secondItem="OGZ-X4-06k" secondAttribute="trailing" constant="100" id="YQt-6Z-upq"/>
+                                        <constraint firstAttribute="trailing" secondItem="OGZ-X4-06k" secondAttribute="trailing" constant="10" id="YQt-6Z-upq"/>
                                         <constraint firstItem="vN6-GX-2uc" firstAttribute="leading" secondItem="TRI-0E-hSj" secondAttribute="leading" constant="10" id="qYm-AP-OTC"/>
-                                        <constraint firstAttribute="trailing" secondItem="xHD-zM-mly" secondAttribute="trailing" constant="100" id="xiz-qt-L78"/>
+                                        <constraint firstAttribute="trailing" secondItem="xHD-zM-mly" secondAttribute="trailing" constant="10" id="xiz-qt-L78"/>
                                         <constraint firstAttribute="trailing" secondItem="vN6-GX-2uc" secondAttribute="trailing" constant="10" id="zrE-QK-1vv"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -188,21 +188,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="dJF-hE-7Dv">
-                                <rect key="frame" x="0.0" y="64" width="375" height="261"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="4Hv-18-Ds4"/>
-                                    <constraint firstAttribute="height" constant="200" id="dUo-z8-n3U"/>
-                                    <constraint firstAttribute="height" constant="200" id="tje-TF-Pd4"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="4Hv-18-Ds4"/>
-                                        <exclude reference="dUo-z8-n3U"/>
-                                        <exclude reference="tje-TF-Pd4"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDJ-0o-3ac">
                                 <rect key="frame" x="16" y="341" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
@@ -231,41 +216,34 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9m-Tz-kON">
+                                <rect key="frame" x="0.0" y="64" width="375" height="261"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="261" id="GCq-Ar-R0K"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FDJ-0o-3ac" firstAttribute="top" secondItem="dJF-hE-7Dv" secondAttribute="bottom" constant="16" id="4Gc-Vw-skB"/>
                             <constraint firstAttribute="trailing" secondItem="zRO-gg-Ifs" secondAttribute="trailing" constant="16" id="4yb-cb-wNF"/>
-                            <constraint firstItem="FDJ-0o-3ac" firstAttribute="top" secondItem="dJF-hE-7Dv" secondAttribute="bottom" constant="16" id="AXS-vy-WA0"/>
                             <constraint firstAttribute="trailing" secondItem="n4D-5m-Bdu" secondAttribute="trailing" constant="16" id="C0U-zo-CQ4"/>
                             <constraint firstItem="FDJ-0o-3ac" firstAttribute="leading" secondItem="1va-hk-Lv0" secondAttribute="leading" constant="16" id="FtZ-9y-cCK"/>
-                            <constraint firstAttribute="trailing" secondItem="dJF-hE-7Dv" secondAttribute="trailing" id="Ivh-rD-2CF"/>
-                            <constraint firstItem="dJF-hE-7Dv" firstAttribute="top" secondItem="Nja-Hy-ZGP" secondAttribute="bottom" id="OTe-Nv-yQT"/>
+                            <constraint firstItem="r9m-Tz-kON" firstAttribute="top" secondItem="Nja-Hy-ZGP" secondAttribute="bottom" id="KFI-YK-U0R"/>
                             <constraint firstAttribute="trailing" secondItem="FDJ-0o-3ac" secondAttribute="trailing" constant="16" id="Om6-h0-Po0"/>
                             <constraint firstItem="zRO-gg-Ifs" firstAttribute="leading" secondItem="1va-hk-Lv0" secondAttribute="leading" constant="16" id="Rso-Pg-1eR"/>
-                            <constraint firstItem="FDJ-0o-3ac" firstAttribute="top" secondItem="dJF-hE-7Dv" secondAttribute="bottom" constant="16" id="SCQ-cS-tWj"/>
                             <constraint firstItem="zRO-gg-Ifs" firstAttribute="top" secondItem="FDJ-0o-3ac" secondAttribute="bottom" constant="2.5" id="Swg-QD-NOi"/>
+                            <constraint firstItem="FDJ-0o-3ac" firstAttribute="top" secondItem="r9m-Tz-kON" secondAttribute="bottom" constant="16" id="Zy3-du-Q4U"/>
                             <constraint firstItem="n4D-5m-Bdu" firstAttribute="top" secondItem="zRO-gg-Ifs" secondAttribute="bottom" constant="1" id="aeh-ZK-1I2"/>
-                            <constraint firstItem="dJF-hE-7Dv" firstAttribute="leading" secondItem="1va-hk-Lv0" secondAttribute="leading" id="b4H-8S-VL6"/>
-                            <constraint firstItem="dJF-hE-7Dv" firstAttribute="top" secondItem="Nja-Hy-ZGP" secondAttribute="bottom" id="gAC-zX-VEg"/>
-                            <constraint firstAttribute="trailing" secondItem="dJF-hE-7Dv" secondAttribute="trailing" id="h7Y-Xg-yqO"/>
-                            <constraint firstItem="dJF-hE-7Dv" firstAttribute="leading" secondItem="1va-hk-Lv0" secondAttribute="leading" id="iMS-ZH-Qwo"/>
                             <constraint firstItem="n4D-5m-Bdu" firstAttribute="leading" secondItem="1va-hk-Lv0" secondAttribute="leading" constant="16" id="iYs-hr-7n2"/>
+                            <constraint firstAttribute="trailing" secondItem="r9m-Tz-kON" secondAttribute="trailing" id="pa8-dD-lns"/>
+                            <constraint firstItem="r9m-Tz-kON" firstAttribute="leading" secondItem="1va-hk-Lv0" secondAttribute="leading" id="vMs-xy-9Xs"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Ivh-rD-2CF"/>
-                                <exclude reference="b4H-8S-VL6"/>
-                                <exclude reference="gAC-zX-VEg"/>
-                                <exclude reference="AXS-vy-WA0"/>
-                                <exclude reference="SCQ-cS-tWj"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addressLabel" destination="zRO-gg-Ifs" id="dF3-ZT-A45"/>
                         <outlet property="descriptionLabel" destination="n4D-5m-Bdu" id="ms6-Pf-ujU"/>
+                        <outlet property="mapView" destination="r9m-Tz-kON" id="BJb-7D-Mlc"/>
                         <outlet property="titleLabel" destination="FDJ-0o-3ac" id="Ndq-Hv-JTM"/>
                     </connections>
                 </viewController>
@@ -297,7 +275,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="map_placeholder" width="375" height="261"/>
         <image name="search_bar" width="282" height="44"/>
     </resources>
 </document>
