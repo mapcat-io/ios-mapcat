@@ -8,12 +8,14 @@
 
 import UIKit
 import Alamofire
+import CoreLocation
 
 class ResultsTableViewController: UITableViewController {
     
     var selectedCell: UITableViewCell?
     var results: JSON = []
     var q: String = ""
+    var currentLocation: CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +44,7 @@ class ResultsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("ResultCell") as! ResultTableViewCell!
         selectedCell = cell
         let result = results[indexPath.row]
-        cell.configureWithResult(result)
+        cell.configureWithResult(result, currentLocation: currentLocation)
         return cell
     }
     
@@ -55,6 +57,7 @@ class ResultsTableViewController: UITableViewController {
         if segue.identifier == "DetailSegue" {
             let toView = segue.destinationViewController as! DetailViewController
             toView.result = results[self.tableView.indexPathForSelectedRow!.row]
+            toView.currentLocation = currentLocation
             
         }
     }
