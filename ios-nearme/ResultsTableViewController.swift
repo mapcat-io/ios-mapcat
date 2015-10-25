@@ -12,6 +12,8 @@ import CoreLocation
 
 class ResultsTableViewController: UITableViewController {
     
+    @IBOutlet weak var titleLabel: UINavigationItem!
+    
     var selectedCell: UITableViewCell?
     var results: JSON = []
     var q: String = ""
@@ -19,6 +21,8 @@ class ResultsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleLabel.title = q.capitalizedString
         
         Alamofire.request(.GET, "http://heroku-nearme.herokuapp.com/api/v1/things", parameters: ["q" : q])
             .responseJSON { response in

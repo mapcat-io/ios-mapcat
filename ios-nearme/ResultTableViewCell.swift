@@ -13,6 +13,7 @@ class ResultTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
@@ -30,8 +31,9 @@ class ResultTableViewCell: UITableViewCell {
         
         let distanceBetween: CLLocationDistance = destination.distanceFromLocation(setLocation)
         
-        titleLabel.text = title
-        addressLabel.text = place + ", " + address
+        titleLabel.text = place
+        addressLabel.text = address
+        categoriesLabel.text = title
         descriptionLabel.text = description
         distanceLabel.text = String(format: "%.1f mi away", distanceBetween * 0.000621371)
         
