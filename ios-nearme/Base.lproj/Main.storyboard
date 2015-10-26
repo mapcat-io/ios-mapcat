@@ -214,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="1136.5" y="-537.5"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Title-->
         <scene sceneID="Yuo-fv-UJ6">
             <objects>
                 <viewController id="5F8-aw-48E" customClass="DetailViewController" customModule="ios_nearme" customModuleProvider="target" sceneMemberID="viewController">
@@ -315,6 +315,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="IfK-WR-ew2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="addressLabel" destination="zRO-gg-Ifs" id="dF3-ZT-A45"/>
@@ -322,6 +323,7 @@
                         <outlet property="descriptionLabel" destination="n4D-5m-Bdu" id="ms6-Pf-ujU"/>
                         <outlet property="distanceLabel" destination="iin-rQ-OsP" id="a20-dN-UFg"/>
                         <outlet property="mapView" destination="r9m-Tz-kON" id="BJb-7D-Mlc"/>
+                        <outlet property="navTitle" destination="IfK-WR-ew2" id="UDE-bN-5lp"/>
                         <outlet property="titleLabel" destination="FDJ-0o-3ac" id="Ndq-Hv-JTM"/>
                     </connections>
                 </viewController>

@@ -13,6 +13,7 @@ import CoreLocation
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var navTitle: UINavigationItem!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var categoriesLabel: UILabel!
@@ -29,6 +30,7 @@ class DetailViewController: UIViewController {
         let address = result["place"][0]["location"]["street1"].string ?? "address unknown"
         let place = result["place"][0]["title"].string ?? "Place unknown"
         let description = result["description"].string ?? "No description"
+        let categories = result["category"][0]["title"].string ?? "No categories"
         let geoLat = result["place"][0]["location"]["geo"][1].double ?? 37.763299
         let geoLong = result["place"][0]["location"]["geo"][0].double ?? -122.419356
         
@@ -49,9 +51,10 @@ class DetailViewController: UIViewController {
         mapView.addAnnotation(dropPin)
         
         // set labels
+        navTitle.title = title.capitalizedString
         titleLabel.text = place
         addressLabel.text = address
-        categoriesLabel.text = title
+        categoriesLabel.text = categories.capitalizedString
         descriptionLabel.text = description
         distanceLabel.text = String(format: "%.1f mi away", distanceBetween * 0.000621371)
         
