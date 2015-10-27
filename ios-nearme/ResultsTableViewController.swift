@@ -15,7 +15,7 @@ class ResultsTableViewController: UITableViewController {
     @IBOutlet weak var titleLabel: UINavigationItem!
     
     var selectedCell: UITableViewCell?
-    var results: JSON = []
+    var results: [JSON] = []
     var q: String = ""
     var currentLocation: CLLocationCoordinate2D!
     
@@ -25,18 +25,9 @@ class ResultsTableViewController: UITableViewController {
         Alamofire.request(.GET, "http://heroku-nearme.herokuapp.com/api/v1/things", parameters: ["q" : q])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
-                self.results = JSONObject["things"]
-                for (key, _) in self.results {
-                    let intKey: Int = Int(key)!
-                    var thisItem: JSON = self.results[intKey]
-                    let geoLat = thisItem["place"][0]["location"]["geo"][1].double ?? 37.763299
-                    let geoLong = thisItem["place"][0]["location"]["geo"][0].double ?? -122.419356
-                    let destination = CLLocation(latitude: geoLat, longitude: geoLong)
-                    let setLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
-                    let distanceBetween: CLLocationDistance = destination.distanceFromLocation(setLocation)
-                    thisItem["distance"].double =  distanceBetween
-                    self.results[intKey] = thisItem
-                }
+                let setLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
+                let rawResults: JSON = Utilities.populateDistanceBetween(JSONObject["things"], currentLocation: setLocation)
+                self.results = rawResults.sort { $0.0.1["distance"].doubleValue < $0.1.1["distance"].doubleValue }.map { $0.1 }
                 self.tableView.reloadData()
         }
     }
@@ -71,6 +62,5 @@ class ResultsTableViewController: UITableViewController {
             
         }
     }
-    
 
 }

@@ -47,7 +47,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             let toNav = segue.destinationViewController as! UINavigationController
             let toView = toNav.topViewController as! ResultsTableViewController
             toView.q = self.searchTextField.text!
-            toView.currentLocation = locationManager.location!.coordinate        }
+            toView.currentLocation = locationManager.location!.coordinate
+        }
     }
     
 //    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

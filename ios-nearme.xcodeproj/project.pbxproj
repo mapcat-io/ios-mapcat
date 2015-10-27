@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C202DE51BD1A98B00CF0B93 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C202DE41BD1A98B00CF0B93 /* HomeViewController.swift */; };
+		6C228E8F1BDFE04E00E0518C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C228E8E1BDFE04E00E0518C /* Utilities.swift */; };
 		6C2322A21BD1A15200D4ACBA /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2322841BD1A15200D4ACBA /* AsyncButton.swift */; };
 		6C2322A31BD1A15200D4ACBA /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2322851BD1A15200D4ACBA /* AsyncImageView.swift */; };
 		6C2322A41BD1A15200D4ACBA /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2322861BD1A15200D4ACBA /* AutoTextView.swift */; };
@@ -144,6 +145,7 @@
 
 /* Begin PBXFileReference section */
 		6C202DE41BD1A98B00CF0B93 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6C228E8E1BDFE04E00E0518C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6C2322841BD1A15200D4ACBA /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		6C2322851BD1A15200D4ACBA /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		6C2322861BD1A15200D4ACBA /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				6C2322831BD1A15200D4ACBA /* Spring */,
 				6C47BF501BD0AD5000D52EF4 /* AppDelegate.swift */,
 				6C202DE41BD1A98B00CF0B93 /* HomeViewController.swift */,
+				6C228E8E1BDFE04E00E0518C /* Utilities.swift */,
 				6C384C1E1BD7135900F2637C /* ResultsTableViewController.swift */,
 				6C384C201BD72F9F00F2637C /* ResultTableViewCell.swift */,
 				6C4AEFE21BD7F07000AA726A /* DetailViewController.swift */,
@@ -536,6 +539,7 @@
 				6C202DE51BD1A98B00CF0B93 /* HomeViewController.swift in Sources */,
 				6C2322A41BD1A15200D4ACBA /* AutoTextView.swift in Sources */,
 				6C2322AD1BD1A15200D4ACBA /* ImageLoader.swift in Sources */,
+				6C228E8F1BDFE04E00E0518C /* Utilities.swift in Sources */,
 				6C2322B21BD1A15200D4ACBA /* Misc.swift in Sources */,
 				6C2322A51BD1A15200D4ACBA /* BlurView.swift in Sources */,
 				6C2322BE1BD1A15200D4ACBA /* UnwindSegue.swift in Sources */,
