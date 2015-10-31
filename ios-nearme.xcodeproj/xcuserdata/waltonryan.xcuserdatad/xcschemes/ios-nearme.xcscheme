@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6C47BF4C1BD0AD5000D52EF4"
-               BuildableName = "ios-nearme.app"
-               BlueprintName = "ios-nearme"
+               BuildableName = "MapMaker.app"
+               BlueprintName = "MapMaker"
                ReferencedContainer = "container:ios-nearme.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -53,8 +53,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6C47BF4C1BD0AD5000D52EF4"
-            BuildableName = "ios-nearme.app"
-            BlueprintName = "ios-nearme"
+            BuildableName = "MapMaker.app"
+            BlueprintName = "MapMaker"
             ReferencedContainer = "container:ios-nearme.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6C47BF4C1BD0AD5000D52EF4"
-            BuildableName = "ios-nearme.app"
-            BlueprintName = "ios-nearme"
+            BuildableName = "MapMaker.app"
+            BlueprintName = "MapMaker"
             ReferencedContainer = "container:ios-nearme.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -99,8 +99,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6C47BF4C1BD0AD5000D52EF4"
-            BuildableName = "ios-nearme.app"
-            BlueprintName = "ios-nearme"
+            BuildableName = "MapMaker.app"
+            BlueprintName = "MapMaker"
             ReferencedContainer = "container:ios-nearme.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -19,8 +19,16 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
     
     override func viewDidLoad() {
         
-        // get users location
-        activateLocationManager()
+        // ask for authorization
+        self.locationManager.requestAlwaysAuthorization()
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        // update location
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
         
         // handle keyboard delegate
         self.searchTextField.delegate = self
@@ -59,20 +67,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         }
         else {
             performSegueWithIdentifier("SearchSegue", sender: self)
-        }
-    }
-    
-    // MARK: location function
-    func activateLocationManager() {
-        // ask for authorization
-        self.locationManager.requestAlwaysAuthorization()
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        // update location
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
         }
     }
 
