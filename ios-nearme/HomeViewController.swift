@@ -52,8 +52,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
     // MARK: validate search and perform segue on button and return key
     func searchCheckGo() {
         searchTextField.resignFirstResponder()
-        let charCount = self.searchTextField.text?.characters.count
-        if charCount <= 0 {
+        if searchTextField.text == "" {
             searchBarView.animation = "shake"
             searchBarView.animate()
         }
