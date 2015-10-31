@@ -34,26 +34,6 @@ class DetailViewController: UIViewController {
         let geoLat = result["place"][0]["location"]["geo"][1].double ?? 37.763299
         let geoLong = result["place"][0]["location"]["geo"][0].double ?? -122.419356
         
-//        let baseURL = NSURL(string: "http://heroku-nearme.s3.amazonaws.com/")
-//        var imageFiles: [String?] = []
-        
-        // optional images
-//        imageFiles.append(result["primaryImage"]["filename"].string ?? nil)
-//        imageFiles.append(result["place"][0]["primaryImage"]["filename"].string  ?? nil)
-        
-        //default image
-//        imageFiles.append("36ddd04f8f9d984c83101bdb1e7ab18f.jpg")
-        
-        // start downloading the first image that isn't nil
-//        for filename in imageFiles {
-//            if filename != nil {
-//                if let checkedUrl = NSURL(string: filename!, relativeToURL: baseURL) {
-//                    downloadImage(checkedUrl)
-//                    break
-//                }
-//            }
-//        }
-        
         // set initial location and boundary of map
         let location = CLLocation(latitude: geoLat, longitude: geoLong)
         centerMapOnLocation(location)
@@ -76,7 +56,9 @@ class DetailViewController: UIViewController {
         navTitle.title = title.capitalizedString
         titleLabel.text = place
         addressLabel.text = address
-        categoriesLabel.text = categories!.capitalizedString
+        if categories != nil {
+            categoriesLabel.text = categories!.capitalizedString
+        } else { categoriesLabel.text = categories }
         descriptionLabel.text = description
         distanceLabel.text = String(format: "%.1f mi away", distanceBetween * 0.000621371)
         

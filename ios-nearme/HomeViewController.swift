@@ -27,8 +27,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         
     }
 
+    // search to tableviewcontroller actions
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
         searchCheckGo()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        searchCheckGo()
+        return true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -42,11 +48,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        searchCheckGo()
-        return true
     }
     
     // MARK: validate search and perform segue on button and return key
