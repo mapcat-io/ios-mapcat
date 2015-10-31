@@ -21,15 +21,22 @@ class ResultsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        q = q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         titleLabel.title = q.capitalizedString
         Alamofire.request(.GET, "http://heroku-nearme.herokuapp.com/api/v1/things", parameters: ["q" : q])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
-                let setLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
-                let rawResults: JSON = Utilities.populateDistanceBetween(JSONObject["things"], currentLocation: setLocation)
+                let currentLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
+                let rawResults: JSON = Utilities.populateDistanceBetween(JSONObject["things"], currentLocation: currentLocation)
                 self.results = rawResults.sort { $0.0.1["distance"].doubleValue < $0.1.1["distance"].doubleValue }.map { $0.1 }
                 self.tableView.reloadData()
         }
+        // remove empty cells if needed
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
     }
 
     @IBAction func HomeButtonDidTouch(sender: AnyObject) {

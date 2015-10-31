@@ -9,37 +9,26 @@
 import UIKit
 import CoreLocation
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
     let locationManager = CLLocationManager()
     
+    @IBOutlet weak var searchBarView: DesignableView!
     @IBOutlet weak var searchBar: SpringImageView!
     @IBOutlet weak var searchTextField: DesignableTextField!
     
     override func viewDidLoad() {
         
-        // Ask for Authorization from the User.
-        self.locationManager.requestAlwaysAuthorization()
+        // get users location
+        activateLocationManager()
         
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+        // handle keyboard delegate
+        self.searchTextField.delegate = self
         
     }
 
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
-        if self.searchTextField.text == "" {
-            searchBar.animation = "shake"
-            searchBar.animate()
-        }
-        else {
-            performSegueWithIdentifier("SearchSegue", sender: self)
-        }
+        searchCheckGo()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -51,9 +40,40 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
-//    }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        searchCheckGo()
+        return true
+    }
+    
+    // MARK: validate search and perform segue on button and return key
+    func searchCheckGo() {
+        searchTextField.resignFirstResponder()
+        let charCount = self.searchTextField.text?.characters.count
+        if charCount <= 0 {
+            searchBarView.animation = "shake"
+            searchBarView.animate()
+        }
+        else {
+            performSegueWithIdentifier("SearchSegue", sender: self)
+        }
+    }
+    
+    // MARK: location function
+    func activateLocationManager() {
+        // ask for authorization
+        self.locationManager.requestAlwaysAuthorization()
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        // update location
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
 
 }

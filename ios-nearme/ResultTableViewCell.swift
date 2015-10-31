@@ -20,10 +20,9 @@ class ResultTableViewCell: UITableViewCell {
     func configureWithResult(result: JSON, currentLocation: CLLocationCoordinate2D) {
         
         let title = result["title"].string!
-        let address = result["place"][0]["location"]["street1"].string ?? "address unknown"
-        let place = result["place"][0]["title"].string ?? "Place unknown"
-        let description = result["description"].string ?? "No description"
-        let categories = result["category"][0]["title"].string ?? "No other category"
+        let address = result["place"][0]["location"]["street1"].string ?? nil
+        let place = result["place"][0]["title"].string ?? nil
+        let description = result["description"].string ?? nil
         let geoLat = result["place"][0]["location"]["geo"][1].double ?? 37.763299
         let geoLong = result["place"][0]["location"]["geo"][0].double ?? -122.419356
         
@@ -33,9 +32,9 @@ class ResultTableViewCell: UITableViewCell {
         
         titleLabel.text = place
         addressLabel.text = address
-        categoriesLabel.text = title.capitalizedString + ", " + categories.capitalizedString
+        categoriesLabel.text = title.capitalizedString
         descriptionLabel.text = description
-        distanceLabel.text = String(format: "%.1f mi away", distanceBetween * 0.000621371)
+        distanceLabel.text = String(format: "%.1f mi", distanceBetween * 0.000621371)
         
     }
 

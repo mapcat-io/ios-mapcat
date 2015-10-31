@@ -40,7 +40,6 @@
 		6C2322BE1BD1A15200D4ACBA /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2322A11BD1A15200D4ACBA /* UnwindSegue.swift */; };
 		6C384C1F1BD7135900F2637C /* ResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C384C1E1BD7135900F2637C /* ResultsTableViewController.swift */; };
 		6C384C211BD72F9F00F2637C /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C384C201BD72F9F00F2637C /* ResultTableViewCell.swift */; };
-		6C384C231BD7372D00F2637C /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C384C221BD7372D00F2637C /* Networking.swift */; };
 		6C47BF511BD0AD5000D52EF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C47BF501BD0AD5000D52EF4 /* AppDelegate.swift */; };
 		6C47BF561BD0AD5100D52EF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C47BF541BD0AD5100D52EF4 /* Main.storyboard */; };
 		6C47BF591BD0AD5100D52EF4 /* ios_nearme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C47BF571BD0AD5100D52EF4 /* ios_nearme.xcdatamodeld */; };
@@ -178,7 +177,6 @@
 		6C2322A11BD1A15200D4ACBA /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
 		6C384C1E1BD7135900F2637C /* ResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 		6C384C201BD72F9F00F2637C /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
-		6C384C221BD7372D00F2637C /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		6C47BF4D1BD0AD5000D52EF4 /* ios-nearme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-nearme.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C47BF501BD0AD5000D52EF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C47BF551BD0AD5100D52EF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -298,7 +296,6 @@
 				6C384C1E1BD7135900F2637C /* ResultsTableViewController.swift */,
 				6C384C201BD72F9F00F2637C /* ResultTableViewCell.swift */,
 				6C4AEFE21BD7F07000AA726A /* DetailViewController.swift */,
-				6C384C221BD7372D00F2637C /* Networking.swift */,
 				6C47BF541BD0AD5100D52EF4 /* Main.storyboard */,
 				6C47BF5A1BD0AD5100D52EF4 /* Assets.xcassets */,
 				6C47BF5C1BD0AD5100D52EF4 /* LaunchScreen.storyboard */,
@@ -553,7 +550,6 @@
 				6C2322A61BD1A15200D4ACBA /* DesignableButton.swift in Sources */,
 				6C47BF591BD0AD5100D52EF4 /* ios_nearme.xcdatamodeld in Sources */,
 				6C2322BD1BD1A15200D4ACBA /* TransitionZoom.swift in Sources */,
-				6C384C231BD7372D00F2637C /* Networking.swift in Sources */,
 				6C2322AA1BD1A15200D4ACBA /* DesignableTextField.swift in Sources */,
 				6C2322BC1BD1A15200D4ACBA /* TransitionManager.swift in Sources */,
 				6C2322B81BD1A15200D4ACBA /* SpringLabel.swift in Sources */,

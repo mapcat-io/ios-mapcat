@@ -25,9 +25,11 @@ public class Utilities  {
         return results
     }
     
-//    public class func hello() {
-//        
-//        print("Hello World!")
-//        
-//    }
+
+    public class func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
+            completion(data: data, response: response, error: error)
+            }.resume()
+    }
+    
 }
