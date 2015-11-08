@@ -37,11 +37,25 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
 
     // search to tableviewcontroller actions
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
-        searchCheckGo()
+        searchTextField.resignFirstResponder()
+        if searchTextField.text == "" {
+            searchBarView.animation = "shake"
+            searchBarView.animate()
+        }
+        else {
+            performSegueWithIdentifier("SearchSegue", sender: self)
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        searchCheckGo()
+        searchTextField.resignFirstResponder()
+        if searchTextField.text == "" {
+            searchBarView.animation = "shake"
+            searchBarView.animate()
+        }
+        else {
+            performSegueWithIdentifier("SearchSegue", sender: self)
+        }
         return true
     }
     
@@ -56,18 +70,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
-    }
-    
-    // MARK: validate search and perform segue on button and return key
-    func searchCheckGo() {
-        searchTextField.resignFirstResponder()
-        if searchTextField.text == "" {
-            searchBarView.animation = "shake"
-            searchBarView.animate()
-        }
-        else {
-            performSegueWithIdentifier("SearchSegue", sender: self)
-        }
     }
 
 }

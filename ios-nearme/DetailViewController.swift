@@ -8,8 +8,9 @@
 
 import UIKit
 import MapKit
-import AddressBook
+//import AddressBook
 import CoreLocation
+import Contacts
 
 class DetailViewController: UIViewController {
 
@@ -81,7 +82,7 @@ class DetailViewController: UIViewController {
         let title = result["title"].string!
         let geoLat = result["place"][0]["location"]["geo"][1].double ?? 37.763299
         let geoLong = result["place"][0]["location"]["geo"][0].double ?? -122.419356
-        let addressDictionary = [String(kABPersonAddressStreetKey): title]
+        let addressDictionary = [String(CNPostalAddressStreetKey): title]
         let placemark = MKPlacemark(coordinate: CLLocationCoordinate2DMake(geoLat, geoLong), addressDictionary: addressDictionary)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = title
