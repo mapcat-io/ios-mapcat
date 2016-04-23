@@ -31,7 +31,7 @@ class ResultsTableViewController: UITableViewController {
                 self.results = rawResults.sort { $0.0.1["distance"].doubleValue < $0.1.1["distance"].doubleValue }.map { $0.1 }
                 self.tableView.reloadData()
         }
-        // remove empty cells if needed
+        // remove empty cells if needed 
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         tableView.estimatedRowHeight = 120
