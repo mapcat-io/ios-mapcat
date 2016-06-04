@@ -15,8 +15,8 @@ public class Utilities  {
         for (key, _) in results {
             let intKey: Int = Int(key)!
             var thisItem: JSON = results[intKey]
-            let geoLat = thisItem["place"][0]["location"]["geo"][1].double ?? 37.763299
-            let geoLong = thisItem["place"][0]["location"]["geo"][0].double ?? -122.419356
+            let geoLat = thisItem["Latitude"].double ?? 37.763299
+            let geoLong = thisItem["Longitude"].double ?? -122.419356
             let destination = CLLocation(latitude: geoLat, longitude: geoLong)
             let distanceBetween: CLLocationDistance = destination.distanceFromLocation(currentLocation)
             thisItem["distance"].double =  distanceBetween
