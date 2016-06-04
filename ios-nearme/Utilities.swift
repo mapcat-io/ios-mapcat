@@ -2,8 +2,8 @@
 //  Utilities.swift
 //  ios-nearme
 //
-//  Created by Ryan Walton on 10/27/15.
-//  Copyright © 2015 Ryan Walton. All rights reserved.
+//  Created by Jen Long on 6/1/16.
+//  Copyright © 2016 Mapcat.io. All rights reserved.
 //
 
 import UIKit
