@@ -53,6 +53,7 @@
 		6CA2E9121BEFC2FB00BAB62B /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA2E9111BEFC2FB00BAB62B /* Contacts.framework */; };
 		6CCB5EE01BDAF072005E58C0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */; };
 		BD35A8F51CFFDAA40097C901 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD35A8F41CFFDAA40097C901 /* Alamofire.framework */; };
+		FE79F7FA34B40B0749039F7B /* Pods_MapMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB23E3BA8AEFF18D14A94E7A /* Pods_MapMaker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		29BA3FD38B90E15760FD501A /* Pods-MapMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapMaker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapMaker/Pods-MapMaker.debug.xcconfig"; sourceTree = "<group>"; };
 		6C202DE41BD1A98B00CF0B93 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6C228E8E1BDFE04E00E0518C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6C2322841BD1A15200D4ACBA /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
@@ -138,11 +140,11 @@
 		6CA192FC1BD9F069004AD27D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		6CA2E9111BEFC2FB00BAB62B /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		983BA7C3EB1DA0F70223ED2D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9DC34538BE61F5E488BC005E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F2FBE997664CD45235478F /* Pods-MapMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapMaker/Pods-MapMaker.release.xcconfig"; sourceTree = "<group>"; };
 		BD35A8F41CFFDAA40097C901 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/ios-nearme-exdfiuabntjstsdarqxohhfulkai/Build/Intermediates/ArchiveIntermediates/MapMaker/IntermediateBuildFilesPath/UninstalledProducts/iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		BDDB09081CD6431500000943 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		F6938A6CF2E23F6D8899692A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CB23E3BA8AEFF18D14A94E7A /* Pods_MapMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				6CA2E9121BEFC2FB00BAB62B /* Contacts.framework in Frameworks */,
 				6C81281C1BDBF1A100384DB8 /* CoreLocation.framework in Frameworks */,
 				6CCB5EE01BDAF072005E58C0 /* MapKit.framework in Frameworks */,
+				FE79F7FA34B40B0749039F7B /* Pods_MapMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,15 +177,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3C58772B9C40AD67A2F7A2EB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F6938A6CF2E23F6D8899692A /* Pods.debug.xcconfig */,
-				983BA7C3EB1DA0F70223ED2D /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6C2322831BD1A15200D4ACBA /* Spring */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,8 +224,8 @@
 				6C47BF671BD0AD5100D52EF4 /* ios-nearmeTests */,
 				6C47BF721BD0AD5100D52EF4 /* ios-nearmeUITests */,
 				6C47BF4E1BD0AD5000D52EF4 /* Products */,
-				3C58772B9C40AD67A2F7A2EB /* Pods */,
 				C9F3A658EB3B9F4FF6A4F522 /* Frameworks */,
+				F5A42C1DA35F9CBB028326D1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -289,8 +283,18 @@
 				BD35A8F41CFFDAA40097C901 /* Alamofire.framework */,
 				BDDB09081CD6431500000943 /* Alamofire.framework */,
 				9DC34538BE61F5E488BC005E /* Pods.framework */,
+				CB23E3BA8AEFF18D14A94E7A /* Pods_MapMaker.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5A42C1DA35F9CBB028326D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29BA3FD38B90E15760FD501A /* Pods-MapMaker.debug.xcconfig */,
+				A5F2FBE997664CD45235478F /* Pods-MapMaker.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,13 +304,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6C47BF781BD0AD5100D52EF4 /* Build configuration list for PBXNativeTarget "MapMaker" */;
 			buildPhases = (
-				6DC8767181E1EBD22CB9D8FE /* Check Pods Manifest.lock */,
+				28553B7512EE4EDF05592B98 /* [CP] Check Pods Manifest.lock */,
 				6C47BF491BD0AD5000D52EF4 /* Sources */,
 				6C47BF4A1BD0AD5000D52EF4 /* Frameworks */,
 				6C47BF4B1BD0AD5000D52EF4 /* Resources */,
 				6CA192FB1BD9F05D004AD27D /* Embed Frameworks */,
-				49CE2B17CE6E2E5C384F6946 /* Embed Pods Frameworks */,
-				790277C3F4BAE885DF540437 /* Copy Pods Resources */,
+				83FCEB8C9E36101639E80E4B /* [CP] Embed Pods Frameworks */,
+				D50B9421177F0B486686E1A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -426,29 +430,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49CE2B17CE6E2E5C384F6946 /* Embed Pods Frameworks */ = {
+		28553B7512EE4EDF05592B98 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6DC8767181E1EBD22CB9D8FE /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,19 +445,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		790277C3F4BAE885DF540437 /* Copy Pods Resources */ = {
+		83FCEB8C9E36101639E80E4B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapMaker/Pods-MapMaker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D50B9421177F0B486686E1A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapMaker/Pods-MapMaker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -650,7 +654,7 @@
 		};
 		6C47BF791BD0AD5100D52EF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6938A6CF2E23F6D8899692A /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 29BA3FD38B90E15760FD501A /* Pods-MapMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -668,7 +672,7 @@
 		};
 		6C47BF7A1BD0AD5100D52EF4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 983BA7C3EB1DA0F70223ED2D /* Pods.release.xcconfig */;
+			baseConfigurationReference = A5F2FBE997664CD45235478F /* Pods-MapMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

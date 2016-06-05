@@ -1,0 +1,6 @@
+framework module Pods_MapMaker {
+  umbrella header "Pods-MapMaker-umbrella.h"
+
+  export *
+  module * { export * }
+}
