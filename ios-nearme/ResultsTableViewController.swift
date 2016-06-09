@@ -23,7 +23,7 @@ class ResultsTableViewController: UITableViewController {
         super.viewDidLoad()
         q = q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         titleLabel.title = q.capitalizedString
-        Alamofire.request(.GET, "http://www.mapcat.io/api/v1/things", parameters: ["q" : q])
+        Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/things", parameters: ["q" : q])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 let currentLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
