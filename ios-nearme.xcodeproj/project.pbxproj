@@ -122,7 +122,7 @@
 		6C2322A11BD1A15200D4ACBA /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
 		6C384C1E1BD7135900F2637C /* ResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewController.swift; sourceTree = "<group>"; };
 		6C384C201BD72F9F00F2637C /* ResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
-		6C47BF4D1BD0AD5000D52EF4 /* MapMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C47BF4D1BD0AD5000D52EF4 /* Mapcat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mapcat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C47BF501BD0AD5000D52EF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C47BF551BD0AD5100D52EF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C47BF581BD0AD5100D52EF4 /* ios_nearme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ios_nearme.xcdatamodel; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		6C47BF4E1BD0AD5000D52EF4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C47BF4D1BD0AD5000D52EF4 /* MapMaker.app */,
+				6C47BF4D1BD0AD5000D52EF4 /* Mapcat.app */,
 				6C47BF641BD0AD5100D52EF4 /* ios-nearmeTests.xctest */,
 				6C47BF6F1BD0AD5100D52EF4 /* ios-nearmeUITests.xctest */,
 			);
@@ -300,9 +300,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C47BF4C1BD0AD5000D52EF4 /* MapMaker */ = {
+		6C47BF4C1BD0AD5000D52EF4 /* Mapcat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C47BF781BD0AD5100D52EF4 /* Build configuration list for PBXNativeTarget "MapMaker" */;
+			buildConfigurationList = 6C47BF781BD0AD5100D52EF4 /* Build configuration list for PBXNativeTarget "Mapcat" */;
 			buildPhases = (
 				28553B7512EE4EDF05592B98 /* [CP] Check Pods Manifest.lock */,
 				6C47BF491BD0AD5000D52EF4 /* Sources */,
@@ -316,9 +316,9 @@
 			);
 			dependencies = (
 			);
-			name = MapMaker;
+			name = Mapcat;
 			productName = "ios-nearme";
-			productReference = 6C47BF4D1BD0AD5000D52EF4 /* MapMaker.app */;
+			productReference = 6C47BF4D1BD0AD5000D52EF4 /* Mapcat.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6C47BF631BD0AD5100D52EF4 /* ios-nearmeTests */ = {
@@ -393,7 +393,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C47BF4C1BD0AD5000D52EF4 /* MapMaker */,
+				6C47BF4C1BD0AD5000D52EF4 /* Mapcat */,
 				6C47BF631BD0AD5100D52EF4 /* ios-nearmeTests */,
 				6C47BF6E1BD0AD5100D52EF4 /* ios-nearmeUITests */,
 			);
@@ -541,12 +541,12 @@
 /* Begin PBXTargetDependency section */
 		6C47BF661BD0AD5100D52EF4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6C47BF4C1BD0AD5000D52EF4 /* MapMaker */;
+			target = 6C47BF4C1BD0AD5000D52EF4 /* Mapcat */;
 			targetProxy = 6C47BF651BD0AD5100D52EF4 /* PBXContainerItemProxy */;
 		};
 		6C47BF711BD0AD5100D52EF4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6C47BF4C1BD0AD5000D52EF4 /* MapMaker */;
+			target = 6C47BF4C1BD0AD5000D52EF4 /* Mapcat */;
 			targetProxy = 6C47BF701BD0AD5100D52EF4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -748,7 +748,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C47BF781BD0AD5100D52EF4 /* Build configuration list for PBXNativeTarget "MapMaker" */ = {
+		6C47BF781BD0AD5100D52EF4 /* Build configuration list for PBXNativeTarget "Mapcat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C47BF791BD0AD5100D52EF4 /* Debug */,
