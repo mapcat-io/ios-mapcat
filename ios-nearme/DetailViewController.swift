@@ -1,6 +1,6 @@
 //
 //  DetailViewController.swift
-//  ios-nearme
+//  ios-nearme 
 //
 //  Created by Ryan Walton on 10/21/15.
 //  Copyright © 2015 Ryan Walton. All rights reserved.
