@@ -27,13 +27,13 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        let title = result["Thing"].string!
-        let address = result["Street"].string ?? nil
-        let place = result["Place name"].string ?? nil
-        let description = result["Description"].string ?? nil
+        let title = result["thing"].string!
+        let address = result["street"].string ?? nil
+        let place = result["place"].string ?? nil
+        let description = result["description"].string ?? nil
         let categories = result["Category"].string ?? nil
-        let geoLat = result["Latitude"].double ?? 37.763299
-        let geoLong = result["Longitude"].double ?? -122.419356
+        let geoLat = result["lat"].double ?? 37.763299
+        let geoLong = result["long"].double ?? -122.419356
         
         // set initial location and boundary of map
         let location = CLLocation(latitude: geoLat, longitude: geoLong)
@@ -79,9 +79,9 @@ class DetailViewController: UIViewController {
     
     func launchMaps() {
         //set map item for directions button
-        let title = result["Thing"].string!
-        let geoLat = result["Latitude"].double ?? 37.763299
-        let geoLong = result["Longitude"].double ?? -122.419356
+        let title = result["thing"].string!
+        let geoLat = result["lat"].double ?? 37.763299
+        let geoLong = result["long"].double ?? -122.419356
         let addressDictionary = [String(CNPostalAddressStreetKey): title]
         let placemark = MKPlacemark(coordinate: CLLocationCoordinate2DMake(geoLat, geoLong), addressDictionary: addressDictionary)
         let mapItem = MKMapItem(placemark: placemark)

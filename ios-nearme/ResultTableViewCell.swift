@@ -19,12 +19,12 @@ class ResultTableViewCell: UITableViewCell {
     
     func configureWithResult(result: JSON, currentLocation: CLLocationCoordinate2D) {
         
-        let title = result["Thing"].string!
-        let address = result["Street"].string ?? nil
-        let place = result["Place name"].string ?? nil
-        let description = result["Description"].string ?? nil
-        let geoLat = result["Latitude"].double ?? 37.763299
-        let geoLong = result["Longitude"].double ?? -122.419356
+        let title = result["thing"].string!
+        let address = result["street"].string ?? nil
+        let place = result["place"].string ?? nil
+        let description = result["description"].string ?? nil
+        let geoLat = result["lat"].double ?? 37.763299
+        let geoLong = result["lon"].double ?? -122.419356
         
         let destination = CLLocation(latitude: geoLat, longitude: geoLong)
         let setLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
