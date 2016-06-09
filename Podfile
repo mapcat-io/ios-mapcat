@@ -4,6 +4,6 @@ platform :ios, '9.0'
 # Uncomment this line if you're using Swift
 use_frameworks!
 
-target "MapMaker" do
+target "Mapcat" do
     pod 'Alamofire', '~> 3.3'
 end
