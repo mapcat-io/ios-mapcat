@@ -1,0 +1,6 @@
+framework module Pods_Mapcat {
+  umbrella header "Pods-Mapcat-umbrella.h"
+
+  export *
+  module * { export * }
+}
