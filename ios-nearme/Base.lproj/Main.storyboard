@@ -10,7 +10,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="MapMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Mapcat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -36,21 +36,21 @@
                                     <constraint firstAttribute="bottom" secondItem="GEl-w3-fYD" secondAttribute="bottom" constant="12" id="bJr-8y-5Fz"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47C-yq-V8r" customClass="DesignableView" customModule="MapMaker" customModuleProvider="target">
-                                <rect key="frame" x="46" y="312" width="282" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47C-yq-V8r" customClass="DesignableView" customModule="Mapcat" customModuleProvider="target">
+                                <rect key="frame" x="38.5" y="309.5" width="297" height="49"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_bar" translatesAutoresizingMaskIntoConstraints="NO" id="1uQ-VN-Kcb" customClass="SpringImageView" customModule="MapMaker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="282" height="44"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_bar" translatesAutoresizingMaskIntoConstraints="NO" id="1uQ-VN-Kcb" customClass="SpringImageView" customModule="Mapcat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="49"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="fBX-xl-bHb"/>
-                                            <constraint firstAttribute="width" constant="282" id="kvh-Id-kth"/>
+                                            <constraint firstAttribute="height" constant="49" id="fBX-xl-bHb"/>
+                                            <constraint firstAttribute="width" constant="297" id="kvh-Id-kth"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for anything in SF" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mt5-QW-63Z" customClass="DesignableTextField" customModule="MapMaker" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="0.0" width="223" height="44"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for anything in SF" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mt5-QW-63Z" customClass="DesignableTextField" customModule="Mapcat" customModuleProvider="target">
+                                        <rect key="frame" x="14" y="0.0" width="232" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="206" id="oLY-rS-Q5o"/>
                                         </constraints>
@@ -67,9 +67,9 @@
                                         </variation>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnx-cg-4AA">
-                                        <rect key="frame" x="238" y="0.0" width="44" height="44"/>
+                                        <rect key="frame" x="249" y="0.0" width="48" height="49"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="3qk-g5-v1r"/>
+                                            <constraint firstAttribute="width" constant="48" id="3qk-g5-v1r"/>
                                             <constraint firstAttribute="width" constant="42" id="fiI-3N-pM8"/>
                                             <constraint firstAttribute="height" constant="44" id="kJk-ll-ehn"/>
                                         </constraints>
@@ -87,8 +87,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="mnx-cg-4AA" firstAttribute="top" secondItem="47C-yq-V8r" secondAttribute="top" id="8qW-g7-Pm5"/>
-                                    <constraint firstAttribute="width" constant="282" id="9Xu-g4-d8I"/>
-                                    <constraint firstAttribute="height" constant="44" id="EtB-eK-pru"/>
+                                    <constraint firstAttribute="width" constant="297" id="9Xu-g4-d8I"/>
+                                    <constraint firstAttribute="height" constant="49" id="EtB-eK-pru"/>
                                     <constraint firstItem="Mt5-QW-63Z" firstAttribute="top" secondItem="47C-yq-V8r" secondAttribute="top" constant="13" id="LPw-0y-0Md"/>
                                     <constraint firstItem="Mt5-QW-63Z" firstAttribute="leading" secondItem="47C-yq-V8r" secondAttribute="leading" constant="8" id="NfU-Uh-Vg5"/>
                                     <constraint firstAttribute="trailing" secondItem="Mt5-QW-63Z" secondAttribute="trailing" constant="51" id="Xwe-aO-lRL"/>
@@ -139,13 +139,13 @@
         <!--Results-->
         <scene sceneID="y4l-nF-2Uk">
             <objects>
-                <tableViewController id="eBT-pB-32o" customClass="ResultsTableViewController" customModule="MapMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="eBT-pB-32o" customClass="ResultsTableViewController" customModule="Mapcat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="hU7-1f-Xu3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" rowHeight="120" id="oC3-Ye-SHt" customClass="ResultTableViewCell" customModule="MapMaker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" rowHeight="120" id="oC3-Ye-SHt" customClass="ResultTableViewCell" customModule="Mapcat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oC3-Ye-SHt" id="TRI-0E-hSj">
@@ -268,7 +268,7 @@
         <!--Title-->
         <scene sceneID="Yuo-fv-UJ6">
             <objects>
-                <viewController id="5F8-aw-48E" customClass="DetailViewController" customModule="MapMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5F8-aw-48E" customClass="DetailViewController" customModule="Mapcat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nja-Hy-ZGP"/>
                         <viewControllerLayoutGuide type="bottom" id="lol-aj-fGG"/>
@@ -413,6 +413,6 @@
     </scenes>
     <resources>
         <image name="arrow_right_cell" width="8" height="13"/>
-        <image name="search_bar" width="282" height="44"/>
+        <image name="search_bar" width="298" height="50"/>
     </resources>
 </document>

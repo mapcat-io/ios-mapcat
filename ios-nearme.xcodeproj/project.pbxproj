@@ -52,7 +52,8 @@
 		6CA192FD1BD9F069004AD27D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA192FC1BD9F069004AD27D /* SwiftyJSON.swift */; };
 		6CA2E9121BEFC2FB00BAB62B /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA2E9111BEFC2FB00BAB62B /* Contacts.framework */; };
 		6CCB5EE01BDAF072005E58C0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */; };
-		BD35A8F51CFFDAA40097C901 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD35A8F41CFFDAA40097C901 /* Alamofire.framework */; };
+		BD35A8F51CFFDAA40097C901 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD35A8F41CFFDAA40097C901 /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		D1A890B735B4E1CE7AC03CB3 /* Pods_Mapcat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDFA5442963BE9934482AD0 /* Pods_Mapcat.framework */; };
 		FE79F7FA34B40B0749039F7B /* Pods_MapMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB23E3BA8AEFF18D14A94E7A /* Pods_MapMaker.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,9 +143,12 @@
 		6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9DC34538BE61F5E488BC005E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F2FBE997664CD45235478F /* Pods-MapMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapMaker/Pods-MapMaker.release.xcconfig"; sourceTree = "<group>"; };
+		AB59BEA153E8D6BE2A2F4763 /* Pods-Mapcat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapcat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mapcat/Pods-Mapcat.debug.xcconfig"; sourceTree = "<group>"; };
 		BD35A8F41CFFDAA40097C901 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/ios-nearme-exdfiuabntjstsdarqxohhfulkai/Build/Intermediates/ArchiveIntermediates/MapMaker/IntermediateBuildFilesPath/UninstalledProducts/iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		BDDB09081CD6431500000943 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		CB23E3BA8AEFF18D14A94E7A /* Pods_MapMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA5EB97A3460542EA3DE85A1 /* Pods-Mapcat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapcat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mapcat/Pods-Mapcat.release.xcconfig"; sourceTree = "<group>"; };
+		DFDFA5442963BE9934482AD0 /* Pods_Mapcat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mapcat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 				6C81281C1BDBF1A100384DB8 /* CoreLocation.framework in Frameworks */,
 				6CCB5EE01BDAF072005E58C0 /* MapKit.framework in Frameworks */,
 				FE79F7FA34B40B0749039F7B /* Pods_MapMaker.framework in Frameworks */,
+				D1A890B735B4E1CE7AC03CB3 /* Pods_Mapcat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +289,7 @@
 				BDDB09081CD6431500000943 /* Alamofire.framework */,
 				9DC34538BE61F5E488BC005E /* Pods.framework */,
 				CB23E3BA8AEFF18D14A94E7A /* Pods_MapMaker.framework */,
+				DFDFA5442963BE9934482AD0 /* Pods_Mapcat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,6 +299,8 @@
 			children = (
 				29BA3FD38B90E15760FD501A /* Pods-MapMaker.debug.xcconfig */,
 				A5F2FBE997664CD45235478F /* Pods-MapMaker.release.xcconfig */,
+				AB59BEA153E8D6BE2A2F4763 /* Pods-Mapcat.debug.xcconfig */,
+				DA5EB97A3460542EA3DE85A1 /* Pods-Mapcat.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -368,7 +376,7 @@
 				TargetAttributes = {
 					6C47BF4C1BD0AD5000D52EF4 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = RNQB466K9U;
+						DevelopmentTeam = 7G2B3DFR32;
 					};
 					6C47BF631BD0AD5100D52EF4 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -457,7 +465,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapMaker/Pods-MapMaker-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mapcat/Pods-Mapcat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D50B9421177F0B486686E1A4 /* [CP] Copy Pods Resources */ = {
@@ -472,7 +480,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapMaker/Pods-MapMaker-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mapcat/Pods-Mapcat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -654,7 +662,7 @@
 		};
 		6C47BF791BD0AD5100D52EF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29BA3FD38B90E15760FD501A /* Pods-MapMaker.debug.xcconfig */;
+			baseConfigurationReference = AB59BEA153E8D6BE2A2F4763 /* Pods-Mapcat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -672,7 +680,7 @@
 		};
 		6C47BF7A1BD0AD5100D52EF4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5F2FBE997664CD45235478F /* Pods-MapMaker.release.xcconfig */;
+			baseConfigurationReference = DA5EB97A3460542EA3DE85A1 /* Pods-Mapcat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
