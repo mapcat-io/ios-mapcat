@@ -52,6 +52,10 @@
 		6CA192FD1BD9F069004AD27D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA192FC1BD9F069004AD27D /* SwiftyJSON.swift */; };
 		6CA2E9121BEFC2FB00BAB62B /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA2E9111BEFC2FB00BAB62B /* Contacts.framework */; };
 		6CCB5EE01BDAF072005E58C0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */; };
+		94B65C501D2ACD4B00E1CDB2 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B65C4F1D2ACD4B00E1CDB2 /* PlacesTableViewController.swift */; };
+		94B65C521D2AD27900E1CDB2 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B65C511D2AD27900E1CDB2 /* PlaceTableViewCell.swift */; };
+		94B65C541D2ADF6F00E1CDB2 /* TopThingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B65C531D2ADF6F00E1CDB2 /* TopThingsViewController.swift */; };
+		B68A21D38D3B9A25887550C1 /* Pods_Mapcat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FEA567F155120E6C47DB1A /* Pods_Mapcat.framework */; };
 		BD35A8F51CFFDAA40097C901 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD35A8F41CFFDAA40097C901 /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -86,6 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		47FEA567F155120E6C47DB1A /* Pods_Mapcat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mapcat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C202DE41BD1A98B00CF0B93 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6C228E8E1BDFE04E00E0518C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6C2322841BD1A15200D4ACBA /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
@@ -138,6 +143,9 @@
 		6CA192FC1BD9F069004AD27D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		6CA2E9111BEFC2FB00BAB62B /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		94B65C4F1D2ACD4B00E1CDB2 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
+		94B65C511D2AD27900E1CDB2 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		94B65C531D2ADF6F00E1CDB2 /* TopThingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopThingsViewController.swift; sourceTree = "<group>"; };
 		AB59BEA153E8D6BE2A2F4763 /* Pods-Mapcat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapcat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mapcat/Pods-Mapcat.debug.xcconfig"; sourceTree = "<group>"; };
 		BD35A8F41CFFDAA40097C901 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/ios-nearme-exdfiuabntjstsdarqxohhfulkai/Build/Intermediates/ArchiveIntermediates/MapMaker/IntermediateBuildFilesPath/UninstalledProducts/iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		DA5EB97A3460542EA3DE85A1 /* Pods-Mapcat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapcat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mapcat/Pods-Mapcat.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 				6CA2E9121BEFC2FB00BAB62B /* Contacts.framework in Frameworks */,
 				6C81281C1BDBF1A100384DB8 /* CoreLocation.framework in Frameworks */,
 				6CCB5EE01BDAF072005E58C0 /* MapKit.framework in Frameworks */,
+				B68A21D38D3B9A25887550C1 /* Pods_Mapcat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,8 +252,11 @@
 				6C202DE41BD1A98B00CF0B93 /* HomeViewController.swift */,
 				6C228E8E1BDFE04E00E0518C /* Utilities.swift */,
 				6C384C1E1BD7135900F2637C /* ResultsTableViewController.swift */,
+				94B65C4F1D2ACD4B00E1CDB2 /* PlacesTableViewController.swift */,
 				6C384C201BD72F9F00F2637C /* ResultTableViewCell.swift */,
+				94B65C511D2AD27900E1CDB2 /* PlaceTableViewCell.swift */,
 				6C4AEFE21BD7F07000AA726A /* DetailViewController.swift */,
+				94B65C531D2ADF6F00E1CDB2 /* TopThingsViewController.swift */,
 				6C47BF541BD0AD5100D52EF4 /* Main.storyboard */,
 				6C47BF5A1BD0AD5100D52EF4 /* Assets.xcassets */,
 				6C47BF5C1BD0AD5100D52EF4 /* LaunchScreen.storyboard */,
@@ -279,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				BD35A8F41CFFDAA40097C901 /* Alamofire.framework */,
+				47FEA567F155120E6C47DB1A /* Pods_Mapcat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -483,6 +496,7 @@
 				6C202DE51BD1A98B00CF0B93 /* HomeViewController.swift in Sources */,
 				6C2322A41BD1A15200D4ACBA /* AutoTextView.swift in Sources */,
 				6C2322AD1BD1A15200D4ACBA /* ImageLoader.swift in Sources */,
+				94B65C521D2AD27900E1CDB2 /* PlaceTableViewCell.swift in Sources */,
 				6C228E8F1BDFE04E00E0518C /* Utilities.swift in Sources */,
 				6C2322B21BD1A15200D4ACBA /* Misc.swift in Sources */,
 				6C2322A51BD1A15200D4ACBA /* BlurView.swift in Sources */,
@@ -494,6 +508,7 @@
 				6C2322B31BD1A15200D4ACBA /* SoundPlayer.swift in Sources */,
 				6C2322AC1BD1A15200D4ACBA /* DesignableView.swift in Sources */,
 				6C2322A91BD1A15200D4ACBA /* DesignableTabBarController.swift in Sources */,
+				94B65C501D2ACD4B00E1CDB2 /* PlacesTableViewController.swift in Sources */,
 				6C2322A61BD1A15200D4ACBA /* DesignableButton.swift in Sources */,
 				6C47BF591BD0AD5100D52EF4 /* ios-mapcat.xcdatamodeld in Sources */,
 				6C2322BD1BD1A15200D4ACBA /* TransitionZoom.swift in Sources */,
@@ -504,6 +519,7 @@
 				6C384C211BD72F9F00F2637C /* ResultTableViewCell.swift in Sources */,
 				6C2322A31BD1A15200D4ACBA /* AsyncImageView.swift in Sources */,
 				6C2322AB1BD1A15200D4ACBA /* DesignableTextView.swift in Sources */,
+				94B65C541D2ADF6F00E1CDB2 /* TopThingsViewController.swift in Sources */,
 				6C2322BB1BD1A15200D4ACBA /* SpringView.swift in Sources */,
 				6C2322BA1BD1A15200D4ACBA /* SpringTextView.swift in Sources */,
 				6C2322AF1BD1A15200D4ACBA /* KeyboardLayoutConstraint.swift in Sources */,

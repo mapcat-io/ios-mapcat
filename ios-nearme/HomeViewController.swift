@@ -66,6 +66,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
             toView.q = self.searchTextField.text!
             toView.currentLocation = locationManager.location!.coordinate
         }
+        if segue.identifier == "AddSegue" {
+            let toNav = segue.destinationViewController as! UINavigationController
+            let toView = toNav.topViewController as! PlacesTableViewController
+            toView.currentLocation = locationManager.location!.coordinate
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
