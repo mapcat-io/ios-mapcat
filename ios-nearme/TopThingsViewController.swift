@@ -51,9 +51,6 @@ class TopThingsViewController: UIViewController {
         let paramFive = "&address=" + addressParam! + "&country=" + countryParam!
         let postUrl = baseUrl + paramOne + paramTwo + paramThree + paramFour + paramFive
         
-        print(result)
-        print(postUrl)
-        
         let url = NSURL (string: postUrl);
         
         let requestObj = NSURLRequest(URL: url!);
