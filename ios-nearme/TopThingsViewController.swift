@@ -19,17 +19,40 @@ class TopThingsViewController: UIViewController {
 
     override func viewDidLoad() {
         
-        let title = result["name"].string!
-        let id = result["id"].string!
-        let name = result["name"].string!
-        let lat = String(result["location"]["lat"])
-        let long = String(result["location"]["lng"])
+        let title = result["name"].string ?? ""
+        let id = result["id"].string ?? ""
+        let name = result["name"].string ?? ""
+        let lat = String(result["location"]["lat"]) ?? ""
+        let long = String(result["location"]["lng"]) ?? ""
+        
+        let source = "webView"
+        let address = result["location"]["address"].string ?? ""
+        let categoryName = result["categories"][0]["name"].string ?? ""
+        let city = result["location"]["city"].string ?? ""
+        let country = result["location"]["country"].string ?? ""
+        let phone = result["contact"]["phone"].string ?? ""
+        let postalCode = result["location"]["postalCode"].string ?? ""
+        let state = result["location"]["state"].string ?? ""
+        let twitterId = result["contact"]["twitter"].string ?? ""
+        let placeUrl = result["url"].string ?? ""
         
         let nameParam = name.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+        let addressParam = address.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+        let categoryNameParam = categoryName.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+        let cityParam = city.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+        let countryParam = country.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
+        let placeUrlParam = placeUrl.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
         
-        let baseUrl = "http://www.mapcat.io/ios/place/" + id
-        let paramOne = baseUrl + "/?name=" + nameParam! + "&id=" + id
-        let postUrl = paramOne + "&lat=" + lat + "&long=" + long
+        let baseUrl = "http://mapcat.io/ios/place/" + id + "/?name=" + nameParam!
+        let paramOne = "&id=" + id + "&url=" + placeUrlParam!
+        let paramTwo = "&lat=" + lat + "&long=" + long + "&source=" + source
+        let paramThree =  "&categoryName=" + categoryNameParam! + "&city=" + cityParam!
+        let paramFour = "&phone=" + phone + "&postalCode=" + postalCode + "&state=" + state + "&twitterId=" + twitterId
+        let paramFive = "&address=" + addressParam! + "&country=" + countryParam!
+        let postUrl = baseUrl + paramOne + paramTwo + paramThree + paramFour + paramFive
+        
+        print(result)
+        print(postUrl)
         
         let url = NSURL (string: postUrl);
         
