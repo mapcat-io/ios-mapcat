@@ -23,11 +23,11 @@ class ResultsTableViewController: UITableViewController {
         super.viewDidLoad()
         q = q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         titleLabel.title = q.capitalizedString
-        Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/things", parameters: ["q" : q])
+        Alamofire.request(.GET, "http://mapcat.io/api/prototype/items", parameters: ["q" : q, "t": "raw"])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 let currentLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
-                let rawResults: JSON = Utilities.populateDistanceBetween(JSONObject["things"], currentLocation: currentLocation)
+                let rawResults: JSON = Utilities.populateDistanceBetween(JSONObject["items"], currentLocation: currentLocation)
                 self.results = rawResults.sort { $0.0.1["distance"].doubleValue < $0.1.1["distance"].doubleValue }.map { $0.1 }
                 self.tableView.reloadData()
         }
