@@ -6,4 +6,6 @@ use_frameworks!
 
 target "Mapcat" do
     pod 'Alamofire', '~> 3.3'
+    pod 'SwiftyJSON'
+    pod 'KeychainAccess'
 end

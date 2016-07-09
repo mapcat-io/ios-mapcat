@@ -8,11 +8,14 @@
 
 import UIKit
 import CoreLocation
+import Accounts
 
 class TopThingsViewController: UIViewController {
     
     @IBOutlet weak var navTitle: UINavigationItem!
     @IBOutlet weak var topThingsWebView: UIWebView!
+    
+    let accounts = Accounts()
     
     var result: JSON!
     var currentLocation: CLLocationCoordinate2D!
@@ -26,6 +29,7 @@ class TopThingsViewController: UIViewController {
         let long = String(result["location"]["lng"]) ?? ""
         
         let source = "webView"
+        let deviceId = accounts.getDeviceId()
         let address = result["location"]["address"].string ?? ""
         let categoryName = result["categories"][0]["name"].string ?? ""
         let city = result["location"]["city"].string ?? ""
@@ -43,13 +47,16 @@ class TopThingsViewController: UIViewController {
         let countryParam = country.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
         let placeUrlParam = placeUrl.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())
         
-        let baseUrl = "http://mapcat.io/ios/place/" + id + "/?name=" + nameParam!
+        let baseUrl = "http://localhost:3000/ios/place/" + id + "/?name=" + nameParam!
         let paramOne = "&id=" + id + "&url=" + placeUrlParam!
         let paramTwo = "&lat=" + lat + "&long=" + long + "&source=" + source
         let paramThree =  "&categoryName=" + categoryNameParam! + "&city=" + cityParam!
         let paramFour = "&phone=" + phone + "&postalCode=" + postalCode + "&state=" + state + "&twitterId=" + twitterId
         let paramFive = "&address=" + addressParam! + "&country=" + countryParam!
-        let postUrl = baseUrl + paramOne + paramTwo + paramThree + paramFour + paramFive
+        let paramSix = "&deviceId=" + deviceId!!
+        let postUrl = baseUrl + paramOne + paramTwo + paramThree + paramFour + paramFive + paramSix
+        
+        print(postUrl)
         
         let url = NSURL (string: postUrl);
         

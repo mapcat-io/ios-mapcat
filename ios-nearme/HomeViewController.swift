@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import KeychainAccess
+import Accounts
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
@@ -32,6 +34,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         
         // handle keyboard delegate
         self.searchTextField.delegate = self
+        
+        // set UUID if new device
+        let accounts = Accounts()
+        accounts.setDeviceId()
         
     }
 
