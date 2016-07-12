@@ -513,7 +513,7 @@
         <!--Title-->
         <scene sceneID="66u-g2-0jE">
             <objects>
-                <viewController id="2EA-BT-UfE" customClass="TopThingsViewController" customModule="Mapcat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2EA-BT-UfE" customClass="ItemSubmitViewController" customModule="Mapcat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OEt-3k-Bj3"/>
                         <viewControllerLayoutGuide type="bottom" id="zS2-Jc-8Fa"/>
@@ -521,37 +521,18 @@
                     <view key="view" contentMode="scaleToFill" id="AZG-p0-8Uy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWr-V7-kNB">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="zS2-Jc-8Fa" firstAttribute="top" secondItem="QWr-V7-kNB" secondAttribute="bottom" id="1iw-14-pcw"/>
-                            <constraint firstItem="QWr-V7-kNB" firstAttribute="top" secondItem="OEt-3k-Bj3" secondAttribute="bottom" id="8ba-kA-NZc"/>
-                            <constraint firstItem="QWr-V7-kNB" firstAttribute="top" secondItem="OEt-3k-Bj3" secondAttribute="bottom" constant="-20" id="EqO-1l-Rkb"/>
-                            <constraint firstItem="QWr-V7-kNB" firstAttribute="top" secondItem="AZG-p0-8Uy" secondAttribute="topMargin" id="HpF-Sf-ded"/>
-                            <constraint firstItem="QWr-V7-kNB" firstAttribute="top" secondItem="OEt-3k-Bj3" secondAttribute="bottom" id="UzB-K7-Ipr"/>
-                            <constraint firstItem="QWr-V7-kNB" firstAttribute="leading" secondItem="AZG-p0-8Uy" secondAttribute="leadingMargin" constant="-20" id="YaK-pP-ga7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QWr-V7-kNB" secondAttribute="trailing" constant="-20" id="goG-h4-6a8"/>
-                            <constraint firstItem="QWr-V7-kNB" firstAttribute="top" secondItem="OEt-3k-Bj3" secondAttribute="bottom" id="s5S-eE-rE2"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="8ba-kA-NZc"/>
-                                <exclude reference="EqO-1l-Rkb"/>
-                                <exclude reference="UzB-K7-Ipr"/>
-                                <exclude reference="s5S-eE-rE2"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="XOE-gC-udj"/>
+                    <navigationItem key="navigationItem" title="Title" id="XOE-gC-udj">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="7Yh-vu-3h1">
+                            <connections>
+                                <action selector="submitButtonDidTouch:" destination="2EA-BT-UfE" id="Z3v-kR-IZj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="navTitle" destination="XOE-gC-udj" id="uPZ-WJ-z0h"/>
-                        <outlet property="topThingsWebView" destination="QWr-V7-kNB" id="bCo-VZ-6U2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="foh-gl-gYw" userLabel="First Responder" sceneMemberID="firstResponder"/>

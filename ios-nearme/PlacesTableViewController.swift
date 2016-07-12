@@ -14,6 +14,7 @@ class PlacesTableViewController: UITableViewController {
     
     var selectedCell: UITableViewCell?
     var results: JSON = []
+    var topThings: JSON = []
     var currentLocation: CLLocationCoordinate2D!
 
     override func viewDidLoad() {
@@ -29,6 +30,12 @@ class PlacesTableViewController: UITableViewController {
                 let JSONObject = JSON(response.result.value!)
                 self.results = JSONObject["venues"]
                 self.tableView.reloadData()
+        }
+        // get top things for subsequent view
+        Alamofire.request(.GET, "http://localhost:3000/api/prototype/top-things")
+            .responseJSON { response in
+                let JSONObject = JSON(response.result.value!)
+                self.topThings = JSONObject["items"]
         }
         // remove empty cells if needed
         tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -60,9 +67,10 @@ class PlacesTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "TopThingsSegue" {
-            let toView = segue.destinationViewController as! TopThingsViewController
+            let toView = segue.destinationViewController as! ItemSubmitViewController
             toView.result = results[self.tableView.indexPathForSelectedRow!.row]
             toView.currentLocation = currentLocation
+            toView.topThings = topThings
             
         }
     }
