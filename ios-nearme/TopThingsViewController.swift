@@ -56,8 +56,6 @@ class TopThingsViewController: UIViewController {
         let paramSix = "&deviceId=" + deviceId!!
         let postUrl = baseUrl + paramOne + paramTwo + paramThree + paramFour + paramFive + paramSix
         
-        print(postUrl)
-        
         let url = NSURL (string: postUrl);
         
         let requestObj = NSURLRequest(URL: url!);
