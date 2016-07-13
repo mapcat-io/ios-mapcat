@@ -431,7 +431,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaceCell" rowHeight="120" id="3u0-ew-EoK" customClass="PlaceTableViewCell" customModule="Mapcat" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3u0-ew-EoK" id="TCL-Jy-DpL">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
@@ -533,6 +533,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="navTitle" destination="XOE-gC-udj" id="uPZ-WJ-z0h"/>
+                        <segue destination="4jn-X9-w42" kind="show" identifier="SubmitItemsSegue" id="vTY-MY-wgd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="foh-gl-gYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -586,5 +587,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ape-xm-UtQ"/>
+        <segue reference="vTY-MY-wgd"/>
     </inferredMetricsTieBreakers>
 </document>
