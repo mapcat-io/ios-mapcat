@@ -32,7 +32,7 @@ class PlacesTableViewController: UITableViewController {
                 self.tableView.reloadData()
         }
         // get top things for subsequent view
-        Alamofire.request(.GET, "http://localhost:3000/api/prototype/top-things")
+        Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/top-things")
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.topThings = JSONObject["items"]
