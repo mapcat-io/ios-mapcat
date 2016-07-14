@@ -113,8 +113,8 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uo-fy-88c">
-                                <rect key="frame" x="147.5" y="587" width="80" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uo-fy-88c">
+                                <rect key="frame" x="147.5" y="571" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="1xP-Ra-tUh"/>
                                     <constraint firstAttribute="width" constant="80" id="TPO-rY-P7J"/>
@@ -123,8 +123,8 @@
                                     <segue destination="dcd-7V-zgE" kind="showDetail" identifier="AddSegue" id="OjL-w4-BtL"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_btn" translatesAutoresizingMaskIntoConstraints="NO" id="XUM-pA-4Io" customClass="SpringImageView" customModule="Mapcat" customModuleProvider="target">
-                                <rect key="frame" x="177" y="627" width="20" height="20"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="add_btn" translatesAutoresizingMaskIntoConstraints="NO" id="XUM-pA-4Io" customClass="SpringImageView" customModule="Mapcat" customModuleProvider="target">
+                                <rect key="frame" x="177" y="602" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0J3-oI-fma"/>
                                     <constraint firstAttribute="width" constant="20" id="pad-HJ-Mzn"/>

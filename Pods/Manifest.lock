@@ -1,12 +1,15 @@
 PODS:
   - Alamofire (3.3.1)
+  - SwiftForms (1.0.5)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
+  - SwiftForms
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  SwiftForms: c32a86b2cb51c2d7c0f7fec0f9fdb72ff86951c6
 
-PODFILE CHECKSUM: 50878731abf9f161e31cc25c4c1701ab0278b76a
+PODFILE CHECKSUM: d256322443129d1d6a8cc08aa61ffbedcc7cc9ab
 
 COCOAPODS: 1.0.1
