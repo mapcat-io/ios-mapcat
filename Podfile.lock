@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.3.1)
+<<<<<<< HEAD
   - SwiftForms (1.0.5)
 
 DEPENDENCIES:
@@ -11,5 +12,24 @@ SPEC CHECKSUMS:
   SwiftForms: c32a86b2cb51c2d7c0f7fec0f9fdb72ff86951c6
 
 PODFILE CHECKSUM: d256322443129d1d6a8cc08aa61ffbedcc7cc9ab
+=======
+  - Eureka (1.6.0)
+  - KeychainAccess (2.3.5)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.3)
+  - Eureka
+  - KeychainAccess
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Eureka: ef5b9ac93aedeecfe50d98b1ac7678bf09a1fc62
+  KeychainAccess: e283c1981a6c5655e1984cd411c6faf16fa165ae
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+PODFILE CHECKSUM: 935a3144a39329e7ab31178a67c89f8f25beaa0f
+>>>>>>> 75665c8e0f3d7a3b0167d3ae965bbeafccd3bc02
 
 COCOAPODS: 1.0.1
