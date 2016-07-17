@@ -35,6 +35,7 @@ class ItemSubmitViewController: FormViewController {
                 options.append(name)
             }
         }
+        let uniqueOptions = uniq(options)
         
         // set view
         navTitle.title = title.capitalizedString
@@ -55,15 +56,43 @@ class ItemSubmitViewController: FormViewController {
                     self.counter += 1
                 })
         
-        +++ SelectableSection<ListCheckRow<String>, String>("Popular Items", selectionType: .MultipleSelection)
-        let uniqueOptions = uniq(options)
-        for option in uniqueOptions {
-            form.last! <<< ListCheckRow<String>(option){ listRow in
-                listRow.title = option
-                listRow.selectableValue = option
-                listRow.value = nil
+        let popularRows = uniq(options)
+        
+        form +++ SelectableSection<CustomRow<String>, String>("Popular Items", selectionType: .MultipleSelection)
+        for option in popularRows {
+            form.last! <<< CustomRow<String>(option){ row in
+                row.title = option
+                row.selectableValue = option
+                row.value = nil
+                }.cellSetup { cell, _ in
+                    cell.trueImage = UIImage(named: "check_mark")!
+                    cell.falseImage = UIImage(named: "check_mark_nil")!
+                    cell.accessoryView?.frame = CGRectMake(0, 0, 34, 34)
+                    // add button to accessory view
+                    let image = UIImage(named: "camera_icon") as UIImage?
+                    let button   = UIButton(type: UIButtonType.Custom) as UIButton
+                    button.frame = CGRectMake(0, 0, 34, 34)
+                    button.setImage(image, forState: .Normal)
+                    button.titleLabel!.text = option
+                    button.titleLabel!.hidden = true;
+                    button.addTarget(self, action: #selector(self.accessoryButtonDidTouch), forControlEvents: .TouchUpInside)
+                    cell.accessoryView = button
+            }
+                <<< ImageRow("img-" + option){
+                    $0.title = nil
+                    $0.hidden = false
             }
         }
+        
+        
+//        form +++ SelectableSection<ListCheckRow<String>, String>("Popular Items", selectionType: .MultipleSelection)
+//        for option in uniqueOptions {
+//            form.last! <<< ListCheckRow<String>(option){ listRow in
+//                listRow.title = option
+//                listRow.selectableValue = option
+//                listRow.value = nil
+//            }
+//        }
     
     }
     
@@ -75,7 +104,7 @@ class ItemSubmitViewController: FormViewController {
         let valuesDictionary = form.values()
         for (key, value) in valuesDictionary {
             if value != nil {
-                let temp : String! = value as? String
+                let temp : AnyObject! = value as? AnyObject
                 items[key] = temp
             }
         }
@@ -84,6 +113,8 @@ class ItemSubmitViewController: FormViewController {
         parameters["source"] = ["name": "webView", "deviceId": sourceDeviceId]
         parameters["foursquare"] = result.object ?? "not set"
         parameters["items"] = items
+        
+        print(parameters["items"])
         
         Alamofire.request(.POST, "http://www.mapcat.io/api/prototype/post-items", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
@@ -109,6 +140,28 @@ class ItemSubmitViewController: FormViewController {
             toView.currentLocation = currentLocation
             
         }
+    }
+    
+    func accessoryButtonDidTouch(sender: UIButton!) {
+        print("Camera icon tapped")
+        let option = sender.titleLabel!.text!
+//        let imgOption = "img-" + option
+//        print(imgOption)
+//        let row: ImageRow? = form.rowByTag("img-" + option)
+//        
+//        row!.hidden = false
+//        
+//        let value = row!.value
+//        print(value)
+//        self.showAlert(sender.titleLabel!.text!)
+    }
+    
+    func showAlert(option: String) {
+        let alertController = UIAlertController(title: "OnCellSelection", message: option, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source: S) -> [T] {
