@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         
         // handle keyboard delegate
         self.searchTextField.delegate = self
+        self.searchTextField.returnKeyType = UIReturnKeyType.Go
         
         // set UUID if new device
         let accounts = Accounts()
