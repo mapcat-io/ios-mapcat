@@ -16,12 +16,10 @@ public class Accounts {
     // set UUID for new devices
     func setDeviceId() {
         if ((keychain["deviceId"]) == nil) {
-            keychain["deviceId"] = NSUUID().UUIDString // Set string
-            let deviceId = keychain["deviceId"] // Get string
-            print("Set new Id: " + deviceId!)
+            keychain["deviceId"] = NSUUID().UUIDString // Set string.
         }
         else {
-            print("Id already set: " + keychain["deviceId"]!)
+            // do nothing
         }
     }
     
