@@ -14,6 +14,8 @@ class ResultsTableViewController: UITableViewController {
     
     @IBOutlet weak var titleLabel: UINavigationItem!
     
+    let accounts = Accounts()
+    
     var selectedCell: UITableViewCell?
     var results: [JSON] = []
     var q: String = ""
@@ -21,9 +23,10 @@ class ResultsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let u: String = (accounts.getDeviceId() ?? "")!
         q = q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         titleLabel.title = q.capitalizedString
-        Alamofire.request(.GET, "http://mapcat.io/api/prototype/items", parameters: ["q" : q, "t": "raw"])
+        Alamofire.request(.GET, "http://mapcat.io/api/prototype/items", parameters: ["q" : q, "t": "raw", u: u])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 let currentLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
