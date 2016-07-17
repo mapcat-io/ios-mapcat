@@ -80,7 +80,7 @@ class ItemSubmitViewController: FormViewController {
             }
                 <<< ImageRow("img-" + option){
                     $0.title = nil
-                    $0.hidden = false
+                    $0.hidden = true
             }
         }
         
