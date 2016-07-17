@@ -23,16 +23,26 @@ class ResultsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // get the results
         let u: String = (accounts.getDeviceId() ?? "")!
         q = q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         titleLabel.title = q.capitalizedString
         Alamofire.request(.GET, "http://mapcat.io/api/prototype/items", parameters: ["q" : q, "t": "raw", u: u])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
-                let currentLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
-                let rawResults: JSON = Utilities.populateDistanceBetween(JSONObject["items"], currentLocation: currentLocation)
-                self.results = rawResults.sort { $0.0.1["distance"].doubleValue < $0.1.1["distance"].doubleValue }.map { $0.1 }
-                self.tableView.reloadData()
+                if JSONObject["items"].count > 0 {
+                    let currentLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
+                    let rawResults: JSON = Utilities.populateDistanceBetween(JSONObject["items"], currentLocation: currentLocation)
+                    self.results = rawResults.sort { $0.0.1["distance"].doubleValue < $0.1.1["distance"].doubleValue }.map { $0.1 }
+                    self.tableView.reloadData()
+                }
+                else {
+//                    self.tableView.reloadData()
+                    let alertController = UIAlertController(title: "😿", message:
+                        "There are no results.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("HomeSegue", sender: self) }))
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
         }
         // remove empty cells if needed 
         tableView.tableFooterView = UIView(frame: CGRect.zero)

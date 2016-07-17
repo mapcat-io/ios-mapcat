@@ -96,15 +96,15 @@ class ItemSubmitViewController: FormViewController {
             .responseJSON { response in
                 switch response.result {
                 case .Success:
-                    let alertController = UIAlertController(title: "Success", message:
+                    let alertController = UIAlertController(title: "😻", message:
                         "You successfully submitted the items!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("SubmitItemsSegue", sender: self) }))
+                    alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("SubmitItemsSegue", sender: self) }))
                     self.presentViewController(alertController, animated: true, completion: nil)
                 case .Failure(let error):
                     // display error alert
-                    let alertController = UIAlertController(title: "Error", message:
+                    let alertController = UIAlertController(title: "😿", message:
                         "There was an error submitting the items.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                    alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default,handler: nil))
                     self.presentViewController(alertController, animated: true, completion: nil)
                 }
         }
