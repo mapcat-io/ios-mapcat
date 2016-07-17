@@ -35,6 +35,7 @@ class ItemSubmitViewController: FormViewController {
                 options.append(name)
             }
         }
+        let uniqueOptions = uniq(options)
         
         // set view
         navTitle.title = title.capitalizedString
@@ -48,20 +49,24 @@ class ItemSubmitViewController: FormViewController {
                 row.title = "New Item"
                 }  .onCellSelection({ (cell, row) in
                     // add new item on cell select
-                    sectionAddItem += [TextRow("AddItem" + String(self.counter)){ row in
-                        row.title = "Item"
+                    sectionAddItem.insert(TextRow("AddItem" + String(self.counter)){ row in
                         row.placeholder = "Name"
-                        }]
+                        }, atIndex: 1)
                     self.counter += 1
                 })
         
-        +++ SelectableSection<ListCheckRow<String>, String>("Popular Items", selectionType: .MultipleSelection)
-        let uniqueOptions = uniq(options)
-        for option in uniqueOptions {
-            form.last! <<< ListCheckRow<String>(option){ listRow in
-                listRow.title = option
-                listRow.selectableValue = option
-                listRow.value = nil
+        let popularRows = uniq(options)
+        
+        form +++ SelectableSection<CustomRow<String>, String>("Popular Items", selectionType: .MultipleSelection)
+        for option in popularRows {
+            form.last! <<< CustomRow<String>(option){ row in
+                row.title = option
+                row.selectableValue = option
+                row.value = nil
+                }.cellSetup { cell, _ in
+                    cell.trueImage = UIImage(named: "check_mark")!
+                    cell.falseImage = UIImage(named: "check_mark_nil")!
+                    cell.accessoryView?.frame = CGRectMake(0, 0, 34, 34)
             }
         }
     
@@ -75,7 +80,7 @@ class ItemSubmitViewController: FormViewController {
         let valuesDictionary = form.values()
         for (key, value) in valuesDictionary {
             if value != nil {
-                let temp : String! = value as? String
+                let temp : AnyObject! = value as? AnyObject
                 items[key] = temp
             }
         }
@@ -85,14 +90,17 @@ class ItemSubmitViewController: FormViewController {
         parameters["foursquare"] = result.object ?? "not set"
         parameters["items"] = items
         
+        print(parameters["items"])
+        
         Alamofire.request(.POST, "http://www.mapcat.io/api/prototype/post-items", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
                 switch response.result {
                 case .Success:
-//                    print("Validation Successful")
-                    self.performSegueWithIdentifier("SubmitItemsSegue", sender: self)
+                    let alertController = UIAlertController(title: "Success", message:
+                        "You successfully submitted the items!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("SubmitItemsSegue", sender: self) }))
+                    self.presentViewController(alertController, animated: true, completion: nil)
                 case .Failure(let error):
-//                    print(error)
                     // display error alert
                     let alertController = UIAlertController(title: "Error", message:
                         "There was an error submitting the items.", preferredStyle: UIAlertControllerStyle.Alert)
