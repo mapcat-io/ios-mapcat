@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,14 +14,49 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapcat_face" translatesAutoresizingMaskIntoConstraints="NO" id="7hA-Rl-4sY">
+                                <rect key="frame" x="72" y="214.5" width="231" height="238"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="146" id="mxq-uS-agE"/>
+                                    <constraint firstAttribute="height" constant="130" id="ynD-x7-CQh"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="mxq-uS-agE"/>
+                                        <exclude reference="ynD-x7-CQh"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.36470588235294116" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="7hA-Rl-4sY" secondAttribute="bottom" id="9id-7n-a9Q"/>
+                            <constraint firstItem="7hA-Rl-4sY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9qh-dX-522"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7hA-Rl-4sY" secondAttribute="trailing" constant="-20" id="EAR-gw-NVK"/>
+                            <constraint firstItem="7hA-Rl-4sY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="Fav-tm-nLw"/>
+                            <constraint firstItem="7hA-Rl-4sY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="H9e-6d-ZlL"/>
+                            <constraint firstItem="7hA-Rl-4sY" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="th7-wx-uwe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EAR-gw-NVK"/>
+                                <exclude reference="Fav-tm-nLw"/>
+                                <exclude reference="th7-wx-uwe"/>
+                                <exclude reference="9id-7n-a9Q"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="374.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mapcat_face" width="231" height="238"/>
+    </resources>
 </document>
