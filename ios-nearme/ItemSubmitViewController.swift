@@ -49,10 +49,9 @@ class ItemSubmitViewController: FormViewController {
                 row.title = "New Item"
                 }  .onCellSelection({ (cell, row) in
                     // add new item on cell select
-                    sectionAddItem += [TextRow("AddItem" + String(self.counter)){ row in
-                        row.title = "Item"
+                    sectionAddItem.insert(TextRow("AddItem" + String(self.counter)){ row in
                         row.placeholder = "Name"
-                        }]
+                        }, atIndex: 1)
                     self.counter += 1
                 })
         
@@ -68,31 +67,8 @@ class ItemSubmitViewController: FormViewController {
                     cell.trueImage = UIImage(named: "check_mark")!
                     cell.falseImage = UIImage(named: "check_mark_nil")!
                     cell.accessoryView?.frame = CGRectMake(0, 0, 34, 34)
-                    // add button to accessory view
-                    let image = UIImage(named: "camera_icon") as UIImage?
-                    let button   = UIButton(type: UIButtonType.Custom) as UIButton
-                    button.frame = CGRectMake(0, 0, 34, 34)
-                    button.setImage(image, forState: .Normal)
-                    button.titleLabel!.text = option
-                    button.titleLabel!.hidden = true;
-                    button.addTarget(self, action: #selector(self.accessoryButtonDidTouch), forControlEvents: .TouchUpInside)
-                    cell.accessoryView = button
-            }
-                <<< ImageRow("img-" + option){
-                    $0.title = nil
-                    $0.hidden = true
             }
         }
-        
-        
-//        form +++ SelectableSection<ListCheckRow<String>, String>("Popular Items", selectionType: .MultipleSelection)
-//        for option in uniqueOptions {
-//            form.last! <<< ListCheckRow<String>(option){ listRow in
-//                listRow.title = option
-//                listRow.selectableValue = option
-//                listRow.value = nil
-//            }
-//        }
     
     }
     
@@ -120,10 +96,11 @@ class ItemSubmitViewController: FormViewController {
             .responseJSON { response in
                 switch response.result {
                 case .Success:
-//                    print("Validation Successful")
-                    self.performSegueWithIdentifier("SubmitItemsSegue", sender: self)
+                    let alertController = UIAlertController(title: "Success", message:
+                        "You successfully submitted the items!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("SubmitItemsSegue", sender: self) }))
+                    self.presentViewController(alertController, animated: true, completion: nil)
                 case .Failure(let error):
-//                    print(error)
                     // display error alert
                     let alertController = UIAlertController(title: "Error", message:
                         "There was an error submitting the items.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -140,28 +117,6 @@ class ItemSubmitViewController: FormViewController {
             toView.currentLocation = currentLocation
             
         }
-    }
-    
-    func accessoryButtonDidTouch(sender: UIButton!) {
-        print("Camera icon tapped")
-        let option = sender.titleLabel!.text!
-//        let imgOption = "img-" + option
-//        print(imgOption)
-//        let row: ImageRow? = form.rowByTag("img-" + option)
-//        
-//        row!.hidden = false
-//        
-//        let value = row!.value
-//        print(value)
-//        self.showAlert(sender.titleLabel!.text!)
-    }
-    
-    func showAlert(option: String) {
-        let alertController = UIAlertController(title: "OnCellSelection", message: option, preferredStyle: .Alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alertController.addAction(defaultAction)
-        presentViewController(alertController, animated: true, completion: nil)
-        
     }
     
     func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source: S) -> [T] {
