@@ -36,6 +36,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
         self.searchTextField.delegate = self
         self.searchTextField.returnKeyType = UIReturnKeyType.Go
         
+        
+        
         // set UUID if new device
         let accounts = Accounts()
         accounts.setDeviceId()
@@ -44,6 +46,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITextFie
 
     // search to tableviewcontroller actions
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
+        
         searchTextField.resignFirstResponder()
         if searchTextField.text == "" {
             searchBarView.animation = "shake"

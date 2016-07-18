@@ -354,7 +354,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Results" id="6Hb-Mu-pqz">
-                        <barButtonItem key="leftBarButtonItem" title="Search" id="4eO-2I-ZC8">
+                        <barButtonItem key="leftBarButtonItem" image="arrow_left" id="4eO-2I-ZC8">
                             <connections>
                                 <action selector="HomeButtonDidTouch:" destination="eBT-pB-32o" id="5bw-vo-H7A"/>
                             </connections>
@@ -567,7 +567,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Places" id="U1Z-e8-yVx">
-                        <barButtonItem key="leftBarButtonItem" title="Search" id="2Et-in-SLY">
+                        <barButtonItem key="leftBarButtonItem" image="arrow_left" id="2Et-in-SLY">
                             <connections>
                                 <action selector="HomeButtonDidTouch:" destination="eBT-pB-32o" id="3xj-Rl-T1J"/>
                                 <segue destination="BYZ-38-t0r" kind="showDetail" identifier="HomeSegue" id="9G2-gw-lmH"/>
@@ -655,13 +655,14 @@
     </scenes>
     <resources>
         <image name="add_icon" width="18" height="18"/>
+        <image name="arrow_left" width="13" height="23"/>
         <image name="arrow_right_cell" width="8" height="13"/>
         <image name="line" width="375" height="1"/>
         <image name="search_bar_input" width="242" height="50"/>
         <image name="search_icon_lg" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9G2-gw-lmH"/>
+        <segue reference="ape-xm-UtQ"/>
         <segue reference="367-VN-b1x"/>
     </inferredMetricsTieBreakers>
 </document>
