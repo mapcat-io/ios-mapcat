@@ -19,17 +19,20 @@ class ResultTableViewCell: UITableViewCell {
     
     func configureWithResult(result: JSON, currentLocation: CLLocationCoordinate2D) {
         
-        let title = result["name"].string!
-        let address = result["location"]["street"].string ?? nil
-        let place = result["location"]["name"].string ?? nil
+        // set data from server
+        let title = Utilities.joinArrayWithSeparator(result["things"], separator: ", ")
+        let address = result["locations"][0]["street"].string ?? nil
+        let place = result["locations"][0]["name"].string ?? nil
         let description = result["description"].string ?? nil
-        let geoLat = result["location"]["lat"].double ?? 37.763299
-        let geoLong = result["location"]["long"].double ?? -122.419356
+        let geoLat = result["locations"][0]["lat"].double ?? 37.763299
+        let geoLong = result["locations"][0]["long"].double ?? -122.419356
         
+        // set location information
         let destination = CLLocation(latitude: geoLat, longitude: geoLong)
         let setLocation = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
         let distanceBetween: CLLocationDistance = destination.distanceFromLocation(setLocation)
         
+        // display in UI
         titleLabel.text = place
         addressLabel.text = address
         categoriesLabel.text = title.capitalizedString
