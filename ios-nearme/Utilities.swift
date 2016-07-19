@@ -15,8 +15,8 @@ public class Utilities  {
         for (key, _) in results {
             let intKey: Int = Int(key)!
             var thisItem: JSON = results[intKey]
-            let geoLat = thisItem["location"]["lat"].double ?? 37.763299
-            let geoLong = thisItem["location"]["long"].double ?? -122.419356
+            let geoLat = thisItem["locations"][0]["lat"].double ?? 37.763299
+            let geoLong = thisItem["locations"][0]["long"].double ?? -122.419356
             let destination = CLLocation(latitude: geoLat, longitude: geoLong)
             let distanceBetween: CLLocationDistance = destination.distanceFromLocation(currentLocation)
             thisItem["distance"].double =  distanceBetween
@@ -30,6 +30,23 @@ public class Utilities  {
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
             completion(data: data, response: response, error: error)
             }.resume()
+    }
+    
+    // return string from JSONSwifty Array object, with seperator
+    public class func joinArrayWithSeparator(data: JSON, separator: String) -> String {
+        var string: String = ""
+        for (key, subJson) in data {
+            let str = subJson.string
+            if key == "0" && str != nil {
+                string.appendContentsOf(str!)
+            }
+            else {
+                if str != nil {
+                    string.appendContentsOf(separator + str!)
+                }
+            }
+        }
+        return string
     }
     
 }

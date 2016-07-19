@@ -23,17 +23,22 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var result: JSON!
+    var venuePhotos: JSON!
     var currentLocation: CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         
-        let title = result["name"].string!
-        let address = result["location"]["street"].string ?? nil
-        let place = result["location"]["name"].string ?? nil
-        let description = result["description"].string ?? nil
-        let categories = result["category"]["name"].string ?? nil
-        let geoLat = result["location"]["lat"].double ?? 37.763299
-        let geoLong = result["location"]["long"].double ?? -122.419356
+//        if venuePhotos != nil {
+//            print(venuePhotos)
+//        }
+        
+        let title = Utilities.joinArrayWithSeparator(result["things"], separator: ", ")
+        let address = result["locations"][0]["street"].string ?? nil
+        let place = result["locations"][0]["name"].string ?? nil
+        let description = Utilities.joinArrayWithSeparator(result["things"], separator: ", ")
+        let categories = Utilities.joinArrayWithSeparator(result["categories"], separator: ", ")
+        let geoLat = result["locations"][0]["lat"].double ?? 37.763299
+        let geoLong = result["locations"][0]["long"].double ?? -122.419356
         
         // set initial location and boundary of map
         let location = CLLocation(latitude: geoLat, longitude: geoLong)
@@ -57,10 +62,8 @@ class DetailViewController: UIViewController {
         navTitle.title = title.capitalizedString
         titleLabel.text = place
         addressLabel.text = address
-        if categories != nil {
-            categoriesLabel.text = categories!.capitalizedString
-        } else { categoriesLabel.text = categories }
-        descriptionLabel.text = description
+        categoriesLabel.text = categories.capitalizedString
+        descriptionLabel.text = description.capitalizedString
         distanceLabel.text = String(format: "%.1f mi away", distanceBetween * 0.000621371)
         
     }
@@ -79,9 +82,9 @@ class DetailViewController: UIViewController {
     
     func launchMaps() {
         //set map item for directions button
-        let title = result["name"].string!
-        let geoLat = result["location"]["lat"].double ?? 37.763299
-        let geoLong = result["location"]["long"].double ?? -122.419356
+        let title = Utilities.joinArrayWithSeparator(result["things"], separator: ", ")
+        let geoLat = result["locations"][0]["lat"].double ?? 37.763299
+        let geoLong = result["locations"][0]["long"].double ?? -122.419356
         let addressDictionary = [String(CNPostalAddressStreetKey): title]
         let placemark = MKPlacemark(coordinate: CLLocationCoordinate2DMake(geoLat, geoLong), addressDictionary: addressDictionary)
         let mapItem = MKMapItem(placemark: placemark)

@@ -97,7 +97,7 @@ class ItemSubmitViewController: FormViewController {
                 switch response.result {
                 case .Success:
                     let alertController = UIAlertController(title: "😻", message:
-                        "You successfully submitted the items!", preferredStyle: UIAlertControllerStyle.Alert)
+                        "Items successfully submitted!", preferredStyle: UIAlertControllerStyle.Alert)
                     alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("SubmitItemsSegue", sender: self) }))
                     self.presentViewController(alertController, animated: true, completion: nil)
                 case .Failure(let error):
