@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ios-nearme
 //
-//  Created by Ryan Walton on 10/15/15.
+//  Created by R<#T##attributes: [String : AnyObject]?##[String : AnyObject]?#>yan Walton on 10/15/15.
 //  Copyright © 2015 Ryan Walton. All rights reserved.
 //
 
@@ -17,6 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //= Main Tab Controller
+        let mainTabController = self.window!.rootViewController as! UITabBarController
+        let mainTabBar = mainTabController.tabBar
+        let searchTab: UITabBarItem = mainTabBar.items![0] as UITabBarItem
+        let addTab: UITabBarItem = mainTabBar.items![1] as UITabBarItem
+        let white = UIColor.whiteColor()
+
+        let attributes = [
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+        ]
+        
+        mainTabController.tabBar.barTintColor = UIColor(red:0.92, green:0.36, blue:0.56, alpha:0.7)
+        mainTabController.tabBar.tintColor = white.colorWithAlphaComponent(0.7)
+        
+        searchTab.selectedImage = UIImage(named:"search-icon-selected-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        searchTab.image = UIImage(named:"search-icon-normal-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        
+        addTab.selectedImage = UIImage(named:"add-icon-selected-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        addTab.image = UIImage(named:"add-icon-normal-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        
+        for item in mainTabBar.items! as [UITabBarItem] {
+            item.setTitleTextAttributes(attributes, forState: .Normal)
+        }
+
+    
+        
         return true
     }
 

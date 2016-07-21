@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ziP-U3-nOb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -7,6 +7,152 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Add-->
+        <scene sceneID="hUu-Dt-Xiw">
+            <objects>
+                <viewController title="Add" id="TNg-02-BtV" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6vl-Qx-Rfp"/>
+                        <viewControllerLayoutGuide type="bottom" id="wmv-TY-Xa3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mmA-zw-sl9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="1" title="Add" image="add-icon-normal" selectedImage="add-icon-selected" id="Wwx-sa-ycl"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XMC-eT-khz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-938" y="-2642"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="iRO-8C-rl7">
+            <objects>
+                <viewController title="Search" id="7V6-Ia-1ed" customClass="SearchViewController" customModule="Mapcat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pa4-O7-C89"/>
+                        <viewControllerLayoutGuide type="bottom" id="2dg-tW-cy8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="weX-ro-O2l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ukS-Nu-wwG">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8E-5Y-ajX" customClass="DesignableView" customModule="Mapcat" customModuleProvider="target">
+                                <rect key="frame" x="39" y="60" width="297" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-bar" translatesAutoresizingMaskIntoConstraints="NO" id="Zcx-Q1-Wup" customClass="SpringImageView" customModule="Mapcat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="UQI-F4-P0Z"/>
+                                            <constraint firstAttribute="width" constant="297" id="UqA-Ma-ITV"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="UqA-Ma-ITV"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search for anything in SF" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dWN-OA-svz" customClass="DesignableTextField" customModule="Mapcat" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="0.0" width="233" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="206" id="ks8-UJ-9Yb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeIn"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ks8-UJ-9Yb"/>
+                                            </mask>
+                                        </variation>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="297" id="1qL-gj-4BO"/>
+                                    <constraint firstItem="dWN-OA-svz" firstAttribute="centerX" secondItem="B8E-5Y-ajX" secondAttribute="centerX" id="8N1-GL-Hft"/>
+                                    <constraint firstItem="dWN-OA-svz" firstAttribute="top" secondItem="B8E-5Y-ajX" secondAttribute="top" constant="13" id="ATa-IV-ihY"/>
+                                    <constraint firstAttribute="bottom" secondItem="dWN-OA-svz" secondAttribute="bottom" id="ECE-3N-gpU"/>
+                                    <constraint firstAttribute="height" constant="60" id="SXE-wL-G9X"/>
+                                    <constraint firstItem="Zcx-Q1-Wup" firstAttribute="top" secondItem="B8E-5Y-ajX" secondAttribute="top" id="TG7-aj-aei"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zcx-Q1-Wup" secondAttribute="bottom" id="Urz-Sv-I9f"/>
+                                    <constraint firstItem="dWN-OA-svz" firstAttribute="leading" secondItem="B8E-5Y-ajX" secondAttribute="leading" constant="40" id="WAv-9B-i9I"/>
+                                    <constraint firstItem="dWN-OA-svz" firstAttribute="top" secondItem="B8E-5Y-ajX" secondAttribute="top" id="fhH-yZ-8Me"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zcx-Q1-Wup" secondAttribute="trailing" id="ht6-y8-4es"/>
+                                    <constraint firstAttribute="trailing" secondItem="dWN-OA-svz" secondAttribute="trailing" constant="24" id="ocH-b6-Tyl"/>
+                                    <constraint firstItem="Zcx-Q1-Wup" firstAttribute="leading" secondItem="B8E-5Y-ajX" secondAttribute="leading" id="ro2-Q0-e0K"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideUp"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ATa-IV-ihY"/>
+                                        <exclude reference="8N1-GL-Hft"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B8E-5Y-ajX" firstAttribute="centerY" secondItem="ukS-Nu-wwG" secondAttribute="centerY" id="BRN-uC-PTR"/>
+                            <constraint firstItem="ukS-Nu-wwG" firstAttribute="top" secondItem="dWN-OA-svz" secondAttribute="bottom" constant="-120" id="IEW-ls-rkP"/>
+                            <constraint firstItem="B8E-5Y-ajX" firstAttribute="centerX" secondItem="ukS-Nu-wwG" secondAttribute="centerX" id="Ico-xs-sDB"/>
+                            <constraint firstItem="ukS-Nu-wwG" firstAttribute="leading" secondItem="weX-ro-O2l" secondAttribute="leadingMargin" constant="-20" id="Nlq-e9-A8z"/>
+                            <constraint firstItem="ukS-Nu-wwG" firstAttribute="top" secondItem="weX-ro-O2l" secondAttribute="topMargin" id="Qfi-zz-1rA"/>
+                            <constraint firstItem="ukS-Nu-wwG" firstAttribute="bottom" secondItem="weX-ro-O2l" secondAttribute="bottomMargin" id="g3g-Wm-vIp"/>
+                            <constraint firstItem="ukS-Nu-wwG" firstAttribute="top" secondItem="B8E-5Y-ajX" secondAttribute="bottom" constant="-164" id="nQ0-VZ-1ce"/>
+                            <constraint firstItem="ukS-Nu-wwG" firstAttribute="top" secondItem="B8E-5Y-ajX" secondAttribute="bottom" constant="-120" id="nmm-Tt-wd2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ukS-Nu-wwG" secondAttribute="trailing" constant="-20" id="yFl-BJ-X5Z"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="nQ0-VZ-1ce"/>
+                                <exclude reference="BRN-uC-PTR"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" image="search-icon-normal" selectedImage="search-icon-selected" id="HHa-8b-ies"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapView" destination="ukS-Nu-wwG" id="myZ-5F-gb2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pKP-ce-OgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-944.5" y="-3388.5"/>
+        </scene>
+        <!--MainTab-->
+        <scene sceneID="4FB-my-1kf">
+            <objects>
+                <tabBarController title="MainTab" id="ziP-U3-nOb" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="z4I-5Y-n0l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7V6-Ia-1ed" kind="relationship" relationship="viewControllers" id="bif-59-Zjq"/>
+                        <segue destination="TNg-02-BtV" kind="relationship" relationship="viewControllers" id="Mj6-PM-O2c"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MQk-9f-47k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1758" y="-2973"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -654,10 +800,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-icon-normal" width="34" height="33"/>
+        <image name="add-icon-selected" width="34" height="33"/>
         <image name="add_icon" width="18" height="18"/>
         <image name="arrow_left" width="13" height="23"/>
         <image name="arrow_right_cell" width="8" height="13"/>
         <image name="line" width="375" height="1"/>
+        <image name="search-bar" width="331" height="64"/>
+        <image name="search-icon-normal" width="30" height="31"/>
+        <image name="search-icon-selected" width="30" height="31"/>
         <image name="search_bar_input" width="242" height="50"/>
         <image name="search_icon_lg" width="64" height="64"/>
     </resources>
