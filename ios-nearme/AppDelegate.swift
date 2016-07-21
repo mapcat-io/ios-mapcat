@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ios-nearme
 //
-//  Created by R<#T##attributes: [String : AnyObject]?##[String : AnyObject]?#>yan Walton on 10/15/15.
+//  Created by Ryan Walton on 10/15/15.
 //  Copyright © 2015 Ryan Walton. All rights reserved.
 //
 

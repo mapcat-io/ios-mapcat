@@ -22,6 +22,8 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBarHidden = true
+        
         // ask for authorization
         self.locationManager.requestAlwaysAuthorization()
         // For use in foreground

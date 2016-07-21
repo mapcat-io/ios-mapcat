@@ -54,6 +54,8 @@
 		9421F2491D3B21210005F6AE /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421F2471D3B21210005F6AE /* CustomCell.swift */; };
 		9421F24A1D3B21210005F6AE /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9421F2481D3B21210005F6AE /* CustomCell.xib */; };
 		94449BB31D40639100A08267 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94449BB21D40639100A08267 /* SearchViewController.swift */; };
+		94449BB51D4083A000A08267 /* AddItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94449BB41D4083A000A08267 /* AddItemsTableViewController.swift */; };
+		94449BB71D4083FD00A08267 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94449BB61D4083FD00A08267 /* SearchResultsTableViewController.swift */; };
 		9445AF3B1D3151630070A10B /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445AF3A1D3151630070A10B /* SwiftyJSON.swift */; };
 		9445AF3F1D31523A0070A10B /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445AF3E1D31523A0070A10B /* Accounts.swift */; };
 		94B65C501D2ACD4B00E1CDB2 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B65C4F1D2ACD4B00E1CDB2 /* PlacesTableViewController.swift */; };
@@ -149,6 +151,8 @@
 		9421F2471D3B21210005F6AE /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		9421F2481D3B21210005F6AE /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		94449BB21D40639100A08267 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		94449BB41D4083A000A08267 /* AddItemsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemsTableViewController.swift; sourceTree = "<group>"; };
+		94449BB61D4083FD00A08267 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		9445AF3A1D3151630070A10B /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9445AF3E1D31523A0070A10B /* Accounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		94B65C4F1D2ACD4B00E1CDB2 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				6C2322831BD1A15200D4ACBA /* Spring */,
 				6C47BF501BD0AD5000D52EF4 /* AppDelegate.swift */,
 				94449BB21D40639100A08267 /* SearchViewController.swift */,
+				94449BB61D4083FD00A08267 /* SearchResultsTableViewController.swift */,
+				94449BB41D4083A000A08267 /* AddItemsTableViewController.swift */,
 				6C202DE41BD1A98B00CF0B93 /* HomeViewController.swift */,
 				6C384C1E1BD7135900F2637C /* ResultsTableViewController.swift */,
 				6C384C201BD72F9F00F2637C /* ResultTableViewCell.swift */,
@@ -505,6 +511,7 @@
 			files = (
 				6C2322A81BD1A15200D4ACBA /* DesignableLabel.swift in Sources */,
 				6C4AEFE31BD7F07000AA726A /* DetailViewController.swift in Sources */,
+				94449BB51D4083A000A08267 /* AddItemsTableViewController.swift in Sources */,
 				6C2322B71BD1A15200D4ACBA /* SpringImageView.swift in Sources */,
 				6C202DE51BD1A98B00CF0B93 /* HomeViewController.swift in Sources */,
 				6C2322A41BD1A15200D4ACBA /* AutoTextView.swift in Sources */,
@@ -521,6 +528,7 @@
 				6C2322B31BD1A15200D4ACBA /* SoundPlayer.swift in Sources */,
 				6C2322AC1BD1A15200D4ACBA /* DesignableView.swift in Sources */,
 				6C2322A91BD1A15200D4ACBA /* DesignableTabBarController.swift in Sources */,
+				94449BB71D4083FD00A08267 /* SearchResultsTableViewController.swift in Sources */,
 				94B65C501D2ACD4B00E1CDB2 /* PlacesTableViewController.swift in Sources */,
 				6C2322A61BD1A15200D4ACBA /* DesignableButton.swift in Sources */,
 				6C47BF591BD0AD5100D52EF4 /* ios-mapcat.xcdatamodeld in Sources */,
