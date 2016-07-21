@@ -28,10 +28,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         
-//        if venuePhotos != nil {
-//            print(venuePhotos)
-//        }
-        
         let title = Utilities.joinArrayWithSeparator(result["things"], separator: ", ")
         let address = result["locations"][0]["street"].string ?? nil
         let place = result["locations"][0]["name"].string ?? nil

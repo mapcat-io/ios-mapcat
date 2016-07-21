@@ -28,7 +28,7 @@ class ResultsTableViewController: UITableViewController {
         let u: String = (accounts.getDeviceId() ?? "")!
         q = q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         titleLabel.title = q.capitalizedString
-        Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/items", parameters: ["q" : q, "t": "aggregate", u: u])
+        Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/items", parameters: ["q" : q, "t": "aggregate", "deviceId": u])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 if JSONObject["items"].count > 0 {
