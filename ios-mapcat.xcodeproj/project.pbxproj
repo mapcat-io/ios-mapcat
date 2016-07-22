@@ -51,11 +51,15 @@
 		6C81281C1BDBF1A100384DB8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C81281B1BDBF1A100384DB8 /* CoreLocation.framework */; };
 		6CA2E9121BEFC2FB00BAB62B /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA2E9111BEFC2FB00BAB62B /* Contacts.framework */; };
 		6CCB5EE01BDAF072005E58C0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */; };
+		940C17721D41E17F00607F1A /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940C17711D41E17F00607F1A /* SearchResultsViewController.swift */; };
 		9421F2491D3B21210005F6AE /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421F2471D3B21210005F6AE /* CustomCell.swift */; };
 		9421F24A1D3B21210005F6AE /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9421F2481D3B21210005F6AE /* CustomCell.xib */; };
+		94372F4E1D42756F000CE273 /* SearchOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94372F4D1D42756F000CE273 /* SearchOneViewController.swift */; };
+		94372F501D42758A000CE273 /* SearchTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94372F4F1D42758A000CE273 /* SearchTwoViewController.swift */; };
+		94372F521D4276B2000CE273 /* AddOneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94372F511D4276B2000CE273 /* AddOneTableViewController.swift */; };
+		94372F541D427841000CE273 /* AddTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94372F531D427841000CE273 /* AddTwoViewController.swift */; };
 		94449BB31D40639100A08267 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94449BB21D40639100A08267 /* SearchViewController.swift */; };
 		94449BB51D4083A000A08267 /* AddItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94449BB41D4083A000A08267 /* AddItemsTableViewController.swift */; };
-		94449BB71D4083FD00A08267 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94449BB61D4083FD00A08267 /* SearchResultsTableViewController.swift */; };
 		9445AF3B1D3151630070A10B /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445AF3A1D3151630070A10B /* SwiftyJSON.swift */; };
 		9445AF3F1D31523A0070A10B /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445AF3E1D31523A0070A10B /* Accounts.swift */; };
 		94B65C501D2ACD4B00E1CDB2 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B65C4F1D2ACD4B00E1CDB2 /* PlacesTableViewController.swift */; };
@@ -148,11 +152,15 @@
 		6C81281B1BDBF1A100384DB8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6CA2E9111BEFC2FB00BAB62B /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		940C17711D41E17F00607F1A /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		9421F2471D3B21210005F6AE /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		9421F2481D3B21210005F6AE /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		94372F4D1D42756F000CE273 /* SearchOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOneViewController.swift; sourceTree = "<group>"; };
+		94372F4F1D42758A000CE273 /* SearchTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTwoViewController.swift; sourceTree = "<group>"; };
+		94372F511D4276B2000CE273 /* AddOneTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneTableViewController.swift; sourceTree = "<group>"; };
+		94372F531D427841000CE273 /* AddTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTwoViewController.swift; sourceTree = "<group>"; };
 		94449BB21D40639100A08267 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		94449BB41D4083A000A08267 /* AddItemsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemsTableViewController.swift; sourceTree = "<group>"; };
-		94449BB61D4083FD00A08267 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		9445AF3A1D3151630070A10B /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9445AF3E1D31523A0070A10B /* Accounts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
 		94B65C4F1D2ACD4B00E1CDB2 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
@@ -263,8 +271,12 @@
 				6C228E8E1BDFE04E00E0518C /* Utilities.swift */,
 				6C2322831BD1A15200D4ACBA /* Spring */,
 				6C47BF501BD0AD5000D52EF4 /* AppDelegate.swift */,
+				94372F4D1D42756F000CE273 /* SearchOneViewController.swift */,
+				94372F4F1D42758A000CE273 /* SearchTwoViewController.swift */,
+				94372F511D4276B2000CE273 /* AddOneTableViewController.swift */,
+				94372F531D427841000CE273 /* AddTwoViewController.swift */,
 				94449BB21D40639100A08267 /* SearchViewController.swift */,
-				94449BB61D4083FD00A08267 /* SearchResultsTableViewController.swift */,
+				940C17711D41E17F00607F1A /* SearchResultsViewController.swift */,
 				94449BB41D4083A000A08267 /* AddItemsTableViewController.swift */,
 				6C202DE41BD1A98B00CF0B93 /* HomeViewController.swift */,
 				6C384C1E1BD7135900F2637C /* ResultsTableViewController.swift */,
@@ -510,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C2322A81BD1A15200D4ACBA /* DesignableLabel.swift in Sources */,
+				940C17721D41E17F00607F1A /* SearchResultsViewController.swift in Sources */,
 				6C4AEFE31BD7F07000AA726A /* DetailViewController.swift in Sources */,
 				94449BB51D4083A000A08267 /* AddItemsTableViewController.swift in Sources */,
 				6C2322B71BD1A15200D4ACBA /* SpringImageView.swift in Sources */,
@@ -520,18 +533,20 @@
 				6C228E8F1BDFE04E00E0518C /* Utilities.swift in Sources */,
 				6C2322B21BD1A15200D4ACBA /* Misc.swift in Sources */,
 				6C2322A51BD1A15200D4ACBA /* BlurView.swift in Sources */,
+				94372F521D4276B2000CE273 /* AddOneTableViewController.swift in Sources */,
 				6C2322BE1BD1A15200D4ACBA /* UnwindSegue.swift in Sources */,
 				6C2322B01BD1A15200D4ACBA /* LoadingView.swift in Sources */,
 				6C384C1F1BD7135900F2637C /* ResultsTableViewController.swift in Sources */,
+				94372F4E1D42756F000CE273 /* SearchOneViewController.swift in Sources */,
 				6C2322B91BD1A15200D4ACBA /* SpringTextField.swift in Sources */,
 				6C2322B41BD1A15200D4ACBA /* Spring.swift in Sources */,
 				6C2322B31BD1A15200D4ACBA /* SoundPlayer.swift in Sources */,
 				6C2322AC1BD1A15200D4ACBA /* DesignableView.swift in Sources */,
 				6C2322A91BD1A15200D4ACBA /* DesignableTabBarController.swift in Sources */,
-				94449BB71D4083FD00A08267 /* SearchResultsTableViewController.swift in Sources */,
 				94B65C501D2ACD4B00E1CDB2 /* PlacesTableViewController.swift in Sources */,
 				6C2322A61BD1A15200D4ACBA /* DesignableButton.swift in Sources */,
 				6C47BF591BD0AD5100D52EF4 /* ios-mapcat.xcdatamodeld in Sources */,
+				94372F541D427841000CE273 /* AddTwoViewController.swift in Sources */,
 				6C2322BD1BD1A15200D4ACBA /* TransitionZoom.swift in Sources */,
 				9421F2491D3B21210005F6AE /* CustomCell.swift in Sources */,
 				6C2322AA1BD1A15200D4ACBA /* DesignableTextField.swift in Sources */,
@@ -546,6 +561,7 @@
 				6C2322BB1BD1A15200D4ACBA /* SpringView.swift in Sources */,
 				6C2322BA1BD1A15200D4ACBA /* SpringTextView.swift in Sources */,
 				6C2322AF1BD1A15200D4ACBA /* KeyboardLayoutConstraint.swift in Sources */,
+				94372F501D42758A000CE273 /* SearchTwoViewController.swift in Sources */,
 				9445AF3B1D3151630070A10B /* SwiftyJSON.swift in Sources */,
 				6C2322B61BD1A15200D4ACBA /* SpringButton.swift in Sources */,
 				9445AF3F1D31523A0070A10B /* Accounts.swift in Sources */,
