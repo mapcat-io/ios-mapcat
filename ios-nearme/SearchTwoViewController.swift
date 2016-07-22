@@ -19,6 +19,7 @@ class SearchTwoViewController: UIViewController {
     var currentLocation: CLLocationCoordinate2D!
 
     override func viewDidLoad() {
+        searchTwoTableContainerView.alpha = 0 // set the container view to alpha zero with no results
         super.viewDidLoad()
         print("SearchTwoViewController Loaded")
         
@@ -40,6 +41,7 @@ class SearchTwoViewController: UIViewController {
                     if JSONObject["items"].count > 0 {
                         print("Search Results Loaded. Perform Segue")
                         toView.tableView.reloadData()
+                        self.searchTwoTableContainerView.alpha = 1 // display container view now with results
                     }
                     else {
                         print("No Results")
