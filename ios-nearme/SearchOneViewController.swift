@@ -11,6 +11,8 @@ import MapKit
 
 class SearchOneViewController: UIViewController {
     
+    let locationManager = CLLocationManager()
+    
     var results: [JSON] = []
     var q: String = ""
     var currentLocation: CLLocationCoordinate2D!
@@ -29,7 +31,7 @@ class SearchOneViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SearchResultsSegue" {
             let toView = segue.destinationViewController as! SearchTwoViewController
-            toView.q = "search term"
+            toView.q = "beer"
 //            toView.currentLocation = locationManager.location!.coordinate
         }
     }

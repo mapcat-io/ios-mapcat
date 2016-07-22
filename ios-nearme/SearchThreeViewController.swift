@@ -10,13 +10,21 @@ import UIKit
 
 class SearchThreeViewController: UIViewController {
     
-    var results: [JSON] = []
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var result: JSON = []
     var q: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("q for three: " + q)
-        // Do any additional setup after loading the view.
+        
+        // set data
+        let name = result.string ?? nil
+        
+        // set to UI
+        nameLabel.text = name
+
     }
 
 

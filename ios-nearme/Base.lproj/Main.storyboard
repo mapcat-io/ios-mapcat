@@ -884,16 +884,9 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VP3-lZ-g7i">
                                 <rect key="frame" x="-4" y="331" width="383" height="287"/>
                                 <connections>
-                                    <segue destination="Qu1-Bz-lnJ" kind="embed" id="h6U-EL-LY9"/>
+                                    <segue destination="Qu1-Bz-lnJ" kind="embed" identifier="SearchResultsEmbeddedSegue" id="h6U-EL-LY9"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rf-Ic-tIS">
-                                <rect key="frame" x="167" y="135" width="40" height="30"/>
-                                <state key="normal" title="Detail"/>
-                                <connections>
-                                    <action selector="detailButtonDidTouch:" destination="brW-dF-4zs" eventType="touchUpInside" id="CG4-LX-iVv"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -904,9 +897,6 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <segue destination="cie-oc-3WJ" kind="show" identifier="SearchDetailsSegue" id="6e4-GT-3x5"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQx-DY-Xa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -930,31 +920,61 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTc-eX-aJ2">
+                                <rect key="frame" x="163" y="135" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="QTc-eX-aJ2" id="Jgx-uv-JSM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7U-uM-9ob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368.5" y="-5924.5"/>
+            <point key="canvasLocation" x="278.5" y="-5416.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Search Two Table View Controller-->
         <scene sceneID="n1X-rv-RzR">
             <objects>
-                <tableViewController id="Qu1-Bz-lnJ" sceneMemberID="viewController">
+                <tableViewController id="Qu1-Bz-lnJ" customClass="SearchTwoTableViewController" customModule="Mapcat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sCp-Dr-VWF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rrR-0j-sWT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchTwoTableResultCell" id="rrR-0j-sWT" customClass="SearchTwoTableViewCell" customModule="Mapcat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rrR-0j-sWT" id="X0y-0L-4sw">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sg-Nl-AHg">
+                                            <rect key="frame" x="23" y="11" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8Sg-Nl-AHg" firstAttribute="top" secondItem="X0y-0L-4sw" secondAttribute="topMargin" constant="15" id="A3e-jb-uhE"/>
+                                        <constraint firstItem="8Sg-Nl-AHg" firstAttribute="centerY" secondItem="X0y-0L-4sw" secondAttribute="centerY" id="gyS-zC-Or8"/>
+                                        <constraint firstItem="8Sg-Nl-AHg" firstAttribute="leading" secondItem="X0y-0L-4sw" secondAttribute="leadingMargin" constant="15" id="nO8-5r-s5X"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="A3e-jb-uhE"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="8Sg-Nl-AHg" id="0zO-JK-G61"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -963,10 +983,13 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="cie-oc-3WJ" kind="show" identifier="SearchDetailsSegue" id="rPv-lH-h1G"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMF-DF-z0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218.5" y="-5145.5"/>
+            <point key="canvasLocation" x="-207.5" y="-5416.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VBj-XC-y9w">
@@ -1208,7 +1231,7 @@
         <image name="search_icon_lg" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9G2-gw-lmH"/>
+        <segue reference="ape-xm-UtQ"/>
         <segue reference="vTY-MY-wgd"/>
     </inferredMetricsTieBreakers>
 </document>

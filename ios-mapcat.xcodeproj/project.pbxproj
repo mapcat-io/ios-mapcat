@@ -60,6 +60,8 @@
 		94372F541D427841000CE273 /* AddTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94372F531D427841000CE273 /* AddTwoViewController.swift */; };
 		94372F561D427C07000CE273 /* SearchThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94372F551D427C07000CE273 /* SearchThreeViewController.swift */; };
 		94372F581D427DB0000CE273 /* ProfileOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94372F571D427DB0000CE273 /* ProfileOneViewController.swift */; };
+		94372F5A1D427EE4000CE273 /* SearchTwoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94372F591D427EE4000CE273 /* SearchTwoTableViewController.swift */; };
+		94372F5C1D4280E5000CE273 /* SearchTwoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94372F5B1D4280E5000CE273 /* SearchTwoTableViewCell.swift */; };
 		94449BB31D40639100A08267 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94449BB21D40639100A08267 /* SearchViewController.swift */; };
 		94449BB51D4083A000A08267 /* AddItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94449BB41D4083A000A08267 /* AddItemsTableViewController.swift */; };
 		9445AF3B1D3151630070A10B /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445AF3A1D3151630070A10B /* SwiftyJSON.swift */; };
@@ -163,6 +165,8 @@
 		94372F531D427841000CE273 /* AddTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTwoViewController.swift; sourceTree = "<group>"; };
 		94372F551D427C07000CE273 /* SearchThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchThreeViewController.swift; sourceTree = "<group>"; };
 		94372F571D427DB0000CE273 /* ProfileOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileOneViewController.swift; sourceTree = "<group>"; };
+		94372F591D427EE4000CE273 /* SearchTwoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTwoTableViewController.swift; sourceTree = "<group>"; };
+		94372F5B1D4280E5000CE273 /* SearchTwoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTwoTableViewCell.swift; sourceTree = "<group>"; };
 		94449BB21D40639100A08267 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		94449BB41D4083A000A08267 /* AddItemsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemsTableViewController.swift; sourceTree = "<group>"; };
 		9445AF3A1D3151630070A10B /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 				6C47BF501BD0AD5000D52EF4 /* AppDelegate.swift */,
 				94372F4D1D42756F000CE273 /* SearchOneViewController.swift */,
 				94372F4F1D42758A000CE273 /* SearchTwoViewController.swift */,
+				94372F591D427EE4000CE273 /* SearchTwoTableViewController.swift */,
+				94372F5B1D4280E5000CE273 /* SearchTwoTableViewCell.swift */,
 				94372F551D427C07000CE273 /* SearchThreeViewController.swift */,
 				94372F511D4276B2000CE273 /* AddOneTableViewController.swift */,
 				94372F531D427841000CE273 /* AddTwoViewController.swift */,
@@ -561,6 +567,7 @@
 				6C2322BC1BD1A15200D4ACBA /* TransitionManager.swift in Sources */,
 				6C2322B81BD1A15200D4ACBA /* SpringLabel.swift in Sources */,
 				6C2322A21BD1A15200D4ACBA /* AsyncButton.swift in Sources */,
+				94372F5A1D427EE4000CE273 /* SearchTwoTableViewController.swift in Sources */,
 				6C384C211BD72F9F00F2637C /* ResultTableViewCell.swift in Sources */,
 				6C2322A31BD1A15200D4ACBA /* AsyncImageView.swift in Sources */,
 				94449BB31D40639100A08267 /* SearchViewController.swift in Sources */,
@@ -576,6 +583,7 @@
 				6C2322B51BD1A15200D4ACBA /* SpringAnimation.swift in Sources */,
 				6C2322A71BD1A15200D4ACBA /* DesignableImageView.swift in Sources */,
 				6C47BF511BD0AD5000D52EF4 /* AppDelegate.swift in Sources */,
+				94372F5C1D4280E5000CE273 /* SearchTwoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,6 @@ class ResultsTableViewController: UITableViewController {
     
     var selectedCell: UITableViewCell?
     var results: [JSON] = []
-//    var venuePhotos: [JSON] = []
     var q: String = ""
     var currentLocation: CLLocationCoordinate2D!
     
