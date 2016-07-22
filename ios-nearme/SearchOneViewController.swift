@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import MapKit
 
 class SearchOneViewController: UIViewController {
     
+    var results: [JSON] = []
+    var q: String = ""
+    var currentLocation: CLLocationCoordinate2D!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        print("q for one (nil): " + q)
     }
     
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
@@ -23,8 +28,8 @@ class SearchOneViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SearchResultsSegue" {
-//            let toView = segue.destinationViewController as! SearchResultsViewController
-//            toView.q = self.searchTextField.text!
+            let toView = segue.destinationViewController as! SearchTwoViewController
+            toView.q = "search term"
 //            toView.currentLocation = locationManager.location!.coordinate
         }
     }

@@ -7,29 +7,31 @@
 //
 
 import UIKit
+import MapKit
 
 class SearchTwoViewController: UIViewController {
+    
+    var results: [JSON] = []
+    var q: String = ""
+    var currentLocation: CLLocationCoordinate2D!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        print("q for two: " + q)
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func detailButtonDidTouch(sender: AnyObject) {
+        performSegueWithIdentifier("SearchDetailsSegue", sender: self)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SearchDetailsSegue" {
+            let toView = segue.destinationViewController as! SearchThreeViewController
+            toView.q = "search term"
+        }
     }
-    */
+    
 
 }
