@@ -9,10 +9,12 @@
 import UIKit
 import MapKit
 
-class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITextFieldDelegate {
     
     let locationManager = CLLocationManager()
     
+    @IBOutlet weak var searchBarView: DesignableView!
+    @IBOutlet weak var searchTextField: DesignableTextField!
     @IBOutlet weak var mapView: MKMapView!
     
     var q: String = ""
@@ -39,6 +41,14 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         let location = CLLocation(latitude: lat!, longitude: long!)
         centerMapOnLocation(location)
         
+        // handle keyboard delegate
+        self.searchTextField.delegate = self
+        self.searchTextField.returnKeyType = UIReturnKeyType.Go
+        
+        // set UUID if new device
+        let accounts = Accounts()
+        accounts.setDeviceId()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -46,13 +56,20 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     }
     
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
-        self.performSegueWithIdentifier("SearchResultsSegue", sender: self)
+        searchTextField.resignFirstResponder()
+        if searchTextField.text == "" {
+            searchBarView.animation = "shake"
+            searchBarView.animate()
+        }
+        else {
+            self.performSegueWithIdentifier("SearchResultsSegue", sender: self)
+        }
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SearchResultsSegue" {
             let toView = segue.destinationViewController as! SearchTwoViewController
-            toView.q = "beer"
+            toView.q = self.searchTextField.text!
             toView.currentLocation = locationManager.location!.coordinate
         }
     }
