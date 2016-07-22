@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Alamofire
 
 class SearchOneViewController: UIViewController {
     
@@ -19,12 +20,25 @@ class SearchOneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        print("q for one (nil): " + q)
+        print("SearchOneViewController Loaded")
+        
     }
     
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
-        performSegueWithIdentifier("SearchResultsSegue", sender: self)
+        q = q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/items", parameters: ["q" : q, "t": "aggregate"])
+            .responseJSON { response in
+                let JSONObject = JSON(response.result.value!)
+                self.results = JSONObject["items"].arrayValue
+//                print(self.results)
+                if JSONObject["items"].count > 0 {
+                    print("Search Results Loaded. Perform Segue")
+                    self.performSegueWithIdentifier("SearchResultsSegue", sender: self)
+                }
+                else {
+                    print("No Results")
+                }
+        }
         
     }
 
@@ -32,7 +46,7 @@ class SearchOneViewController: UIViewController {
         if segue.identifier == "SearchResultsSegue" {
             let toView = segue.destinationViewController as! SearchTwoViewController
             toView.q = "beer"
-//            toView.currentLocation = locationManager.location!.coordinate
+            toView.results = self.results
         }
     }
     

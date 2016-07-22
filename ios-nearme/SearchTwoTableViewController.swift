@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Accounts
+import Alamofire
 
 class SearchTwoTableViewController: UITableViewController {
     
@@ -21,14 +22,11 @@ class SearchTwoTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("q for search two table: " + q)
-        print("results for search two table: yes")
+        print("SearchTwoTableViewController Loaded")
         
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(results.count)
         return results.count
     }
     

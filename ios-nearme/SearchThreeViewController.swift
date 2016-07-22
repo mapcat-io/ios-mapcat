@@ -17,10 +17,10 @@ class SearchThreeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("q for three: " + q)
+        print("SearchThreeViewController Loaded")
         
         // set data
-        let name = result.string ?? nil
+        let name = result["_id"].string ?? nil
         
         // set to UI
         nameLabel.text = name

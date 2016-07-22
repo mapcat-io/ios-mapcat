@@ -16,7 +16,7 @@ class SearchTwoTableViewCell: UITableViewCell {
     func configureWithResult(result: JSON) {
         
         // set data
-        let name = result.string ?? nil
+        let name = result["_id"].string ?? nil
         
         // set to UI
         nameLabel.text = name
