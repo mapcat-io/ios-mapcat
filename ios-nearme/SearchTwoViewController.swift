@@ -12,6 +12,8 @@ import Alamofire
 
 class SearchTwoViewController: UIViewController {
     
+    @IBOutlet weak var searchTwoTableContainerView: UIView!
+    
     var results: [JSON] = []
     var q: String = ""
     var currentLocation: CLLocationCoordinate2D!
@@ -29,8 +31,21 @@ class SearchTwoViewController: UIViewController {
         }
         if segue.identifier == "SearchResultsEmbeddedSegue" {
             let toView = segue.destinationViewController as! SearchTwoTableViewController
-            toView.q = "beer"
-            toView.results = self.results
+            toView.q = self.q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/items", parameters: ["q" : toView.q, "t": "aggregate"])
+                .responseJSON { response in
+                    let JSONObject = JSON(response.result.value!)
+                    self.results = JSONObject["items"].arrayValue
+                    toView.results = self.results
+                    if JSONObject["items"].count > 0 {
+                        print("Search Results Loaded. Perform Segue")
+                        toView.tableView.reloadData()
+                    }
+                    else {
+                        print("No Results")
+                    }
+            }
+
         }
     }
     

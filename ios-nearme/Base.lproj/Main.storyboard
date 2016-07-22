@@ -897,6 +897,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="searchTwoTableContainerView" destination="VP3-lZ-g7i" id="2u3-nK-Vki"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQx-DY-Xa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
