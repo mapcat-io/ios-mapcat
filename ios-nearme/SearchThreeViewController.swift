@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class SearchThreeViewController: UIViewController {
     
@@ -14,7 +15,8 @@ class SearchThreeViewController: UIViewController {
     
     var result: JSON = []
     var q: String = ""
-
+    var annotation = MKPointAnnotation()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("SearchThreeViewController Loaded")

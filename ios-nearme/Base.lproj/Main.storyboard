@@ -659,7 +659,7 @@
                         <outlet property="descriptionLabel" destination="n4D-5m-Bdu" id="ms6-Pf-ujU"/>
                         <outlet property="distanceLabel" destination="iin-rQ-OsP" id="a20-dN-UFg"/>
                         <outlet property="mapView" destination="r9m-Tz-kON" id="BJb-7D-Mlc"/>
-                        <outlet property="navTitle" destination="IfK-WR-ew2" id="UDE-bN-5lp"/>
+                        <outlet property="navTitle" destination="IfK-WR-ew2" id="AEa-d6-apK"/>
                         <outlet property="titleLabel" destination="FDJ-0o-3ac" id="Ndq-Hv-JTM"/>
                     </connections>
                 </viewController>
@@ -865,9 +865,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mm9-0M-8Pt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1215.5" y="-5421.5"/>
+            <point key="canvasLocation" x="-1207.5" y="-5421.5"/>
         </scene>
-        <!--Search Two View Controller-->
+        <!--Title-->
         <scene sceneID="SJg-0x-e4m">
             <objects>
                 <viewController id="brW-dF-4zs" customClass="SearchTwoViewController" customModule="Mapcat" customModuleProvider="target" sceneMemberID="viewController">
@@ -913,15 +913,18 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="TBi-gZ-PVX"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mapView" destination="5Pt-aR-rX1" id="Ed3-zc-Oae"/>
+                        <outlet property="navTitle" destination="TBi-gZ-PVX" id="3su-iB-ZNb"/>
                         <outlet property="searchTwoTableContainerView" destination="VP3-lZ-g7i" id="2u3-nK-Vki"/>
+                        <segue destination="cie-oc-3WJ" kind="show" identifier="SearchResultsSegue" id="KBl-7Q-T49"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQx-DY-Xa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-706.5" y="-5421.5"/>
+            <point key="canvasLocation" x="-682.5" y="-5421.5"/>
         </scene>
         <!--Search Three View Controller-->
         <scene sceneID="kxA-Eh-wRK">
@@ -957,7 +960,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7U-uM-9ob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="278.5" y="-5416.5"/>
+            <point key="canvasLocation" x="298.5" y="-5421.5"/>
         </scene>
         <!--Search Two Table View Controller-->
         <scene sceneID="n1X-rv-RzR">
@@ -1010,7 +1013,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMF-DF-z0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207.5" y="-5416.5"/>
+            <point key="canvasLocation" x="-191.5" y="-5030.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VBj-XC-y9w">
@@ -1254,5 +1257,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="ape-xm-UtQ"/>
         <segue reference="vTY-MY-wgd"/>
+        <segue reference="KBl-7Q-T49"/>
     </inferredMetricsTieBreakers>
 </document>
