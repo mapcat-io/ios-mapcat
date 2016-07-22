@@ -56,24 +56,30 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
             toView.q = self.q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/items", parameters: ["q" : toView.q, "t": "aggregate"])
                 .responseJSON { response in
-                    let JSONObject = JSON(response.result.value!)
+                    var JSONObject = JSON(response.result.value!)
                     self.results = JSONObject["items"].arrayValue
-                    toView.results = self.results
                     if JSONObject["items"].count > 0 {
-                        print("Search Results Loaded. Perform Segue")
-                        toView.tableView.reloadData()
-                        self.searchTwoTableContainerView.alpha = 1 // display container view now with results
-                        // add map pins to mapView
+                        let currentLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
+                        print(currentLocation.coordinate)
+                        let rawResults: JSON = Utilities.populateDistanceBetween(JSONObject["items"], currentLocation: currentLocation)
+                        self.results = rawResults.sort { $0.0.1["distance"].doubleValue < $0.1.1["distance"].doubleValue }.map { $0.1 }
+                        //= add map pins to mapView
                         var counter: Int = 0
-                        for (_, subJson) in JSONObject["items"] {
-                            let lat = subJson["locations"][0]["lat"].double
-                            let long = subJson["locations"][0]["long"].double
+                        for item in self.results {
+                            let lat = item["locations"][0]["lat"].double
+                            let long = item["locations"][0]["long"].double
                             let pinLocation = CLLocationCoordinate2DMake(lat!, long!)
-                            let title = subJson["_id"].string
+                            let title = item["_id"].string
                             let dropPin = CustomAnnotation(coordinate: pinLocation, title: title!, id: String(counter))
                             self.mapView.addAnnotation(dropPin)
                             counter += 1
                         }
+                        // provide data to view
+                        toView.results = self.results
+                        // reload view
+                        toView.tableView.reloadData()
+                        // display results
+                        self.searchTwoTableContainerView.alpha = 1 // display container view now with results
                 
                     }
                     else {
@@ -84,24 +90,6 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        var scrollOffset = scrollView.contentOffset.y
-        var headerFrame = searchTwoTableContainerView.frame
-        if (scrollOffset < 0) {
-            // Adjust container
-            headerFrame = CGRect(x: searchTwoTableContainerView.frame.origin.x,
-                                 y: searchTwoTableContainerView.frame.origin.y,
-                                 width: searchTwoTableContainerView.frame.size.width,
-                                 height: -scrollOffset)
-        } else {
-            // Adjust container
-            headerFrame = CGRect(x: searchTwoTableContainerView.frame.origin.x,
-                                 y: searchTwoTableContainerView.frame.origin.y,
-                                 width: searchTwoTableContainerView.frame.size.width,
-                                 height: 0)
-        }
-        searchTwoTableContainerView.frame = headerFrame
-    }
     
     // MARK: MKMapView Helper Methods
     let regionRadius: CLLocationDistance = 1000
