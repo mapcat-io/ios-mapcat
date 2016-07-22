@@ -55,6 +55,17 @@ class SearchTwoViewController: UIViewController {
                         print("Search Results Loaded. Perform Segue")
                         toView.tableView.reloadData()
                         self.searchTwoTableContainerView.alpha = 1 // display container view now with results
+                        // add map pins to mapView
+                        for (key, subJson) in JSONObject["items"] {
+                            let lat = subJson["locations"][0]["lat"].double
+                            let long = subJson["locations"][0]["long"].double
+                            let pinLocation = CLLocationCoordinate2DMake(lat!, long!)
+                            let dropPin = MKPointAnnotation()
+                            dropPin.title = subJson["_id"].string
+                            dropPin.coordinate = pinLocation
+                            self.mapView.addAnnotation(dropPin)
+                        }
+                
                     }
                     else {
                         print("No Results")

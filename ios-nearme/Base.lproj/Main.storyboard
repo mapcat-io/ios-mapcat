@@ -886,20 +886,15 @@
                                 </connections>
                             </containerView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Pt-aR-rX1">
-                                <rect key="frame" x="-4" y="64" width="383" height="315"/>
+                                <rect key="frame" x="-4" y="64" width="383" height="332"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SearchTwoViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gaf-XW-jKL">
-                                <rect key="frame" x="89" y="94" width="196" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="VP3-lZ-g7i" secondAttribute="trailing" constant="-20" id="0Uv-Es-mDz"/>
+                            <constraint firstItem="VP3-lZ-g7i" firstAttribute="top" secondItem="5Pt-aR-rX1" secondAttribute="bottom" constant="-65" id="4co-cU-3TI"/>
                             <constraint firstItem="VP3-lZ-g7i" firstAttribute="top" secondItem="5Pt-aR-rX1" secondAttribute="bottom" id="BOr-6J-NcZ"/>
-                            <constraint firstItem="VP3-lZ-g7i" firstAttribute="top" secondItem="5Pt-aR-rX1" secondAttribute="bottom" constant="-48" id="O9K-zC-hGH"/>
+                            <constraint firstItem="VP3-lZ-g7i" firstAttribute="top" secondItem="5Pt-aR-rX1" secondAttribute="bottom" constant="4" id="O9K-zC-hGH"/>
                             <constraint firstItem="Ydd-qZ-Oq1" firstAttribute="top" secondItem="VP3-lZ-g7i" secondAttribute="bottom" id="RLw-GZ-y3K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Pt-aR-rX1" secondAttribute="trailing" constant="-20" id="Vas-9r-c1W"/>
                             <constraint firstItem="VP3-lZ-g7i" firstAttribute="top" secondItem="5Pt-aR-rX1" secondAttribute="bottom" id="ckM-cZ-Qq9"/>
@@ -907,11 +902,14 @@
                             <constraint firstItem="VP3-lZ-g7i" firstAttribute="leading" secondItem="v6c-Kb-Q7b" secondAttribute="leadingMargin" constant="-20" id="l9o-st-7hq"/>
                             <constraint firstItem="5Pt-aR-rX1" firstAttribute="top" secondItem="XQQ-KP-l8k" secondAttribute="bottom" id="lUr-f4-Ybn"/>
                             <constraint firstItem="5Pt-aR-rX1" firstAttribute="leading" secondItem="v6c-Kb-Q7b" secondAttribute="leadingMargin" constant="-20" id="xRB-mC-aL6"/>
+                            <constraint firstItem="VP3-lZ-g7i" firstAttribute="top" secondItem="5Pt-aR-rX1" secondAttribute="bottom" constant="44" id="zKa-xE-o7n"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="BOr-6J-NcZ"/>
+                                <exclude reference="O9K-zC-hGH"/>
                                 <exclude reference="ckM-cZ-Qq9"/>
+                                <exclude reference="zKa-xE-o7n"/>
                             </mask>
                         </variation>
                     </view>

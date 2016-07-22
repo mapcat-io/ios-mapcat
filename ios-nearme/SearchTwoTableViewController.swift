@@ -25,6 +25,10 @@ class SearchTwoTableViewController: UITableViewController {
         print("SearchTwoTableViewController Loaded")
         
     }
+    
+//    override func viewWillAppear(animated: Bool) {
+//        self.navigationController?.navigationBarHidden = true // hide to keep cell spacing in tact
+//    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
