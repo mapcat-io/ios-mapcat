@@ -21,7 +21,6 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
     var results: [JSON] = []
     var q: String = ""
     var currentLocation: CLLocationCoordinate2D!
-    var counter: Int = -1
 
     override func viewDidLoad() {
         searchTwoTableContainerView.alpha = 0 // set the container view to alpha zero with no results
@@ -48,7 +47,6 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SearchResultsSegue" {
             if let destination = segue.destinationViewController as? SearchThreeViewController, let annotationView = sender as? MKPinAnnotationView {
-                destination.annotation = annotationView.annotation as! MKPointAnnotation
                 destination.result = self.results[Int(annotationView.reuseIdentifier!)!]
                 destination.q = self.q
             }
@@ -66,14 +64,15 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                         toView.tableView.reloadData()
                         self.searchTwoTableContainerView.alpha = 1 // display container view now with results
                         // add map pins to mapView
+                        var counter: Int = 0
                         for (_, subJson) in JSONObject["items"] {
                             let lat = subJson["locations"][0]["lat"].double
                             let long = subJson["locations"][0]["long"].double
                             let pinLocation = CLLocationCoordinate2DMake(lat!, long!)
-                            let dropPin = MKPointAnnotation()
-                            dropPin.title = String(subJson["_id"])// subJson["_id"].string
-                            dropPin.coordinate = pinLocation
+                            let title = subJson["_id"].string
+                            let dropPin = CustomAnnotation(coordinate: pinLocation, title: title!, id: String(counter))
                             self.mapView.addAnnotation(dropPin)
+                            counter += 1
                         }
                 
                     }
@@ -85,8 +84,27 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        var scrollOffset = scrollView.contentOffset.y
+        var headerFrame = searchTwoTableContainerView.frame
+        if (scrollOffset < 0) {
+            // Adjust container
+            headerFrame = CGRect(x: searchTwoTableContainerView.frame.origin.x,
+                                 y: searchTwoTableContainerView.frame.origin.y,
+                                 width: searchTwoTableContainerView.frame.size.width,
+                                 height: -scrollOffset)
+        } else {
+            // Adjust container
+            headerFrame = CGRect(x: searchTwoTableContainerView.frame.origin.x,
+                                 y: searchTwoTableContainerView.frame.origin.y,
+                                 width: searchTwoTableContainerView.frame.size.width,
+                                 height: 0)
+        }
+        searchTwoTableContainerView.frame = headerFrame
+    }
+    
     // MARK: MKMapView Helper Methods
-    let regionRadius: CLLocationDistance = 2000
+    let regionRadius: CLLocationDistance = 1000
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius * 3.0, regionRadius * 3.0)
@@ -99,8 +117,10 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
-
-        let identifier: String = String(counter)
+        
+        // to get the identifier of the pin to segue to SearchResultsSegue
+        let customAnnotation = annotation as? CustomAnnotation
+        let identifier = customAnnotation!.id! as String
         
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView
         if annotationView == nil {
@@ -110,10 +130,21 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         } else {
             annotationView?.annotation = annotation
         }
-        counter += 1
-        
         return annotationView
     }
     
 
+}
+
+class CustomAnnotation : NSObject, MKAnnotation {
+    let coordinate: CLLocationCoordinate2D
+    var title: String?
+    var id: String?
+    
+    init(coordinate: CLLocationCoordinate2D, title: String, id: String) {
+        self.coordinate = coordinate
+        self.title = title
+        self.id = id
+        
+    }
 }
