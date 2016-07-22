@@ -837,14 +837,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SearchOneViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYF-FU-jSl">
-                                <rect key="frame" x="96" y="101" width="197" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rsh-Io-UIN">
+                                <rect key="frame" x="-4" y="64" width="383" height="554"/>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6Z-Kg-BmE">
-                                <rect key="frame" x="163" y="149" width="48" height="30"/>
+                                <rect key="frame" x="266" y="114" width="48" height="30"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
                                     <action selector="searchButtonDidTouch:" destination="HhM-Bk-29c" eventType="touchUpInside" id="IKT-2w-Gl9"/>
@@ -852,10 +849,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rsh-Io-UIN" firstAttribute="top" secondItem="vp1-7Y-0W1" secondAttribute="bottom" id="DDw-wv-qHp"/>
+                            <constraint firstItem="5hp-IV-rct" firstAttribute="top" secondItem="rsh-Io-UIN" secondAttribute="bottom" id="K68-tR-1pi"/>
+                            <constraint firstItem="rsh-Io-UIN" firstAttribute="leading" secondItem="dv4-t2-4zJ" secondAttribute="leadingMargin" constant="-20" id="SpP-5b-rVV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rsh-Io-UIN" secondAttribute="trailing" constant="-20" id="aAJ-EA-E9r"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5sl-U3-EUc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="mapView" destination="rsh-Io-UIN" id="VOZ-6N-1n7"/>
                         <segue destination="brW-dF-4zs" kind="show" identifier="SearchResultsSegue" id="5Iw-xZ-egB"/>
                     </connections>
                 </viewController>
@@ -875,29 +879,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SearchTwoViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gaf-XW-jKL">
-                                <rect key="frame" x="89" y="94" width="196" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VP3-lZ-g7i">
                                 <rect key="frame" x="-4" y="331" width="383" height="287"/>
                                 <connections>
                                     <segue destination="Qu1-Bz-lnJ" kind="embed" identifier="SearchResultsEmbeddedSegue" id="h6U-EL-LY9"/>
                                 </connections>
                             </containerView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Pt-aR-rX1">
+                                <rect key="frame" x="-4" y="64" width="383" height="315"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SearchTwoViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gaf-XW-jKL">
+                                <rect key="frame" x="89" y="94" width="196" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="VP3-lZ-g7i" secondAttribute="trailing" constant="-20" id="0Uv-Es-mDz"/>
+                            <constraint firstItem="VP3-lZ-g7i" firstAttribute="top" secondItem="5Pt-aR-rX1" secondAttribute="bottom" id="BOr-6J-NcZ"/>
+                            <constraint firstItem="VP3-lZ-g7i" firstAttribute="top" secondItem="5Pt-aR-rX1" secondAttribute="bottom" constant="-48" id="O9K-zC-hGH"/>
                             <constraint firstItem="Ydd-qZ-Oq1" firstAttribute="top" secondItem="VP3-lZ-g7i" secondAttribute="bottom" id="RLw-GZ-y3K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Pt-aR-rX1" secondAttribute="trailing" constant="-20" id="Vas-9r-c1W"/>
+                            <constraint firstItem="VP3-lZ-g7i" firstAttribute="top" secondItem="5Pt-aR-rX1" secondAttribute="bottom" id="ckM-cZ-Qq9"/>
                             <constraint firstItem="VP3-lZ-g7i" firstAttribute="top" secondItem="XQQ-KP-l8k" secondAttribute="bottom" constant="267" id="eTq-by-1zz"/>
                             <constraint firstItem="VP3-lZ-g7i" firstAttribute="leading" secondItem="v6c-Kb-Q7b" secondAttribute="leadingMargin" constant="-20" id="l9o-st-7hq"/>
+                            <constraint firstItem="5Pt-aR-rX1" firstAttribute="top" secondItem="XQQ-KP-l8k" secondAttribute="bottom" id="lUr-f4-Ybn"/>
+                            <constraint firstItem="5Pt-aR-rX1" firstAttribute="leading" secondItem="v6c-Kb-Q7b" secondAttribute="leadingMargin" constant="-20" id="xRB-mC-aL6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BOr-6J-NcZ"/>
+                                <exclude reference="ckM-cZ-Qq9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="mapView" destination="5Pt-aR-rX1" id="Ed3-zc-Oae"/>
                         <outlet property="searchTwoTableContainerView" destination="VP3-lZ-g7i" id="2u3-nK-Vki"/>
                     </connections>
                 </viewController>

@@ -26,6 +26,10 @@ class SearchThreeViewController: UIViewController {
         nameLabel.text = name
 
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false // show the navigation controller top bar
+    }
 
 
 }

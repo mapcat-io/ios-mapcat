@@ -12,7 +12,10 @@ import Alamofire
 
 class SearchTwoViewController: UIViewController {
     
+    let locationManager = CLLocationManager()
+    
     @IBOutlet weak var searchTwoTableContainerView: UIView!
+    @IBOutlet weak var mapView: MKMapView!
     
     var results: [JSON] = []
     var q: String = ""
@@ -23,6 +26,16 @@ class SearchTwoViewController: UIViewController {
         super.viewDidLoad()
         print("SearchTwoViewController Loaded")
         
+        let lat = locationManager.location?.coordinate.latitude
+        let long = locationManager.location?.coordinate.longitude
+        mapView.showsUserLocation = true
+        let location = CLLocation(latitude: lat!, longitude: long!)
+        centerMapOnLocation(location)
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false // show the navigation controller top bar
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -49,6 +62,14 @@ class SearchTwoViewController: UIViewController {
             }
 
         }
+    }
+    
+    // MARK: MKMapView Helper Methods
+    let regionRadius: CLLocationDistance = 3000
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius * 3.0, regionRadius * 3.0)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
     
 
