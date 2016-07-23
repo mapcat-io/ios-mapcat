@@ -7,37 +7,69 @@
 //
 
 import UIKit
+import MapKit
+import Alamofire
 
 class AddOneTableViewController: UITableViewController {
+    
+    let locationManager = CLLocationManager()
+    
+    var selectedCell: UITableViewCell?
+    var results: JSON = []
+    var topThings: JSON = []
+    var currentLocation: CLLocationCoordinate2D!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let lat = locationManager.location?.coordinate.latitude
+        let long = locationManager.location?.coordinate.longitude
+        
+        Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/places", parameters: ["lat" : lat!, "long": long!])
+            .responseJSON { response in
+                let JSONObject = JSON(response.result.value!)
+                self.results = JSONObject["venues"]
+                self.tableView.reloadData()
+        }
+        // get top things for subsequent view
+        Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/top-things")
+            .responseJSON { response in
+                let JSONObject = JSON(response.result.value!)
+                self.topThings = JSONObject["items"]
+        }
+        
+        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableViewAutomaticDimension
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return results.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("AddOneTableResultCell") as! AddOneTableViewCell!
+        selectedCell = cell
+        let result = results[indexPath.row]
+        cell.configureWithResult(result)
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("AddSubmitSegue", sender: selectedCell)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddSubmitSegue" {
+            let toView = segue.destinationViewController as! AddTwoViewController
+            toView.result = results[self.tableView.indexPathForSelectedRow!.row]
+            toView.topThings = self.topThings
+            
+        }
     }
 
-
+    @IBAction func unwindToPlaces(segue: UIStoryboardSegue) {}
 
 
 }

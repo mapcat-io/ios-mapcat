@@ -24,6 +24,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
 
     override func viewDidLoad() {
         searchTwoTableContainerView.alpha = 0 // set the container view to alpha zero with no results
+        mapView.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexString: "#EEEEEE"), thickness: 2)
         super.viewDidLoad()
         print("SearchTwoViewController Loaded")
         
@@ -73,7 +74,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                             self.mapView.addAnnotation(dropPin)
                             counter += 1
                         }
-                        print(self.results)
+
                         // provide data to view
                         toView.results = self.results
                         // reload view
@@ -118,6 +119,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         } else {
             annotationView?.annotation = annotation
         }
+        annotationView!.image = UIImage(named: "mapcat_face")
         return annotationView
     }
     

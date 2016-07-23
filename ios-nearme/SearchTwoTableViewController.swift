@@ -50,7 +50,6 @@ class SearchTwoTableViewController: UITableViewController {
         if segue.identifier == "SearchDetailsSegue" {
             let toView = segue.destinationViewController as! SearchThreeViewController
             toView.result = results[self.tableView.indexPathForSelectedRow!.row]
-//            toView.currentLocation = currentLocation
         }
     }
 
