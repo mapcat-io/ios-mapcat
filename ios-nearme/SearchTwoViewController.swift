@@ -60,7 +60,6 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                     self.results = JSONObject["items"].arrayValue
                     if JSONObject["items"].count > 0 {
                         let currentLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
-                        print(currentLocation.coordinate)
                         let rawResults: JSON = Utilities.populateDistanceBetween(JSONObject["items"], currentLocation: currentLocation)
                         self.results = rawResults.sort { $0.0.1["distance"].doubleValue < $0.1.1["distance"].doubleValue }.map { $0.1 }
                         //= add map pins to mapView

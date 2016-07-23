@@ -65,6 +65,18 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
             self.performSegueWithIdentifier("SearchResultsSegue", sender: self)
         }
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder()
+        if searchTextField.text == "" {
+            searchBarView.animation = "shake"
+            searchBarView.animate()
+        }
+        else {
+            performSegueWithIdentifier("SearchResultsSegue", sender: self)
+        }
+        return true
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SearchResultsSegue" {
@@ -72,6 +84,10 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
             toView.q = self.searchTextField.text!
             toView.currentLocation = locationManager.location!.coordinate
         }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
     }
     
     // MARK: MKMapView Helper Methods
