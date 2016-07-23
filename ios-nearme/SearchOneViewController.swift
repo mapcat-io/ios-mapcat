@@ -52,6 +52,7 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         // set UUID if new device
         let accounts = Accounts()
         accounts.setDeviceId()
+        print(accounts.getDeviceId())
         
     }
     

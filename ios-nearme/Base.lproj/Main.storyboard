@@ -1244,6 +1244,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Places" id="hcr-Bd-YfZ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="HbP-h7-1hA">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="Pull to Refresh">
+                                <attributes>
+                                    <font key="NSFont" metaFont="smallSystem"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </refreshControl>
                     <connections>
                         <segue destination="QqC-LP-7qK" kind="show" identifier="AddSubmitSegue" id="JlH-3x-Eca"/>
                     </connections>
@@ -1342,7 +1353,7 @@
             </objects>
             <point key="canvasLocation" x="-613.5" y="-2848.5"/>
         </scene>
-        <!--Profile One View Controller-->
+        <!--Profile-->
         <scene sceneID="fst-aw-DPv">
             <objects>
                 <viewController id="aYd-Tm-ewI" customClass="ProfileOneViewController" customModule="Mapcat" customModuleProvider="target" sceneMemberID="viewController">
@@ -1353,17 +1364,9 @@
                     <view key="view" contentMode="scaleToFill" id="SFo-WB-gMb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ProfileOneViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJj-VC-XpX">
-                                <rect key="frame" x="91" y="104" width="192" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zND-hq-jSi"/>
+                    <navigationItem key="navigationItem" title="Profile" id="zND-hq-jSi"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGn-fr-gxa" userLabel="First Responder" sceneMemberID="firstResponder"/>

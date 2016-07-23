@@ -69,7 +69,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                             let lat = item["locations"][0]["lat"].double
                             let long = item["locations"][0]["long"].double
                             let pinLocation = CLLocationCoordinate2DMake(lat!, long!)
-                            let title = item["_id"].string
+                            let title = item["_id"]["name"].string
                             let dropPin = CustomAnnotation(coordinate: pinLocation, title: title!, id: String(counter))
                             self.mapView.addAnnotation(dropPin)
                             counter += 1
@@ -102,7 +102,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
     
     
     // MARK: MKMapView Helper Methods
-    let regionRadius: CLLocationDistance = 1000
+    let regionRadius: CLLocationDistance = 3000
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius * 3.0, regionRadius * 3.0)

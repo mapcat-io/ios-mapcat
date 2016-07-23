@@ -22,7 +22,7 @@ class SearchThreeViewController: UIViewController {
         print("SearchThreeViewController Loaded")
         
         // set data
-        let name = result["_id"].string ?? nil
+        let name = result["_id"]["name"].string ?? nil
         
         // set to UI
         nameLabel.text = name

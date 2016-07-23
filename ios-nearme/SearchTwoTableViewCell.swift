@@ -18,7 +18,7 @@ class SearchTwoTableViewCell: UITableViewCell {
     func configureWithResult(result: JSON) {
         
         // set data
-        let name = result["_id"].string ?? nil
+        let name = result["_id"]["name"].string ?? nil
         let distance = result["distance"].double ?? nil
         let things = Utilities.joinArrayWithSeparator(result["things"], separator: ", ").capitalizedString
         
