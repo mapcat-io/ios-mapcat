@@ -11,15 +11,21 @@ import MapKit
 
 class SearchTwoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var thingsLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
     func configureWithResult(result: JSON) {
         
         // set data
         let name = result["_id"].string ?? nil
+        let distance = result["distance"].double ?? nil
+        let things = Utilities.joinArrayWithSeparator(result["things"], separator: ", ")
         
         // set to UI
         nameLabel.text = name
+        distanceLabel.text = String(format: "%.1f mi", distance! * 0.000621371)
+        thingsLabel.text = things
     }
 
 }
