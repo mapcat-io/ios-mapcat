@@ -1028,9 +1028,11 @@
                         <outlet property="navTitle" destination="TBi-gZ-PVX" id="3su-iB-ZNb"/>
                         <outlet property="searchTwoTableContainerView" destination="VP3-lZ-g7i" id="2u3-nK-Vki"/>
                         <segue destination="cie-oc-3WJ" kind="show" identifier="SearchResultsSegue" id="KBl-7Q-T49"/>
+                        <segue destination="OY0-uS-0hB" kind="unwind" identifier="unwindToSearch" unwindAction="unwindToSearch:" id="iT3-5k-1sG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQx-DY-Xa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="OY0-uS-0hB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-682.5" y="-5421.5"/>
         </scene>
@@ -1444,7 +1446,7 @@
         <image name="search_icon_lg" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rPv-lH-h1G"/>
+        <segue reference="KBl-7Q-T49"/>
         <segue reference="9G2-gw-lmH"/>
         <segue reference="vTY-MY-wgd"/>
     </inferredMetricsTieBreakers>

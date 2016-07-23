@@ -19,6 +19,7 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     var q: String = ""
     var currentLocation: CLLocationCoordinate2D!
+    var triggerKeyboard: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +42,12 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         let location = CLLocation(latitude: lat!, longitude: long!)
         centerMapOnLocation(location)
         
+        // q to nil
+        q = ""
         // handle keyboard delegate
         self.searchTextField.delegate = self
         self.searchTextField.returnKeyType = UIReturnKeyType.Go
+        searchTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
         
         // set UUID if new device
         let accounts = Accounts()
@@ -53,6 +57,11 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true // hide the navigation controller top bar
+        // trigger keyboard if needed
+        if triggerKeyboard == true {
+            self.searchTextField.becomeFirstResponder()
+            triggerKeyboard = false
+        }
     }
     
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
@@ -86,6 +95,8 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         }
     }
     
+    @IBAction func unwindToSearch(segue: UIStoryboardSegue) {}
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
     }
@@ -97,6 +108,5 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
                                                                   regionRadius * 3.0, regionRadius * 3.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-    
 
 }

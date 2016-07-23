@@ -84,10 +84,19 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                 
                     }
                     else {
-                        print("No Results")
+                        //= no results
+                        let alertController = UIAlertController(title: "😿", message:
+                            "There are no results.", preferredStyle: UIAlertControllerStyle.Alert)
+                        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("unwindToSearch", sender: self) }))
+                        self.presentViewController(alertController, animated: true, completion: nil)
                     }
             }
 
+        }
+        if segue.identifier == "unwindToSearch" {
+            let toView = segue.destinationViewController as! SearchOneViewController
+            toView.triggerKeyboard = true
+            toView.q = ""
         }
     }
     

@@ -71,5 +71,4 @@ class AddOneTableViewController: UITableViewController {
 
     @IBAction func unwindToPlaces(segue: UIStoryboardSegue) {}
 
-
 }
