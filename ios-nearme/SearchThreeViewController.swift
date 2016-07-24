@@ -19,7 +19,6 @@ class SearchThreeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("SearchThreeViewController Loaded")
         
         // set data
         let name = result["_id"]["name"].string ?? nil

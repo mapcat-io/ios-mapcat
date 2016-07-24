@@ -23,7 +23,6 @@ class AddOneTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("view did appear")
         
         self.refreshControl?.addTarget(self, action: #selector(AddOneTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         

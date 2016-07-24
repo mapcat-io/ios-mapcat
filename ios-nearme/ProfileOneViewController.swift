@@ -21,13 +21,7 @@ class ProfileOneViewController: FormViewController {
         let sourceDeviceId: AnyObject = (accounts.getDeviceId() as? AnyObject)!
         let deviceId: String = (accounts.getDeviceId() ?? "No Id Set")!
         super.viewDidLoad()
-        
-        form +++ Section("Account")
-            <<< TextRow(){ row in
-                row.title = deviceId
-                row.disabled = true
-        }
-        
+        print(deviceId)
         // get rank
         Alamofire.request(.GET, "http://www.mapcat.io/api/v2/item-stats")
             .responseJSON { response in
@@ -37,13 +31,13 @@ class ProfileOneViewController: FormViewController {
                 var rank: String = ""
                 for (key, subJson) in self.itemStats {
                     if subJson["_id"].string == deviceId {
-                        rank = key
+                        rank = String(Int(key)! + 1)
                     }
                 }
                 // display in UI
                 self.form +++ Section("Rank")
                     <<< TextRow(){ row in
-                        row.title = rank != "" ? rank : "Unknown"
+                        row.title = rank != "" ? rank : "Add items to start ranking"
                         row.disabled = true
                     }
                 // get stats
@@ -52,9 +46,13 @@ class ProfileOneViewController: FormViewController {
                         let JSONObject = JSON(response.result.value!)
                         self.profileStats = JSONObject["items"][0]
                         // set data
-                        let itemCount = String(self.profileStats["count"]) ?? "Unknown"
+                        var itemCount = String(self.profileStats["count"])
+                        if itemCount == "null" {
+                            itemCount = "0"
+                        }
+                        
                         let places = self.profileStats["places"] ?? []
-                        let placesCount = String(self.profileStats["places"].count) ?? "Unknown"
+                        let placesCount = String(self.profileStats["places"].count) ?? "None"
                         // display in UI
                         self.form +++ Section("Items Added")
                             <<< TextRow(){ row in
@@ -66,11 +64,20 @@ class ProfileOneViewController: FormViewController {
                                 row.title = placesCount
                                 row.disabled = true
                             }
-                            +++ Section("Places")
-                        for place in places {
-                            self.form.last! <<< TextRow(){ row in
-                                row.title = place.1.string
-                                row.disabled = true
+                        if places.isEmpty {
+                            self.form +++ Section("Places")
+                                self.form.last! <<< TextRow(){ row in
+                                    row.title = "No places added to"
+                                    row.disabled = true
+                            }
+                        }
+                        else {
+                            self.form +++ Section("Places")
+                            for place in places {
+                                self.form.last! <<< TextRow(){ row in
+                                    row.title = place.1.string
+                                    row.disabled = true
+                                }
                             }
                         }
                 }

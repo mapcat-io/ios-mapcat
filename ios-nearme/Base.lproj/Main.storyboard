@@ -1157,7 +1157,7 @@
             <objects>
                 <tabBarController id="p5c-Wg-i6P" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="c6b-qR-mYa">
+                    <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="centered" id="c6b-qR-mYa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1411,11 +1411,11 @@
             </objects>
             <point key="canvasLocation" x="-1700.5" y="-4456.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
         <scene sceneID="n6b-we-1ob">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cCI-7S-uiE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="u7B-eZ-yNi"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile-icon-normal" id="u7B-eZ-yNi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bTA-Vq-oI1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1438,6 +1438,7 @@
         <image name="arrow_left" width="13" height="23"/>
         <image name="arrow_right_cell" width="8" height="13"/>
         <image name="line" width="375" height="1"/>
+        <image name="profile-icon-normal" width="24" height="25"/>
         <image name="search-bar" width="331" height="64"/>
         <image name="search-bar-button-icon-redesign" width="22" height="23"/>
         <image name="search-bar-button-redesign" width="49" height="64"/>

@@ -23,20 +23,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainTabBar = mainTabController.tabBar
         let searchTab: UITabBarItem = mainTabBar.items![0] as UITabBarItem
         let addTab: UITabBarItem = mainTabBar.items![1] as UITabBarItem
+        let profileTab: UITabBarItem = mainTabBar.items![2] as UITabBarItem
         let white = UIColor.whiteColor()
 
         let attributes = [
             NSForegroundColorAttributeName : UIColor.whiteColor(),
         ]
         
+        mainTabBar.backgroundImage = UIImage(named:"background-tabbar")!.resizableImageWithCapInsets(UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8), resizingMode: .Stretch)
+        
         mainTabController.tabBar.barTintColor = UIColor(red:0.92, green:0.36, blue:0.56, alpha:0.7)
+        mainTabController.tabBar.translucent = true
         mainTabController.tabBar.tintColor = white.colorWithAlphaComponent(0.7)
         
-        searchTab.selectedImage = UIImage(named:"search-icon-selected-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        searchTab.image = UIImage(named:"search-icon-normal-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        searchTab.selectedImage = UIImage(named:"search-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        searchTab.image = UIImage(named:"search-icon-normal")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
-        addTab.selectedImage = UIImage(named:"add-icon-selected-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        addTab.image = UIImage(named:"add-icon-normal-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        addTab.selectedImage = UIImage(named:"add-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        addTab.image = UIImage(named:"add-icon-normal")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        
+        profileTab.selectedImage = UIImage(named:"profile-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        profileTab.image = UIImage(named:"profile-icon-normal")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
         for item in mainTabBar.items! as [UITabBarItem] {
             item.setTitleTextAttributes(attributes, forState: .Normal)

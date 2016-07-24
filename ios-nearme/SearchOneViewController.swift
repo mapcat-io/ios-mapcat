@@ -23,7 +23,6 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("SearchOneViewController Loaded")
         
         // ask for authorization
         self.locationManager.requestAlwaysAuthorization()
@@ -42,8 +41,6 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         let location = CLLocation(latitude: lat!, longitude: long!)
         centerMapOnLocation(location)
         
-        // q to nil
-        q = ""
         // handle keyboard delegate
         self.searchTextField.delegate = self
         self.searchTextField.returnKeyType = UIReturnKeyType.Go
@@ -52,7 +49,6 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         // set UUID if new device
         let accounts = Accounts()
         accounts.setDeviceId()
-        print(accounts.getDeviceId())
         
     }
     
@@ -103,7 +99,7 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     }
     
     // MARK: MKMapView Helper Methods
-    let regionRadius: CLLocationDistance = 3000
+    let regionRadius: CLLocationDistance = 5000
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius * 3.0, regionRadius * 3.0)

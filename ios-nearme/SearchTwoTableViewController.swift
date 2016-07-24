@@ -22,7 +22,6 @@ class SearchTwoTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("SearchTwoTableViewController Loaded")
         
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension

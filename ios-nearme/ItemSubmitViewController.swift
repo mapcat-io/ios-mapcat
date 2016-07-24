@@ -90,8 +90,6 @@ class ItemSubmitViewController: FormViewController {
         parameters["foursquare"] = result.object ?? "not set"
         parameters["items"] = items
         
-        print(parameters["items"])
-        
         Alamofire.request(.POST, "http://www.mapcat.io/api/prototype/post-items", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
                 switch response.result {

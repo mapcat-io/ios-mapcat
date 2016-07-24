@@ -54,7 +54,6 @@ class SearchViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             searchBarView.animate()
         }
         else {
-            print("button touched")
             performSegueWithIdentifier("SearchResultsSegue", sender: self)
         }
     }
