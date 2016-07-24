@@ -69,6 +69,7 @@
 		94790B491D4313B800A9991D /* CALayer+BorderSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94790B481D4313B800A9991D /* CALayer+BorderSide.swift */; };
 		94790B4B1D43160E00A9991D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94790B4A1D43160E00A9991D /* UIColor+Hex.swift */; };
 		94790B4F1D4319D200A9991D /* AddOneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94790B4E1D4319D200A9991D /* AddOneTableViewCell.swift */; };
+		947C83C51D457A8600B0E90E /* SearchThreeFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C83C41D457A8600B0E90E /* SearchThreeFormViewController.swift */; };
 		94B65C501D2ACD4B00E1CDB2 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B65C4F1D2ACD4B00E1CDB2 /* PlacesTableViewController.swift */; };
 		94B65C521D2AD27900E1CDB2 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B65C511D2AD27900E1CDB2 /* PlaceTableViewCell.swift */; };
 		94B65C541D2ADF6F00E1CDB2 /* ItemSubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B65C531D2ADF6F00E1CDB2 /* ItemSubmitViewController.swift */; };
@@ -177,6 +178,7 @@
 		94790B481D4313B800A9991D /* CALayer+BorderSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+BorderSide.swift"; sourceTree = "<group>"; };
 		94790B4A1D43160E00A9991D /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		94790B4E1D4319D200A9991D /* AddOneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOneTableViewCell.swift; sourceTree = "<group>"; };
+		947C83C41D457A8600B0E90E /* SearchThreeFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchThreeFormViewController.swift; sourceTree = "<group>"; };
 		94B65C4F1D2ACD4B00E1CDB2 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		94B65C511D2AD27900E1CDB2 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		94B65C531D2ADF6F00E1CDB2 /* ItemSubmitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSubmitViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				94372F591D427EE4000CE273 /* SearchTwoTableViewController.swift */,
 				94372F5B1D4280E5000CE273 /* SearchTwoTableViewCell.swift */,
 				94372F551D427C07000CE273 /* SearchThreeViewController.swift */,
+				947C83C41D457A8600B0E90E /* SearchThreeFormViewController.swift */,
 				94372F511D4276B2000CE273 /* AddOneTableViewController.swift */,
 				94790B4E1D4319D200A9991D /* AddOneTableViewCell.swift */,
 				94372F531D427841000CE273 /* AddTwoViewController.swift */,
@@ -574,6 +577,7 @@
 				6C2322B41BD1A15200D4ACBA /* Spring.swift in Sources */,
 				94790B4F1D4319D200A9991D /* AddOneTableViewCell.swift in Sources */,
 				6C2322B31BD1A15200D4ACBA /* SoundPlayer.swift in Sources */,
+				947C83C51D457A8600B0E90E /* SearchThreeFormViewController.swift in Sources */,
 				6C2322AC1BD1A15200D4ACBA /* DesignableView.swift in Sources */,
 				6C2322A91BD1A15200D4ACBA /* DesignableTabBarController.swift in Sources */,
 				94B65C501D2ACD4B00E1CDB2 /* PlacesTableViewController.swift in Sources */,

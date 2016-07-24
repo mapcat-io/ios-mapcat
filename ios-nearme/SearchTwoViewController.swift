@@ -24,7 +24,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
 
     override func viewDidLoad() {
         searchTwoTableContainerView.alpha = 0 // set the container view to alpha zero with no results
-        mapView.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexString: "#EEEEEE"), thickness: 2)
+        mapView.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexString: "#CECED2"), thickness: 2)
         super.viewDidLoad()
         
         mapView.delegate = self
