@@ -21,7 +21,6 @@ class ProfileOneViewController: FormViewController {
         let sourceDeviceId: AnyObject = (accounts.getDeviceId() as? AnyObject)!
         let deviceId: String = (accounts.getDeviceId() ?? "No Id Set")!
         super.viewDidLoad()
-        print(deviceId)
         // get rank
         Alamofire.request(.GET, "http://www.mapcat.io/api/v2/item-stats")
             .responseJSON { response in
@@ -39,6 +38,7 @@ class ProfileOneViewController: FormViewController {
                     <<< TextRow(){ row in
                         row.title = rank != "" ? rank : "Add items to start ranking"
                         row.disabled = true
+                        row.textFieldPercentage = 0.0
                     }
                 // get stats
                 Alamofire.request(.GET, "http://www.mapcat.io/api/v2/item-stats", parameters: ["t" : "profile", "u": sourceDeviceId])
@@ -58,17 +58,20 @@ class ProfileOneViewController: FormViewController {
                             <<< TextRow(){ row in
                                 row.title = itemCount
                                 row.disabled = true
+                                row.textFieldPercentage = 0.0
                             }
                             +++ Section("Places Added To")
                             <<< TextRow(){ row in
                                 row.title = placesCount
                                 row.disabled = true
+                                row.textFieldPercentage = 0.0
                             }
                         if places.isEmpty {
                             self.form +++ Section("Places")
                                 self.form.last! <<< TextRow(){ row in
                                     row.title = "No places added to"
                                     row.disabled = true
+                                    row.textFieldPercentage = 0.0
                             }
                         }
                         else {
@@ -77,6 +80,7 @@ class ProfileOneViewController: FormViewController {
                                 self.form.last! <<< TextRow(){ row in
                                     row.title = place.1.string
                                     row.disabled = true
+                                    row.textFieldPercentage = 0.0
                                 }
                             }
                         }

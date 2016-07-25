@@ -73,7 +73,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                             self.mapView.addAnnotation(dropPin)
                             counter += 1
                         }
-
+    
                         // provide data to view
                         toView.results = self.results
                         // reload view

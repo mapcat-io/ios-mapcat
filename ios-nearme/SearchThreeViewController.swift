@@ -9,11 +9,13 @@
 import UIKit
 import MapKit
 import Contacts
+import Alamofire
 
 class SearchThreeViewController: UIViewController, MKMapViewDelegate {
     
     let locationManager = CLLocationManager()
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var navTitle: UINavigationItem!
     @IBOutlet weak var nameLabel: UILabel!
@@ -80,6 +82,14 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func directionsButtonDidTouch(sender: AnyObject) {
         launchMaps()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "FormEmbeddedSegue" {
+            let toView = segue.destinationViewController as! SearchThreeFormViewController
+            toView.items = self.result["things"]
+            
+        }
     }
     
     // MARK: MKMapView Helper Methods

@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import KeychainAccess
+import Accounts
 
 class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITextFieldDelegate {
     
@@ -22,7 +24,10 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     var triggerKeyboard: Bool = false
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        // set UUID if new device
+        let accounts = Accounts()
+        accounts.setDeviceId()
         
         // ask for authorization
         self.locationManager.requestAlwaysAuthorization()
@@ -35,21 +40,37 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
             locationManager.startUpdatingLocation()
         }
         
-        let lat = locationManager.location?.coordinate.latitude
-        let long = locationManager.location?.coordinate.longitude
-        mapView.showsUserLocation = true
-        let location = CLLocation(latitude: lat!, longitude: long!)
-        centerMapOnLocation(location)
+        super.viewDidLoad()
         
         // handle keyboard delegate
         self.searchTextField.delegate = self
         self.searchTextField.returnKeyType = UIReturnKeyType.Go
         searchTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
         
-        // set UUID if new device
-        let accounts = Accounts()
-        accounts.setDeviceId()
-        
+    }
+    
+    // handles success/failure of location authorization
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if (status == CLAuthorizationStatus.Denied) {
+            // The user denied authorization
+            print("Denied Access")
+            let alertController = UIAlertController(title: "😿", message:
+                "We need your location to find things around you.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Enable in Settings", style: UIAlertActionStyle.Default, handler:  { action in
+                if let settingsURL = NSURL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.sharedApplication().openURL(settingsURL)
+                }
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else if (status == CLAuthorizationStatus.AuthorizedAlways) {
+            // User accepted authorization
+            print("ok")
+            let lat = locationManager.location?.coordinate.latitude
+            let long = locationManager.location?.coordinate.longitude
+            mapView.showsUserLocation = true
+            let location = CLLocation(latitude: lat!, longitude: long!)
+            centerMapOnLocation(location)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -105,5 +126,6 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
                                                                   regionRadius * 3.0, regionRadius * 3.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
 
 }

@@ -9,16 +9,21 @@
 import UIKit
 import Eureka
 
-class SearchThreeFormViewController: UIViewController {
-
+class SearchThreeFormViewController: FormViewController {
+    
+    var items: JSON = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-            +++ Section("Places Added To")
-            <<< TextRow(){ row in
-                row.title = placesCount
-                row.disabled = true
-        }
+
+            form +++ Section("Items Matching Your Search")
+            for item in self.items {
+                self.form.last! <<< TextRow() {
+                    $0.title = String(item.1).capitalizedString
+                    $0.disabled = true
+                    $0.textFieldPercentage = 0.0
+                }
+            }
         
     }
     

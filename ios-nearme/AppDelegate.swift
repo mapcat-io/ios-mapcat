@@ -36,11 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainTabController.tabBar.translucent = true
         mainTabController.tabBar.tintColor = white.colorWithAlphaComponent(0.7)
         
-        searchTab.selectedImage = UIImage(named:"search-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        searchTab.image = UIImage(named:"search-icon-normal")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        searchTab.selectedImage = UIImage(named:"search-icon-selected-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        searchTab.image = UIImage(named:"search-icon-normal-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
-        addTab.selectedImage = UIImage(named:"add-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        addTab.image = UIImage(named:"add-icon-normal")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        addTab.selectedImage = UIImage(named:"add-icon-selected-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        addTab.image = UIImage(named:"add-icon-normal-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
         profileTab.selectedImage = UIImage(named:"profile-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         profileTab.image = UIImage(named:"profile-icon-normal")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
