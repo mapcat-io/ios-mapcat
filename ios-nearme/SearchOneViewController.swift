@@ -49,30 +49,6 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         
     }
     
-    // handles success/failure of location authorization
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == CLAuthorizationStatus.Denied) {
-            // The user denied authorization
-            print("Denied Access")
-            let alertController = UIAlertController(title: "😿", message:
-                "We need your location to find things around you.", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Enable in Settings", style: UIAlertActionStyle.Default, handler:  { action in
-                if let settingsURL = NSURL(string: UIApplicationOpenSettingsURLString) {
-                    UIApplication.sharedApplication().openURL(settingsURL)
-                }
-            }))
-            self.presentViewController(alertController, animated: true, completion: nil)
-        } else if (status == CLAuthorizationStatus.AuthorizedAlways) {
-            // User accepted authorization
-            print("ok")
-            let lat = locationManager.location?.coordinate.latitude
-            let long = locationManager.location?.coordinate.longitude
-            mapView.showsUserLocation = true
-            let location = CLLocation(latitude: lat!, longitude: long!)
-            centerMapOnLocation(location)
-        }
-    }
-    
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true // hide the navigation controller top bar
         // trigger keyboard if needed
@@ -80,6 +56,12 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
             self.searchTextField.becomeFirstResponder()
             triggerKeyboard = false
         }
+        // update location
+//        let lat = locationManager.location?.coordinate.latitude
+//        let long = locationManager.location?.coordinate.longitude
+//        mapView.showsUserLocation = true
+//        let location = CLLocation(latitude: lat!, longitude: long!)
+//        centerMapOnLocation(location)
     }
     
     @IBAction func searchButtonDidTouch(sender: AnyObject) {
@@ -126,6 +108,33 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
                                                                   regionRadius * 3.0, regionRadius * 3.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
+    // handles success/failure of location authorization
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if (status == CLAuthorizationStatus.Denied) {
+            // The user denied authorization
+            let alertController = UIAlertController(title: "😿", message:
+                "We need your location to find things around you.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Enable in Settings", style: UIAlertActionStyle.Default, handler:  { action in
+                if let settingsURL = NSURL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.sharedApplication().openURL(settingsURL)
+                }
+            }))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else if (status == CLAuthorizationStatus.AuthorizedAlways) {
+            // User accepted authorization
+            let lat = locationManager.location?.coordinate.latitude
+            let long = locationManager.location?.coordinate.longitude
+//            mapView.showsUserLocation = true
+            mapView.showsUserLocation = (status == .AuthorizedAlways)
+            let location = CLLocation(latitude: lat!, longitude: long!)
+            centerMapOnLocation(location)
+        }
+    }
+    
+//    func locationManager(manager:CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        // needed to update map on return
+//    }
     
 
 }
