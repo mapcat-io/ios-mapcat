@@ -19,11 +19,17 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     @IBOutlet weak var searchTextField: DesignableTextField!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var searchBarHeightConstraint: NSLayoutConstraint!
+    
     var q: String = ""
     var currentLocation: CLLocationCoordinate2D!
     var triggerKeyboard: Bool = false
     
     override func viewDidLoad() {
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchOneViewController.keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchOneViewController.keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
         
         // set UUID if new device
         let accounts = Accounts()
@@ -51,6 +57,10 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true // hide the navigation controller top bar
+        
+        searchBarView.animation = "zoomIn"
+        searchBarView.animate()
+        
         // trigger keyboard if needed
         if triggerKeyboard == true {
             self.searchTextField.becomeFirstResponder()
@@ -99,6 +109,16 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
+    }
+    
+    func keyboardWillShow(notification:NSNotification) {
+        // keyboard will show
+//        searchBarHeightConstraint.constant = 44
+    }
+    
+    func keyboardWillHide(notification:NSNotification) {
+        // keyboard will hide
+//        searchBarHeightConstraint.constant = 88
     }
     
     // MARK: MKMapView Helper Methods

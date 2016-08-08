@@ -964,6 +964,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="mapView" destination="rsh-Io-UIN" id="VOZ-6N-1n7"/>
+                        <outlet property="searchBarHeightConstraint" destination="aHD-bU-Uam" id="v0X-h2-9vV"/>
                         <outlet property="searchBarView" destination="UuI-Rd-e0E" id="bww-Tz-gmF"/>
                         <outlet property="searchTextField" destination="7m7-cN-aoU" id="D0D-KW-fPW"/>
                         <segue destination="brW-dF-4zs" kind="show" identifier="SearchResultsSegue" id="5Iw-xZ-egB"/>
