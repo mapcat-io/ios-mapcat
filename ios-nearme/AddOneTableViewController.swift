@@ -80,7 +80,9 @@ class AddOneTableViewController: UITableViewController {
     @IBAction func unwindToPlaces(segue: UIStoryboardSegue) {}
     
     func refresh(sender:AnyObject) {
-        // Updating your data here...
+        // Updating data on pull to refresh
+        lat = (locationManager.location?.coordinate.latitude)!
+        long = (locationManager.location?.coordinate.longitude)!
         Alamofire.request(.GET, "http://www.mapcat.io/api/v2/places", parameters: ["lat" : lat, "long": long])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)

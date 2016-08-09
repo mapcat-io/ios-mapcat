@@ -15,16 +15,22 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
     
     let locationManager = CLLocationManager()
     
+    @IBOutlet weak var yelpButton: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var navTitle: UINavigationItem!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     
+    @IBOutlet weak var contentHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var yelpButtonHeightConstraint: NSLayoutConstraint!
+    
     var result: JSON = []
+    var placeItems: [JSON] = []
     var q: String = ""
     var annotation = MKPointAnnotation()
     var currentLocation: CLLocationCoordinate2D!
+    var yelpUrl: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,18 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
         let address = result["_id"]["street"].string ?? nil
         let lat = result["locations"][0]["lat"].double ?? nil
         let long = result["locations"][0]["long"].double ?? nil
+        yelpUrl = result["locations"][0]["yelpUrl"].string ?? nil
+        
+        // update layout for non-existent values (baseline assumes values exist)
+        if (address == nil) {
+            addressLabel.removeFromSuperview()
+            yelpButtonHeightConstraint.constant = 16
+            contentHeightConstraint.constant -= 28
+        }
+        if (yelpUrl == nil) {
+            yelpButton.removeFromSuperview()
+            contentHeightConstraint.constant -= 48
+        }
         
         let userLat = self.locationManager.location?.coordinate.latitude
         let userLong = self.locationManager.location?.coordinate.longitude
@@ -73,6 +91,7 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
         navTitle.title = name
         nameLabel.text = name
         addressLabel.text = address
+        
 
     }
     
@@ -84,11 +103,20 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
         launchMaps()
     }
     
+    @IBAction func yelpButtonDidTouch(sender: AnyObject) {
+        if (self.yelpUrl != nil) {
+            UIApplication.sharedApplication().openURL(NSURL(string: self.yelpUrl!)!)
+        }
+        else {
+            // do nothing
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "FormEmbeddedSegue" {
             let toView = segue.destinationViewController as! SearchThreeFormViewController
             toView.items = self.result["things"]
-            
+            toView.name = (self.result["_id"]["name"].string ?? nil)!
         }
     }
     
