@@ -106,12 +106,12 @@ class AddTwoViewController: FormViewController {
 
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SubmitItemsSegue" {
-            let toView = segue.destinationViewController as! PlacesTableViewController
-            
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "SubmitItemsSegue" {
+//            let toView = segue.destinationViewController as! PlacesTableViewController
+//            
+//        }
+//    }
     
     func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source: S) -> [T] {
         var buffer = [T]()

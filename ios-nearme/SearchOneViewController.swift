@@ -36,7 +36,7 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         accounts.setDeviceId()
         
         // ask for authorization
-        self.locationManager.requestAlwaysAuthorization()
+//        self.locationManager.requestAlwaysAuthorization() // don't request this set of permissions
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         // update location
@@ -141,12 +141,12 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
                 }
             }))
             self.presentViewController(alertController, animated: true, completion: nil)
-        } else if (status == CLAuthorizationStatus.AuthorizedAlways) {
+        } else if (status == CLAuthorizationStatus.AuthorizedWhenInUse) {
             // User accepted authorization
             let lat = locationManager.location?.coordinate.latitude
             let long = locationManager.location?.coordinate.longitude
 //            mapView.showsUserLocation = true
-            mapView.showsUserLocation = (status == .AuthorizedAlways)
+            mapView.showsUserLocation = (status == .AuthorizedWhenInUse)
             let location = CLLocation(latitude: lat!, longitude: long!)
             centerMapOnLocation(location)
         }
