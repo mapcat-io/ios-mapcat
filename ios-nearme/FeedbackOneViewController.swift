@@ -13,7 +13,7 @@ class FeedbackOneViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBOutlet weak var emotionPickerView: UIPickerView!
     @IBOutlet weak var becauseTextView: UITextView!
     
-    var emotionDataSource = ["White", "Red", "Green", "Blue"];
+    var emotionDataSource = ["I'm ...", "I'm annoyed", "I'm surprised", "I'm disappointed", "I'm happy", "I just wanna tell you" ];
     
     override func viewDidLoad() {
         super.viewDidLoad()

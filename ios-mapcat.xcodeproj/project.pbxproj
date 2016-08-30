@@ -65,7 +65,6 @@
 		B68A21D38D3B9A25887550C1 /* Pods_Mapcat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FEA567F155120E6C47DB1A /* Pods_Mapcat.framework */; };
 		BD11B57A1D5977D9009BDA0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD11B5791D5977D9009BDA0D /* Assets.xcassets */; };
 		BD35A8F51CFFDAA40097C901 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD35A8F41CFFDAA40097C901 /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		BD579B5A1D738C9100973497 /* FeedbackForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD579B591D738C9100973497 /* FeedbackForm.swift */; };
 		BD579B5C1D73A37200973497 /* FeedbackOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD579B5B1D73A37200973497 /* FeedbackOneViewController.swift */; };
 		BD579B5E1D73B6C800973497 /* FeedbackTwoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD579B5D1D73B6C800973497 /* FeedbackTwoFormViewController.swift */; };
 /* End PBXBuildFile section */
@@ -167,7 +166,6 @@
 		AB59BEA153E8D6BE2A2F4763 /* Pods-Mapcat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapcat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mapcat/Pods-Mapcat.debug.xcconfig"; sourceTree = "<group>"; };
 		BD11B5791D5977D9009BDA0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD35A8F41CFFDAA40097C901 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/ios-nearme-exdfiuabntjstsdarqxohhfulkai/Build/Intermediates/ArchiveIntermediates/MapMaker/IntermediateBuildFilesPath/UninstalledProducts/iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
-		BD579B591D738C9100973497 /* FeedbackForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackForm.swift; sourceTree = "<group>"; };
 		BD579B5B1D73A37200973497 /* FeedbackOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackOneViewController.swift; sourceTree = "<group>"; };
 		BD579B5D1D73B6C800973497 /* FeedbackTwoFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackTwoFormViewController.swift; sourceTree = "<group>"; };
 		DA5EB97A3460542EA3DE85A1 /* Pods-Mapcat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapcat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mapcat/Pods-Mapcat.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 				94372F571D427DB0000CE273 /* ProfileOneViewController.swift */,
 				BD579B5B1D73A37200973497 /* FeedbackOneViewController.swift */,
 				BD579B5D1D73B6C800973497 /* FeedbackTwoFormViewController.swift */,
-				BD579B591D738C9100973497 /* FeedbackForm.swift */,
 				9421F2471D3B21210005F6AE /* CustomCell.swift */,
 				9421F2481D3B21210005F6AE /* CustomCell.xib */,
 				BD11B5791D5977D9009BDA0D /* Assets.xcassets */,
@@ -544,7 +541,6 @@
 				94372F521D4276B2000CE273 /* AddOneTableViewController.swift in Sources */,
 				6C2322BE1BD1A15200D4ACBA /* UnwindSegue.swift in Sources */,
 				6C2322B01BD1A15200D4ACBA /* LoadingView.swift in Sources */,
-				BD579B5A1D738C9100973497 /* FeedbackForm.swift in Sources */,
 				94372F4E1D42756F000CE273 /* SearchOneViewController.swift in Sources */,
 				6C2322B91BD1A15200D4ACBA /* SpringTextField.swift in Sources */,
 				94790B4B1D43160E00A9991D /* UIColor+Hex.swift in Sources */,
