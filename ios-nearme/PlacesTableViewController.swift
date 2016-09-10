@@ -25,14 +25,14 @@ class PlacesTableViewController: UITableViewController {
         let lat = currentLocation.coordinate.latitude
         let long = currentLocation.coordinate.longitude
 
-        Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/places", parameters: ["lat" : lat, "long": long])
+        Alamofire.request(.GET, "http://localhost:3000/api/prototype/places", parameters: ["lat" : lat, "long": long])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.results = JSONObject["venues"]
                 self.tableView.reloadData()
         }
         // get top things for subsequent view
-        Alamofire.request(.GET, "http://www.mapcat.io/api/prototype/top-things")
+        Alamofire.request(.GET, "http://localhost:3000/api/prototype/top-things")
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.topThings = JSONObject["items"]

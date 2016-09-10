@@ -87,7 +87,7 @@ class AddTwoViewController: FormViewController {
         parameters["foursquare"] = result.object ?? "not set"
         parameters["items"] = items
 
-        Alamofire.request(.POST, "http://www.mapcat.io/api/v2/post-items", parameters: parameters, encoding: .JSON)
+        Alamofire.request(.POST, "http://localhost:3000/api/v2/post-items", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
                 switch response.result {
                 case .Success:
