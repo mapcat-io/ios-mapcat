@@ -11,7 +11,7 @@ import MapKit
 import Accounts
 import Alamofire
 import PagedArray
-
+import Alamofire_Synchronous
 
 
 // Tweak these values and see how the user experience is affected
@@ -173,8 +173,8 @@ class DataLoadingOperation: NSBlockOperation {
             // Simulate loading
             // NSThread sleepForTimeInterval(DataLoadingOperationDuration)
             
-            Alamofire.request(.GET, "http://localhost:3000/api/v2/items", parameters: ["q" : q, "t": "aggregate"])
-                .responseJSON { response in
+            let response = Alamofire.request(.GET, "http://localhost:3000/api/v2/items", parameters: ["q" : q, "t": "aggregate"]).responseJSON()
+            
                     
                     var JSONObject = JSON(response.result.value!)
                     var results = JSONObject["items"].arrayValue
@@ -199,24 +199,23 @@ class DataLoadingOperation: NSBlockOperation {
                         //data =  results
                         
                         
-                        
                     }
                     else {
                         //= no results
                        
-                    }
-            }
+                    }// end else
             
             
-            
-        }
+        }// end of addExecutionBlock
+        
         
         completionBlock = {
             print("all done loading")
-            print(data)
+            
             if (data.count == 0){
                 data = indexesToLoad.map { "Content data \($0)" }
             }
+            print(data)
             
             NSOperationQueue.mainQueue().addOperationWithBlock {
                 completion(indexes: indexesToLoad, data: data)

@@ -9,4 +9,5 @@ target "Mapcat" do
     pod 'SwiftyJSON'
     pod 'KeychainAccess'
     pod 'Eureka'
+    pod 'Alamofire-Synchronous', '~> 3.0'
 end

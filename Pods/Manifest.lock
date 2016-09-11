@@ -1,21 +1,25 @@
 PODS:
   - Alamofire (3.3.1)
+  - Alamofire-Synchronous (3.0.0):
+    - Alamofire (~> 3.0)
   - Eureka (1.6.0)
   - KeychainAccess (2.3.5)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3)
+  - Alamofire-Synchronous (~> 3.0)
   - Eureka
   - KeychainAccess
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Alamofire-Synchronous: dc5dccc284e03c3b760e09c655dfe6fa292364b6
   Eureka: ef5b9ac93aedeecfe50d98b1ac7678bf09a1fc62
   KeychainAccess: e283c1981a6c5655e1984cd411c6faf16fa165ae
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 935a3144a39329e7ab31178a67c89f8f25beaa0f
+PODFILE CHECKSUM: c86194e8bae81e1a96d368998eb00a2d5143f0b9
 
 COCOAPODS: 1.0.1
