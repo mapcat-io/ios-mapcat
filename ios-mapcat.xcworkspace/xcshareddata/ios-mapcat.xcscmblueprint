@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4B1C20C28588A36789D4217F3D406E4723FF71A3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4B1C20C28588A36789D4217F3D406E4723FF71A3" : 0,
+    "5B6E1924D8616C64485E967DA19B3160E2B291E2" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E0F05357-C3F3-4D01-B82E-6A626AAB58C0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4B1C20C28588A36789D4217F3D406E4723FF71A3" : "ios-mapcat\/",
+    "5B6E1924D8616C64485E967DA19B3160E2B291E2" : "..\/..\/net_dev\/ios_apps\/PagedArray"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ios-mapcat",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios-mapcat.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mapcat-io\/ios-mapcat",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4B1C20C28588A36789D4217F3D406E4723FF71A3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MrAlek\/PagedArray",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5B6E1924D8616C64485E967DA19B3160E2B291E2"
+    }
+  ]
+}

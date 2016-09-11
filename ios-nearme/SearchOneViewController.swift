@@ -56,6 +56,7 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     }
     
     override func viewWillAppear(animated: Bool) {
+        // Back Button on top
         self.navigationController?.navigationBarHidden = true // hide the navigation controller top bar
         
         searchBarView.animation = "zoomIn"

@@ -1571,8 +1571,8 @@
         <image name="search_icon_lg" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KBl-7Q-T49"/>
         <segue reference="9G2-gw-lmH"/>
         <segue reference="vTY-MY-wgd"/>
+        <segue reference="KBl-7Q-T49"/>
     </inferredMetricsTieBreakers>
 </document>

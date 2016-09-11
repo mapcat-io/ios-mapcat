@@ -24,6 +24,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
 
     override func viewDidLoad() {
         searchTwoTableContainerView.alpha = 0 // set the container view to alpha zero with no results
+        
         mapView.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexString: "#CECED2"), thickness: 2)
         super.viewDidLoad()
         
@@ -41,6 +42,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        // Back Button on top
         self.navigationController?.navigationBarHidden = false // show the navigation controller top bar
     }
     
@@ -51,9 +53,14 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                 destination.q = self.q
             }
         }
+        
         if segue.identifier == "SearchResultsEmbeddedSegue" {
+            
             let toView = segue.destinationViewController as! SearchTwoTableViewController
+            
             toView.q = self.q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            toView.mapView = self.mapView
+            toView.currentLocation = self.currentLocation
             Alamofire.request(.GET, "http://localhost:3000/api/v2/items", parameters: ["q" : toView.q, "t": "aggregate"])
                 .responseJSON { response in
                     var JSONObject = JSON(response.result.value!)
@@ -75,9 +82,9 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                         }
     
                         // provide data to view
-                        toView.results = self.results
+                       // toView.results = self.results
                         // reload view
-                        toView.tableView.reloadData()
+                       // toView.tableView.reloadData()
                         // display results
                         self.searchTwoTableContainerView.alpha = 1 // display container view now with results
                 
