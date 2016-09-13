@@ -9,4 +9,5 @@ target "Mapcat" do
     pod 'SwiftyJSON'
     pod 'KeychainAccess'
     pod 'Eureka'
+    pod 'Flurry-iOS-SDK/FlurrySDK'
 end
