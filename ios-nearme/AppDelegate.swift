@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let searchTab: UITabBarItem = mainTabBar.items![0] as UITabBarItem
         let addTab: UITabBarItem = mainTabBar.items![1] as UITabBarItem
         let profileTab: UITabBarItem = mainTabBar.items![2] as UITabBarItem
+        let feedbackTab: UITabBarItem = mainTabBar.items![3] as UITabBarItem
         let white = UIColor.whiteColor()
 
         let attributes = [
@@ -43,6 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         profileTab.selectedImage = UIImage(named:"profile-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         profileTab.image = UIImage(named:"profile-icon-normal")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        
+        
+        feedbackTab.selectedImage = UIImage(named:"arrow_right_cell")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        feedbackTab.image = UIImage(named:"arrow_right_cell")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
         for item in mainTabBar.items! as [UITabBarItem] {
             item.setTitleTextAttributes(attributes, forState: .Normal)

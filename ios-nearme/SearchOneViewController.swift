@@ -19,6 +19,8 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     @IBOutlet weak var searchTextField: DesignableTextField!
     @IBOutlet weak var mapView: MKMapView!
     
+    var region: MKCoordinateRegion!
+    
     @IBOutlet weak var searchBarHeightConstraint: NSLayoutConstraint!
     
     var q: String = ""
@@ -53,6 +55,9 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         self.searchTextField.returnKeyType = UIReturnKeyType.Go
         searchTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
         
+        self.mapView.showsUserLocation = true
+        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
+     
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -85,6 +90,23 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
             self.performSegueWithIdentifier("SearchResultsSegue", sender: self)
         }
     }
+    
+    
+    @IBAction func centerButtonPressed(sender: AnyObject) {
+        
+        print(" centerButtonPressed ");
+         //[self.mapView setCenterCoordinate:self.mapView.userLocation.coordinate animated:YES];
+        
+        self.mapView.userTrackingMode = .Follow
+        
+                let lat = locationManager.location?.coordinate.latitude
+                let long = locationManager.location?.coordinate.longitude
+                mapView.showsUserLocation = true
+                let location = CLLocation(latitude: lat!, longitude: long!)
+                centerMapOnLocation(location)
+
+    }
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
@@ -161,9 +183,16 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         }
     }
     
-//    func locationManager(manager:CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        // needed to update map on return
-//    }
+    func locationManager(manager:CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // needed to update map on return
+        
+        let location = locations.last as CLLocation!
+        
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+         region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        
+   }
     
 
 }

@@ -50,6 +50,7 @@
 		6C81281C1BDBF1A100384DB8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C81281B1BDBF1A100384DB8 /* CoreLocation.framework */; };
 		6CA2E9121BEFC2FB00BAB62B /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA2E9111BEFC2FB00BAB62B /* Contacts.framework */; };
 		6CCB5EE01BDAF072005E58C0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */; };
+		8973B25D1D88899A001E6215 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8973B25C1D88899A001E6215 /* FeedbackViewController.swift */; };
 		89E8DF4B1D84CAFB00E9678B /* PagedArray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E8DF4A1D84CAFB00E9678B /* PagedArray.framework */; };
 		940C17721D41E17F00607F1A /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940C17711D41E17F00607F1A /* SearchResultsViewController.swift */; };
 		9421F2491D3B21210005F6AE /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9421F2471D3B21210005F6AE /* CustomCell.swift */; };
@@ -160,6 +161,7 @@
 		6C81281B1BDBF1A100384DB8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6CA2E9111BEFC2FB00BAB62B /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		6CCB5EDF1BDAF072005E58C0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8973B25C1D88899A001E6215 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		89E8DF271D84C31400E9678B /* PagedArray.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PagedArray.framework; path = "../../../net_dev/ios_apps/PagedArray/DerivedData/PagedArrayExample/Build/Products/Debug-iphonesimulator/PagedArray.framework"; sourceTree = "<group>"; };
 		89E8DF481D84C78300E9678B /* PagedArray.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PagedArray.framework; sourceTree = "<group>"; };
 		89E8DF4A1D84CAFB00E9678B /* PagedArray.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PagedArray.framework; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				9421F2481D3B21210005F6AE /* CustomCell.xib */,
 				94B65C531D2ADF6F00E1CDB2 /* ItemSubmitViewController.swift */,
 				94C92DC41D45ABF700F66B45 /* Main.storyboard */,
+				8973B25C1D88899A001E6215 /* FeedbackViewController.swift */,
 				6C47BF5A1BD0AD5100D52EF4 /* Assets.xcassets */,
 				6C47BF5C1BD0AD5100D52EF4 /* LaunchScreen.storyboard */,
 				6C47BF5F1BD0AD5100D52EF4 /* Info.plist */,
@@ -564,6 +567,7 @@
 				6C2322A81BD1A15200D4ACBA /* DesignableLabel.swift in Sources */,
 				940C17721D41E17F00607F1A /* SearchResultsViewController.swift in Sources */,
 				6C4AEFE31BD7F07000AA726A /* DetailViewController.swift in Sources */,
+				8973B25D1D88899A001E6215 /* FeedbackViewController.swift in Sources */,
 				94449BB51D4083A000A08267 /* AddItemsTableViewController.swift in Sources */,
 				6C2322B71BD1A15200D4ACBA /* SpringImageView.swift in Sources */,
 				6C202DE51BD1A98B00CF0B93 /* HomeViewController.swift in Sources */,
