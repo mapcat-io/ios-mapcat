@@ -54,26 +54,22 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         if segue.identifier == "SearchResultsEmbeddedSegue" {
             let toView = segue.destinationViewController as! SearchTwoTableViewController
             toView.q = self.q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            Alamofire.request(.GET, "http://www.mapcat.io/api/v2/items", parameters: ["q" : toView.q, "t": "aggregate"])
+            Alamofire.request(.GET, "http://mapcat.io/api/v2/items", parameters: ["q" : toView.q, "long": self.currentLocation.longitude, "lat": self.currentLocation.latitude])
                 .responseJSON { response in
                     var JSONObject = JSON(response.result.value!)
                     self.results = JSONObject["items"].arrayValue
                     if JSONObject["items"].count > 0 {
-                        let currentLocation = CLLocation(latitude: self.currentLocation.latitude, longitude: self.currentLocation.longitude)
-                        let rawResults: JSON = Utilities.populateDistanceBetween(JSONObject["items"], currentLocation: currentLocation)
-                        self.results = rawResults.sort { $0.0.1["distance"].doubleValue < $0.1.1["distance"].doubleValue }.map { $0.1 }
                         //= add map pins to mapView
                         var counter: Int = 0
                         for item in self.results {
-                            let lat = item["locations"][0]["lat"].double
-                            let long = item["locations"][0]["long"].double
+                            let lat = item["coordinates"][0][1].double
+                            let long = item["coordinates"][0][0].double
                             let pinLocation = CLLocationCoordinate2DMake(lat!, long!)
-                            let title = item["_id"]["name"].string
-                            let dropPin = CustomAnnotation(coordinate: pinLocation, title: title!, id: String(counter))
+                            let title = item["_id"]["name"].string ?? "No Name"
+                            let dropPin = CustomAnnotation(coordinate: pinLocation, title: title, id: String(counter))
                             self.mapView.addAnnotation(dropPin)
                             counter += 1
                         }
-    
                         // provide data to view
                         toView.results = self.results
                         // reload view
@@ -81,8 +77,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                         // display results
                         self.searchTwoTableContainerView.alpha = 1 // display container view now with results
                 
-                    }
-                    else {
+                    } else {
                         //= no results
                         let alertController = UIAlertController(title: "😿", message:
                             "There are no results.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -98,7 +93,6 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
             toView.q = ""
         }
     }
-    
     
     // MARK: MKMapView Helper Methods
     let regionRadius: CLLocationDistance = 3000
@@ -118,7 +112,6 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         // to get the identifier of the pin to segue to SearchResultsSegue
         let customAnnotation = annotation as? CustomAnnotation
         let identifier = customAnnotation!.id! as String
-        
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
@@ -131,7 +124,6 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         return annotationView
     }
     
-
 }
 
 class CustomAnnotation : NSObject, MKAnnotation {

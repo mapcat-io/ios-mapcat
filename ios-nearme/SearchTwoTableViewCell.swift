@@ -19,7 +19,7 @@ class SearchTwoTableViewCell: UITableViewCell {
         
         // set data
         let name = result["_id"]["name"].string ?? nil
-        let distance = result["distance"].double ?? nil
+        let distance = result["distance"][0].double ?? nil
         let things = Utilities.joinArrayWithSeparator(result["things"], separator: ", ").capitalizedString
         
         // set to UI

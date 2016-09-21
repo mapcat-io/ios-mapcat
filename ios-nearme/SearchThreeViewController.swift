@@ -37,11 +37,13 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
         
+        print(result)
+        
         // set data
         let name = result["_id"]["name"].string ?? nil
         let address = result["_id"]["street"].string ?? nil
-        let lat = result["locations"][0]["lat"].double ?? nil
-        let long = result["locations"][0]["long"].double ?? nil
+        let lat = result["coordinates"][0][1].double ?? nil
+        let long = result["coordinates"][0][0].double ?? nil
         yelpUrl = result["locations"][0]["yelpUrl"].string ?? nil
         
         // update layout for non-existent values (baseline assumes values exist)
@@ -143,8 +145,8 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
     func launchMaps() {
         //set map item for directions button
         let name = result["_id"]["name"].string
-        let lat = result["locations"][0]["lat"].double ?? nil
-        let long = result["locations"][0]["long"].double ?? nil
+        let lat = result["coordinates"][0][1].double ?? nil
+        let long = result["coordinates"][0][0].double ?? nil
         let addressDictionary = [String(CNPostalAddressStreetKey): String(name)]
         let placemark = MKPlacemark(coordinate: CLLocationCoordinate2DMake(lat!, long!), addressDictionary: addressDictionary)
         let mapItem = MKMapItem(placemark: placemark)
