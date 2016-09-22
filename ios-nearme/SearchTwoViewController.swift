@@ -14,6 +14,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
 
     let locationManager = CLLocationManager()
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var navTitle: UINavigationItem!
     @IBOutlet weak var searchTwoTableContainerView: UIView!
     @IBOutlet weak var mapView: MKMapView!
@@ -25,7 +26,10 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         searchTwoTableContainerView.alpha = 0 // set the container view to alpha zero with no results
         mapView.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexString: "#CECED2"), thickness: 2)
+        
         super.viewDidLoad()
+        // animate spinner
+        activityIndicator.startAnimating()
         
         mapView.delegate = self
         
@@ -58,12 +62,10 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                 .responseJSON { response in
                     var JSONObject = JSON(response.result.value!)
                     self.results = JSONObject["items"].arrayValue
-                    print(self.results)
                     if JSONObject["items"].count > 0 {
                         //= add map pins to mapView
                         var counter: Int = 0
                         for item in self.results {
-                            print(item)
                             let lat = item["coordinates"][0][1].double
                             let long = item["coordinates"][0][0].double
                             let pinLocation = CLLocationCoordinate2DMake(lat!, long!)
@@ -72,6 +74,8 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                             self.mapView.addAnnotation(dropPin)
                             counter += 1
                         }
+                        // remove spinner
+                        self.activityIndicator.stopAnimating()
                         // provide data to view
                         toView.results = self.results
                         // reload view
@@ -81,6 +85,8 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                 
                     } else {
                         //= no results
+                        // remove spinner
+                        self.activityIndicator.stopAnimating()
                         let alertController = UIAlertController(title: "😿", message:
                             "There are no results.", preferredStyle: UIAlertControllerStyle.Alert)
                         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("unwindToSearch", sender: self) }))

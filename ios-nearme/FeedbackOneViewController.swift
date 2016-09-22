@@ -20,7 +20,7 @@ class FeedbackOneViewController: FormViewController {
         
         form +++ Section("What's up?")
             <<< PickerRow<String>("feeling") { (row : PickerRow<String>) -> Void in
-                let feelings = ["I'm ...", "I'm annoyed", "I'm excited", "I'm disappointed"]
+                let feelings = ["I'm confused 🐱", "I'm disappointed 😿", "I'm annoyed 😾", "I'm surprised 🙀", "I'm excited 😸", "I'm ..."]
                 for item in feelings {
                     row.options.append(item)
                     row.value = item

@@ -28,35 +28,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let addTab: UITabBarItem = mainTabBar.items![1] as UITabBarItem
         let feedbackTab: UITabBarItem = mainTabBar.items![2] as UITabBarItem
         let profileTab: UITabBarItem = mainTabBar.items![3] as UITabBarItem
-        let white = UIColor.whiteColor()
-
-        let attributes = [
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-        ]
         
         mainTabBar.backgroundImage = UIImage(named:"background-tabbar")!.resizableImageWithCapInsets(UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8), resizingMode: .Stretch)
         
         mainTabController.tabBar.barTintColor = UIColor(red:0.92, green:0.36, blue:0.56, alpha:0.7)
         mainTabController.tabBar.translucent = true
-        mainTabController.tabBar.tintColor = white.colorWithAlphaComponent(0.7)
+        mainTabController.tabBar.tintColor = UIColor(red:0.92, green:0.36, blue:0.56, alpha:0.7)
         
-        searchTab.selectedImage = UIImage(named:"search-icon-selected-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        searchTab.image = UIImage(named:"search-icon-normal-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState:.Selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(red:0.39, green:0.03, blue:0.16, alpha:1.0)], forState:.Normal)
         
-        addTab.selectedImage = UIImage(named:"add-icon-selected-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        addTab.image = UIImage(named:"add-icon-normal-sm")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        searchTab.selectedImage = UIImage(named:"search-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        searchTab.image = UIImage(named:"search-icon-unselected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        
+        addTab.selectedImage = UIImage(named:"add-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        addTab.image = UIImage(named:"add-icon-unselected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
         profileTab.selectedImage = UIImage(named:"profile-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        profileTab.image = UIImage(named:"profile-icon-normal")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        profileTab.image = UIImage(named:"profile-icon-unselected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
-        feedbackTab.selectedImage = UIImage(named:"ic_feedback_on")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        feedbackTab.image = UIImage(named:"ic_feedback_off")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        
-        for item in mainTabBar.items! as [UITabBarItem] {
-            item.setTitleTextAttributes(attributes, forState: .Normal)
-        }
-
-    
+        feedbackTab.selectedImage = UIImage(named:"feedback-icon-selected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        feedbackTab.image = UIImage(named:"feedback-icon-unselected")!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
         return true
     }

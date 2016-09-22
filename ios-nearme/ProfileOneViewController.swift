@@ -12,7 +12,7 @@ import Accounts
 import Alamofire
 
 class ProfileOneViewController: FormViewController {
-
+    
     let accounts = Accounts()
     var profileStats: JSON = []
     var itemStats: JSON = []
