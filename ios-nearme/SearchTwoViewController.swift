@@ -54,14 +54,16 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         if segue.identifier == "SearchResultsEmbeddedSegue" {
             let toView = segue.destinationViewController as! SearchTwoTableViewController
             toView.q = self.q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            Alamofire.request(.GET, "http://mapcat.io/api/v2/items", parameters: ["q" : toView.q, "long": self.currentLocation.longitude, "lat": self.currentLocation.latitude])
+            Alamofire.request(.GET, "http://www.mapcat.io/api/v2/items", parameters: ["q" : toView.q, "long": self.currentLocation.longitude, "lat": self.currentLocation.latitude])
                 .responseJSON { response in
                     var JSONObject = JSON(response.result.value!)
                     self.results = JSONObject["items"].arrayValue
+                    print(self.results)
                     if JSONObject["items"].count > 0 {
                         //= add map pins to mapView
                         var counter: Int = 0
                         for item in self.results {
+                            print(item)
                             let lat = item["coordinates"][0][1].double
                             let long = item["coordinates"][0][0].double
                             let pinLocation = CLLocationCoordinate2DMake(lat!, long!)

@@ -635,75 +635,24 @@
                     <view key="view" contentMode="scaleToFill" id="BmB-Of-gIW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="feedback-illustration" translatesAutoresizingMaskIntoConstraints="NO" id="k5M-su-K5x">
-                                <rect key="frame" x="91" y="79" width="193" height="185"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="bie-jF-B5M"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="send-feedback" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Skm-yf-2cN" userLabel="Send-feedback">
-                                <rect key="frame" x="106" y="567" width="162" height="30"/>
-                                <accessibility key="accessibilityConfiguration" identifier="Send" label="Send to the Mapcattery "/>
-                                <state key="normal" title="Send to the Mapcattery"/>
-                            </button>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kOQ-Rk-Xdx">
-                                <rect key="frame" x="0.0" y="173" width="375" height="216"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Because ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqb-Tb-azt">
-                                <rect key="frame" x="145" y="345" width="84" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mcW-X8-eLl">
-                                <rect key="frame" x="64" y="384" width="272" height="89"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="89" id="83i-3f-I6h"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mcW-X8-eLl" firstAttribute="top" secondItem="aqb-Tb-azt" secondAttribute="bottom" constant="-8" id="4P9-WN-9jc"/>
-                            <constraint firstItem="xAo-fr-3hm" firstAttribute="top" secondItem="Skm-yf-2cN" secondAttribute="bottom" constant="21" id="9dk-2R-180"/>
-                            <constraint firstItem="k5M-su-K5x" firstAttribute="top" secondItem="MD4-MI-tnU" secondAttribute="bottom" constant="5" id="BbN-Gq-xC4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mcW-X8-eLl" secondAttribute="trailing" constant="19" id="CcQ-jd-hO6"/>
-                            <constraint firstItem="kOQ-Rk-Xdx" firstAttribute="top" secondItem="k5M-su-K5x" secondAttribute="bottom" constant="-90" id="GjF-0X-xTk"/>
-                            <constraint firstItem="Skm-yf-2cN" firstAttribute="centerX" secondItem="BmB-Of-gIW" secondAttribute="centerX" id="J2n-ya-bV5"/>
-                            <constraint firstItem="aqb-Tb-azt" firstAttribute="centerX" secondItem="BmB-Of-gIW" secondAttribute="centerX" id="JYH-O7-Hd3"/>
-                            <constraint firstItem="mcW-X8-eLl" firstAttribute="leading" secondItem="BmB-Of-gIW" secondAttribute="leadingMargin" constant="44" id="XZd-EU-jXu"/>
-                            <constraint firstItem="mcW-X8-eLl" firstAttribute="top" secondItem="aqb-Tb-azt" secondAttribute="bottom" constant="10" id="ZU9-uJ-Qqw"/>
-                            <constraint firstItem="aqb-Tb-azt" firstAttribute="top" secondItem="kOQ-Rk-Xdx" secondAttribute="bottom" constant="10" id="b4K-nr-Ziy"/>
-                            <constraint firstItem="kOQ-Rk-Xdx" firstAttribute="centerX" secondItem="BmB-Of-gIW" secondAttribute="centerX" id="eae-Zc-c3L"/>
-                            <constraint firstItem="aqb-Tb-azt" firstAttribute="centerX" secondItem="BmB-Of-gIW" secondAttribute="centerX" id="epP-wD-mFE"/>
-                            <constraint firstItem="xAo-fr-3hm" firstAttribute="top" secondItem="mcW-X8-eLl" secondAttribute="bottom" constant="20" id="o4y-dw-TLl"/>
-                            <constraint firstItem="mcW-X8-eLl" firstAttribute="leading" secondItem="BmB-Of-gIW" secondAttribute="leadingMargin" constant="30" id="uIp-z7-LiL"/>
-                            <constraint firstItem="k5M-su-K5x" firstAttribute="centerX" secondItem="BmB-Of-gIW" secondAttribute="centerX" id="ujU-bg-Uak"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="epP-wD-mFE"/>
-                                <exclude reference="4P9-WN-9jc"/>
-                                <exclude reference="uIp-z7-LiL"/>
-                                <exclude reference="o4y-dw-TLl"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Feedback" id="Rwb-3h-g1U"/>
+                    <navigationItem key="navigationItem" title="Feedback" id="Rwb-3h-g1U">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="aoe-VM-5K9">
+                            <connections>
+                                <action selector="submitButtonDidTouch:" destination="1gV-1s-cgz" id="HTB-ce-3g5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="becauseTextView" destination="mcW-X8-eLl" id="3xT-pQ-mmm"/>
-                        <outlet property="emotionPickerView" destination="kOQ-Rk-Xdx" id="Bb6-n7-Y0T"/>
+                        <segue destination="1qH-Xr-TkO" kind="unwind" identifier="unwindToSearch" unwindAction="unwindToSearch:" id="cqN-MC-Vzl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZFs-Jv-2Ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1qH-Xr-TkO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1522.5" y="-3579.5"/>
+            <point key="canvasLocation" x="-1522.5" y="-3571.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="n6b-we-1ob">
@@ -762,29 +711,10 @@
             </objects>
             <point key="canvasLocation" x="-2159.5" y="-3571.5"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Adx-TH-QZE">
-            <objects>
-                <viewController id="Gdg-zH-36Z" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="O2g-e1-jEU"/>
-                        <viewControllerLayoutGuide type="bottom" id="NNb-81-BcL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="UFL-ei-Rgg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pir-Mx-7FA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-782" y="-3655"/>
-        </scene>
     </scenes>
     <resources>
         <image name="add-icon-normal-sm" width="23" height="23"/>
         <image name="button-round" width="249" height="38"/>
-        <image name="feedback-illustration" width="193" height="185"/>
         <image name="ic_feedback_off" width="27" height="25"/>
         <image name="profile-icon-normal" width="24" height="25"/>
         <image name="search-bar-button-icon-redesign" width="22" height="23"/>

@@ -66,7 +66,6 @@
 		BD11B57A1D5977D9009BDA0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD11B5791D5977D9009BDA0D /* Assets.xcassets */; };
 		BD35A8F51CFFDAA40097C901 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD35A8F41CFFDAA40097C901 /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BD579B5C1D73A37200973497 /* FeedbackOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD579B5B1D73A37200973497 /* FeedbackOneViewController.swift */; };
-		BD579B5E1D73B6C800973497 /* FeedbackTwoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD579B5D1D73B6C800973497 /* FeedbackTwoFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,7 +166,6 @@
 		BD11B5791D5977D9009BDA0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD35A8F41CFFDAA40097C901 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/ios-nearme-exdfiuabntjstsdarqxohhfulkai/Build/Intermediates/ArchiveIntermediates/MapMaker/IntermediateBuildFilesPath/UninstalledProducts/iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		BD579B5B1D73A37200973497 /* FeedbackOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackOneViewController.swift; sourceTree = "<group>"; };
-		BD579B5D1D73B6C800973497 /* FeedbackTwoFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackTwoFormViewController.swift; sourceTree = "<group>"; };
 		DA5EB97A3460542EA3DE85A1 /* Pods-Mapcat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mapcat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mapcat/Pods-Mapcat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,7 +281,6 @@
 				94372F531D427841000CE273 /* AddTwoViewController.swift */,
 				94372F571D427DB0000CE273 /* ProfileOneViewController.swift */,
 				BD579B5B1D73A37200973497 /* FeedbackOneViewController.swift */,
-				BD579B5D1D73B6C800973497 /* FeedbackTwoFormViewController.swift */,
 				9421F2471D3B21210005F6AE /* CustomCell.swift */,
 				9421F2481D3B21210005F6AE /* CustomCell.xib */,
 				BD11B5791D5977D9009BDA0D /* Assets.xcassets */,
@@ -560,7 +557,6 @@
 				6C2322BC1BD1A15200D4ACBA /* TransitionManager.swift in Sources */,
 				6C2322B81BD1A15200D4ACBA /* SpringLabel.swift in Sources */,
 				6C2322A21BD1A15200D4ACBA /* AsyncButton.swift in Sources */,
-				BD579B5E1D73B6C800973497 /* FeedbackTwoFormViewController.swift in Sources */,
 				94790B491D4313B800A9991D /* CALayer+BorderSide.swift in Sources */,
 				94372F5A1D427EE4000CE273 /* SearchTwoTableViewController.swift in Sources */,
 				6C2322A31BD1A15200D4ACBA /* AsyncImageView.swift in Sources */,
