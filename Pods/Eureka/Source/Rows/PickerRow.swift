@@ -10,31 +10,27 @@ import Foundation
 
 //MARK: PickerCell
 
-open class PickerCell<T> : Cell<T>, CellType, UIPickerViewDataSource, UIPickerViewDelegate where T: Equatable{
+public class PickerCell<T where T: Equatable> : Cell<T>, CellType, UIPickerViewDataSource, UIPickerViewDelegate{
     
-    open lazy var picker: UIPickerView = { [unowned self] in
+    public lazy var picker: UIPickerView = { [unowned self] in
         let picker = UIPickerView()
         picker.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(picker)
-        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[picker]-0-|", options: [], metrics: nil, views: ["picker": picker]))
-        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[picker]-0-|", options: [], metrics: nil, views: ["picker": picker]))
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[picker]-0-|", options: [], metrics: nil, views: ["picker": picker]))
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[picker]-0-|", options: [], metrics: nil, views: ["picker": picker]))
         return picker
         }()
     
-    fileprivate var pickerRow : _PickerRow<T>? { return row as? _PickerRow<T> }
+    private var pickerRow : _PickerRow<T>? { return row as? _PickerRow<T> }
     
     public required init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        accessoryType = .none
-        editingAccessoryType = .none
+        accessoryType = .None
+        editingAccessoryType = .None
         picker.delegate = self
         picker.dataSource = self
     }
@@ -44,30 +40,30 @@ open class PickerCell<T> : Cell<T>, CellType, UIPickerViewDataSource, UIPickerVi
         picker.dataSource = nil
     }
     
-    open override func update(){
+    public override func update(){
         super.update()
         textLabel?.text = nil
         detailTextLabel?.text = nil
         picker.reloadAllComponents()
-        if let selectedValue = pickerRow?.value, let index = pickerRow?.options.index(of: selectedValue){
+        if let selectedValue = pickerRow?.value, let index = pickerRow?.options.indexOf(selectedValue){
             picker.selectRow(index, inComponent: 0, animated: true)
         }
     }
     
-    open func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerRow?.options.count ?? 0
     }
     
-    open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    public func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerRow?.displayValueFor?(pickerRow?.options[row])
     }
     
-    open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if let picker = pickerRow, !picker.options.isEmpty {
+    public func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if let picker = pickerRow where !picker.options.isEmpty {
             picker.value = picker.options[row]
         }
     }
@@ -76,9 +72,9 @@ open class PickerCell<T> : Cell<T>, CellType, UIPickerViewDataSource, UIPickerVi
 
 //MARK: PickerRow
 
-open class _PickerRow<T> : Row<T, PickerCell<T>> where T: Equatable{
+public class _PickerRow<T where T: Equatable> : Row<T, PickerCell<T>>{
     
-    open var options = [T]()
+    public var options = [T]()
     
     required public init(tag: String?) {
         super.init(tag: tag)
@@ -86,7 +82,7 @@ open class _PickerRow<T> : Row<T, PickerCell<T>> where T: Equatable{
 }
 
 /// A generic row where the user can pick an option from a picker view
-public final class PickerRow<T>: _PickerRow<T>, RowType where T: Equatable {
+public final class PickerRow<T where T: Equatable>: _PickerRow<T>, RowType {
     
     required public init(tag: String?) {
         super.init(tag: tag)

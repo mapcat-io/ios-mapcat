@@ -8,38 +8,38 @@
 
 import Foundation
 
-open class _DateRow: _DateFieldRow {
+public class _DateRow: _DateFieldRow {
     required public init(tag: String?) {
         super.init(tag: tag)
-        dateFormatter = DateFormatter()
-        dateFormatter?.timeStyle = .none
-        dateFormatter?.dateStyle = .medium
-        dateFormatter?.locale = Locale.current
+        dateFormatter = NSDateFormatter()
+        dateFormatter?.timeStyle = .NoStyle
+        dateFormatter?.dateStyle = .MediumStyle
+        dateFormatter?.locale = NSLocale.currentLocale()
     }
 }
 
 
-open class _TimeRow: _DateFieldRow {
+public class _TimeRow: _DateFieldRow {
     required public init(tag: String?) {
         super.init(tag: tag)
-        dateFormatter = DateFormatter()
-        dateFormatter?.timeStyle = .short
-        dateFormatter?.dateStyle = .none
-        dateFormatter?.locale = Locale.current
+        dateFormatter = NSDateFormatter()
+        dateFormatter?.timeStyle = .ShortStyle
+        dateFormatter?.dateStyle = .NoStyle
+        dateFormatter?.locale = NSLocale.currentLocale()
     }
 }
 
-open class _DateTimeRow: _DateFieldRow {
+public class _DateTimeRow: _DateFieldRow {
     required public init(tag: String?) {
         super.init(tag: tag)
-        dateFormatter = DateFormatter()
-        dateFormatter?.timeStyle = .short
-        dateFormatter?.dateStyle = .short
-        dateFormatter?.locale = Locale.current
+        dateFormatter = NSDateFormatter()
+        dateFormatter?.timeStyle = .ShortStyle
+        dateFormatter?.dateStyle = .ShortStyle
+        dateFormatter?.locale = NSLocale.currentLocale()
     }
 }
 
-open class _CountDownRow: _DateFieldRow {
+public class _CountDownRow: _DateFieldRow {
     required public init(tag: String?) {
         super.init(tag: tag)
         displayValueFor = { [unowned self] value in
@@ -47,9 +47,9 @@ open class _CountDownRow: _DateFieldRow {
                 return nil
             }
             if let formatter = self.dateFormatter {
-                return formatter.string(from: val)
+                return formatter.stringFromDate(val)
             }
-            let components = (Calendar.current as NSCalendar).components(NSCalendar.Unit.minute.union(NSCalendar.Unit.hour), from: val as Date)
+            let components = NSCalendar.currentCalendar().components(NSCalendarUnit.Minute.union(NSCalendarUnit.Hour), fromDate: val)
             var hourString = "hour"
             if components.hour != 1{
                 hourString += "s"

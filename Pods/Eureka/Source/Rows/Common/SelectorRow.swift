@@ -8,32 +8,28 @@
 
 import Foundation
 
-open class PushSelectorCell<T: Equatable> : Cell<T>, CellType {
+public class PushSelectorCell<T: Equatable> : Cell<T>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
-    open override func update() {
+    public override func update() {
         super.update()
-        accessoryType = .disclosureIndicator
+        accessoryType = .DisclosureIndicator
         editingAccessoryType = accessoryType
-        selectionStyle = row.isDisabled ? .none : .default
+        selectionStyle = row.isDisabled ? .None : .Default
     }
 }
 
 /// Generic row type where a user must select a value among several options.
-open class SelectorRow<T: Equatable, Cell: CellType, VCType: TypedRowControllerType>: OptionsRow<T, Cell>, PresenterRowType where Cell: BaseCell, Cell: TypedCellType, Cell.Value == T, VCType: UIViewController,  VCType.RowValue == T {
+public class SelectorRow<T: Equatable, Cell: CellType, VCType: TypedRowControllerType where Cell: BaseCell, Cell: TypedCellType, Cell.Value == T, VCType: UIViewController,  VCType.RowValue == T>: OptionsRow<T, Cell>, PresenterRowType {
     
     /// Defines how the view controller will be presented, pushed, etc.
-    open var presentationMode: PresentationMode<VCType>?
+    public var presentationMode: PresentationMode<VCType>?
     
     /// Will be called before the presentation occurs.
-    open var onPresentCallback : ((FormViewController, VCType)->())?
+    public var onPresentCallback : ((FormViewController, VCType)->())?
     
     required public init(tag: String?) {
         super.init(tag: tag)
@@ -42,9 +38,9 @@ open class SelectorRow<T: Equatable, Cell: CellType, VCType: TypedRowControllerT
     /**
      Extends `didSelect` method
      */
-    open override func customDidSelect() {
+    public override func customDidSelect() {
         super.customDidSelect()
-        guard let presentationMode = presentationMode, !isDisabled else { return }
+        guard let presentationMode = presentationMode where !isDisabled else { return }
         if let controller = presentationMode.createController(){
             controller.row = self
             controller.title = selectorTitle ?? controller.title
@@ -59,9 +55,9 @@ open class SelectorRow<T: Equatable, Cell: CellType, VCType: TypedRowControllerT
     /**
      Prepares the pushed row setting its title and completion callback.
      */
-    open override func prepareForSegue(_ segue: UIStoryboardSegue) {
+    public override func prepareForSegue(segue: UIStoryboardSegue) {
         super.prepareForSegue(segue)
-        guard let rowVC = segue.destination as? VCType else { return }
+        guard let rowVC = segue.destinationViewController as? VCType else { return }
         rowVC.title = selectorTitle ?? rowVC.title
         rowVC.completionCallback = presentationMode?.completionHandler ?? rowVC.completionCallback
         onPresentCallback?(cell.formViewController()!, rowVC)

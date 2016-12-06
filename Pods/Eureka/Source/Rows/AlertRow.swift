@@ -9,16 +9,16 @@
 import Foundation
 
 
-open class _AlertRow<T: Equatable, Cell: CellType>: OptionsRow<T, Cell>, PresenterRowType where Cell: BaseCell, Cell: TypedCellType, Cell.Value == T {
+public class _AlertRow<T: Equatable, Cell: CellType where Cell: BaseCell, Cell: TypedCellType, Cell.Value == T>: OptionsRow<T, Cell>, PresenterRowType {
     
-    open var onPresentCallback : ((FormViewController, SelectorAlertController<T>)->())?
-    lazy open var presentationMode: PresentationMode<SelectorAlertController<T>>? = {
-        return .presentModally(controllerProvider: ControllerProvider.callback { [weak self] in
-            let vc = SelectorAlertController<T>(title: self?.selectorTitle, message: nil, preferredStyle: .alert)
+    public var onPresentCallback : ((FormViewController, SelectorAlertController<T>)->())?
+    lazy public var presentationMode: PresentationMode<SelectorAlertController<T>>? = {
+        return .PresentModally(controllerProvider: ControllerProvider.Callback { [weak self] in
+            let vc = SelectorAlertController<T>(title: self?.selectorTitle, message: nil, preferredStyle: .Alert)
             vc.row = self
             return vc
             }, completionCallback: { [weak self] in
-                $0.dismiss(animated: true, completion: nil)
+                $0.dismissViewControllerAnimated(true, completion: nil)
                 self?.cell?.formViewController()?.tableView?.reloadData()
             }
         )
@@ -28,9 +28,9 @@ open class _AlertRow<T: Equatable, Cell: CellType>: OptionsRow<T, Cell>, Present
         super.init(tag: tag)
     }
     
-    open override func customDidSelect() {
+    public override func customDidSelect() {
         super.customDidSelect()
-        if let presentationMode = presentationMode, !isDisabled  {
+        if let presentationMode = presentationMode where !isDisabled  {
             if let controller = presentationMode.createController(){
                 controller.row = self
                 onPresentCallback?(cell.formViewController()!, controller)

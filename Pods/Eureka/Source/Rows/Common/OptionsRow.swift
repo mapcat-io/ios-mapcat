@@ -8,14 +8,14 @@
 
 import Foundation
 
-open class OptionsRow<T: Equatable, Cell: CellType> : Row<T, Cell>, NoValueDisplayTextConformance where Cell: BaseCell, Cell: TypedCellType, Cell.Value == T {
+public class OptionsRow<T: Equatable, Cell: CellType where Cell: BaseCell, Cell: TypedCellType, Cell.Value == T> : Row<T, Cell>, NoValueDisplayTextConformance {
     
-    open var options: [T] {
+    public var options: [T] {
         get { return dataProvider?.arrayData ?? [] }
         set { dataProvider = DataProvider(arrayData: newValue) }
     }
-    open var selectorTitle: String?
-    open var noValueDisplayText: String?
+    public var selectorTitle: String?
+    public var noValueDisplayText: String?
     
     required public init(tag: String?) {
         super.init(tag: tag)

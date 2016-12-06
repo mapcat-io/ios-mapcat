@@ -25,10 +25,10 @@
 
 import Foundation
 
-open class RowOf<T: Equatable>: BaseRow {
+public class RowOf<T: Equatable>: BaseRow {
     
     /// The typed value of this row.
-    open var value : T?{
+    public var value : T?{
         didSet {
             guard value != oldValue else { return }
             guard let form = section?.form else { return }
@@ -38,12 +38,12 @@ open class RowOf<T: Equatable>: BaseRow {
             }
             guard let t = tag else { return }
             form.tagToValues[t] = value as? AnyObject ?? NSNull()
-            if let rowObservers = form.rowObservers[t]?[.hidden]{
+            if let rowObservers = form.rowObservers[t]?[.Hidden]{
                 for rowObserver in rowObservers {
                     (rowObserver as? Hidable)?.evaluateHidden()
                 }
             }
-            if let rowObservers = form.rowObservers[t]?[.disabled]{
+            if let rowObservers = form.rowObservers[t]?[.Disabled]{
                 for rowObserver in rowObservers {
                     (rowObserver as? Disableable)?.evaluateDisabled()
                 }
@@ -52,18 +52,18 @@ open class RowOf<T: Equatable>: BaseRow {
     }
     
     /// The untyped value of this row.
-    open override var baseValue: Any? {
+    public override var baseValue: Any? {
         get { return value }
         set { value = newValue as? T }
     }
     
     /// Variable used in rows with options that serves to generate the options for that row.
-    open var dataProvider: DataProvider<T>?
+    public var dataProvider: DataProvider<T>?
     
     /// Block variable used to get the String that should be displayed for the value of this row.
-    open var displayValueFor : ((T?) -> String?)? = {
+    public var displayValueFor : (T? -> String?)? = {
         if let t = $0 {
-            return String(describing: t)
+            return String(t)
         }
         return nil
     }
@@ -74,23 +74,23 @@ open class RowOf<T: Equatable>: BaseRow {
 }
 
 /// Generic class that represents an Eureka row.
-open class Row<T: Equatable, Cell: CellType>: RowOf<T>,  TypedRowType where Cell: TypedCellType, Cell: BaseCell, Cell.Value == T {
+public class Row<T: Equatable, Cell: CellType where Cell: TypedCellType, Cell: BaseCell, Cell.Value == T>: RowOf<T>,  TypedRowType {
     
     /// Responsible for creating the cell for this row.
-    open var cellProvider = CellProvider<Cell>()
+    public var cellProvider = CellProvider<Cell>()
     
     /// The type of the cell associated to this row.
-    open let cellType: Cell.Type! = Cell.self
+    public let cellType: Cell.Type! = Cell.self
     
-    fileprivate var _cell: Cell! {
+    private var _cell: Cell! {
         didSet {
-            RowDefaults.cellSetup["\(type(of: self))"]?(_cell, self)
-            (callbackCellSetup as? ((Cell) -> ()))?(_cell)
+            RowDefaults.cellSetup["\(self.dynamicType)"]?(_cell, self)
+            (callbackCellSetup as? (Cell -> ()))?(_cell)
         }
     }
     
     /// The cell associated to this row.
-    open var cell : Cell! {
+    public var cell : Cell! {
         return _cell ?? {
             let result = cellProvider.createCell(self.cellStyle)
             result.row = self
@@ -101,7 +101,7 @@ open class Row<T: Equatable, Cell: CellType>: RowOf<T>,  TypedRowType where Cell
     }
     
     /// The untyped cell associated to this row
-    open override var baseCell: BaseCell { return cell }
+    public override var baseCell: BaseCell { return cell }
     
     public required init(tag: String?) {
         super.init(tag: tag)
@@ -110,18 +110,18 @@ open class Row<T: Equatable, Cell: CellType>: RowOf<T>,  TypedRowType where Cell
     /**
      Method that reloads the cell
      */
-    override open func updateCell() {
+    override public func updateCell() {
         super.updateCell()
         cell.update()
         customUpdateCell()
-        RowDefaults.cellUpdate["\(type(of: self))"]?(cell, self)
+        RowDefaults.cellUpdate["\(self.dynamicType)"]?(cell, self)
         callbackCellUpdate?()
     }
     
     /**
      Method called when the cell belonging to this row was selected. Must call the corresponding method in its cell.
      */
-    open override func didSelect() {
+    public override func didSelect() {
         super.didSelect()
         if !isDisabled {
             cell?.didSelect()
@@ -133,32 +133,32 @@ open class Row<T: Equatable, Cell: CellType>: RowOf<T>,  TypedRowType where Cell
     /**
      Method that is responsible for highlighting the cell.
      */
-    override open func hightlightCell() {
-        super.hightlightCell()
+    override public func highlightCell() {
+        super.highlightCell()
         cell.highlight()
-        RowDefaults.onCellHighlight["\(type(of: self))"]?(cell, self)
+        RowDefaults.onCellHighlight["\(self.dynamicType)"]?(cell, self)
         callbackOnCellHighlight?()
     }
     
     /**
      Method that is responsible for unhighlighting the cell.
      */
-    open override func unhighlightCell() {
+    public override func unhighlightCell() {
         super.unhighlightCell()
         cell.unhighlight()
-        RowDefaults.onCellUnHighlight["\(type(of: self))"]?(cell, self)
+        RowDefaults.onCellUnHighlight["\(self.dynamicType)"]?(cell, self)
         callbackOnCellUnHighlight?()
     }
     
     /**
      Will be called inside `didSelect` method of the row. Can be used to customize row selection from the definition of the row.
      */
-    open func customDidSelect(){}
+    public func customDidSelect(){}
     
     /**
      Will be called inside `updateCell` method of the row. Can be used to customize reloading a row from its definition.
      */
-    open func customUpdateCell(){}
+    public func customUpdateCell(){}
     
 }
 

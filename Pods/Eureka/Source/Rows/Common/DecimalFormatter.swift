@@ -8,12 +8,12 @@
 
 import Foundation
 
-open class DecimalFormatter : NumberFormatter, FormatterProtocol {
+public class DecimalFormatter : NSNumberFormatter, FormatterProtocol {
     
     public override init() {
         super.init()
-        locale = .current
-        numberStyle = .decimal
+        locale = .currentLocale()
+        numberStyle = .DecimalStyle
         minimumFractionDigits = 2
         maximumFractionDigits = 2
     }
@@ -22,14 +22,14 @@ open class DecimalFormatter : NumberFormatter, FormatterProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override open func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<AutoreleasingUnsafeMutablePointer<NSString?>>?) -> Bool {
+    override public func getObjectValue(obj: AutoreleasingUnsafeMutablePointer<AnyObject?>, forString string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>) -> Bool {
         guard obj != nil else { return false }
-        let str = string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
-        obj?.pointee = NSNumber(value: (Double(str) ?? 0.0)/Double(pow(10.0, Double(minimumFractionDigits))) as Double)
+        let str = string.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet).joinWithSeparator("")
+        obj.memory = NSNumber(double: (Double(str) ?? 0.0)/Double(pow(10.0, Double(minimumFractionDigits))))
         return true
     }
     
-    open func getNewPosition(forPosition position: UITextPosition, inTextInput textInput: UITextInput, oldValue: String?, newValue: String?) -> UITextPosition {
-        return textInput.position(from: position, offset:((newValue?.characters.count ?? 0) - (oldValue?.characters.count ?? 0))) ?? position
+    public func getNewPosition(forPosition position: UITextPosition, inTextInput textInput: UITextInput, oldValue: String?, newValue: String?) -> UITextPosition {
+        return textInput.positionFromPosition(position, offset:((newValue?.characters.count ?? 0) - (oldValue?.characters.count ?? 0))) ?? position
     }
 }

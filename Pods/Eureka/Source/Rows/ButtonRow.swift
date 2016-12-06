@@ -10,29 +10,25 @@ import Foundation
 
 // MARK: ButtonCell
 
-open class ButtonCellOf<T: Equatable>: Cell<T>, CellType {
+public class ButtonCellOf<T: Equatable>: Cell<T>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
-    open override func update() {
+    public override func update() {
         super.update()
-        selectionStyle = row.isDisabled ? .none : .default
-        accessoryType = .none
+        selectionStyle = row.isDisabled ? .None : .Default
+        accessoryType = .None
         editingAccessoryType = accessoryType
-        textLabel?.textAlignment = .center
+        textLabel?.textAlignment = .Center
         textLabel?.textColor = tintColor
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         tintColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         textLabel?.textColor  = UIColor(red: red, green: green, blue: blue, alpha: row.isDisabled ? 0.3 : 1.0)
     }
     
-    open override func didSelect() {
+    public override func didSelect() {
         super.didSelect()
         row.deselect()
     }
@@ -43,16 +39,16 @@ public typealias ButtonCell = ButtonCellOf<String>
 
 //MARK: ButtonRow
 
-open class _ButtonRowOf<T: Equatable> : Row<T, ButtonCellOf<T>> {
-    open var presentationMode: PresentationMode<UIViewController>?
+public class _ButtonRowOf<T: Equatable> : Row<T, ButtonCellOf<T>> {
+    public var presentationMode: PresentationMode<UIViewController>?
     
     required public init(tag: String?) {
         super.init(tag: tag)
         displayValueFor = nil
-        cellStyle = .default
+        cellStyle = .Default
     }
     
-    open override func customDidSelect() {
+    public override func customDidSelect() {
         super.customDidSelect()
         if !isDisabled {
             if let presentationMode = presentationMode {
@@ -66,11 +62,11 @@ open class _ButtonRowOf<T: Equatable> : Row<T, ButtonCellOf<T>> {
         }
     }
     
-    open override func customUpdateCell() {
+    public override func customUpdateCell() {
         super.customUpdateCell()
         let leftAligmnment = presentationMode != nil
-        cell.textLabel?.textAlignment = leftAligmnment ? .left : .center
-        cell.accessoryType = !leftAligmnment || isDisabled ? .none : .disclosureIndicator
+        cell.textLabel?.textAlignment = leftAligmnment ? .Left : .Center
+        cell.accessoryType = !leftAligmnment || isDisabled ? .None : .DisclosureIndicator
         cell.editingAccessoryType = cell.accessoryType
         if (!leftAligmnment){
             var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
@@ -82,9 +78,9 @@ open class _ButtonRowOf<T: Equatable> : Row<T, ButtonCellOf<T>> {
         }
     }
     
-    open override func prepareForSegue(_ segue: UIStoryboardSegue) {
+    public override func prepareForSegue(segue: UIStoryboardSegue) {
         super.prepareForSegue(segue)
-        let rowVC = segue.destination as? RowControllerType
+        let rowVC = segue.destinationViewController as? RowControllerType
         rowVC?.completionCallback = self.presentationMode?.completionHandler
     }
 }

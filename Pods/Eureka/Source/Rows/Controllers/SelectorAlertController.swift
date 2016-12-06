@@ -9,17 +9,17 @@
 import Foundation
 
 /// Selector UIAlertController
-open class SelectorAlertController<T: Equatable> : UIAlertController, TypedRowControllerType {
+public class SelectorAlertController<T: Equatable> : UIAlertController, TypedRowControllerType {
     
     /// The row that pushed or presented this controller
-    open var row: RowOf<T>!
+    public var row: RowOf<T>!
     
-    open var cancelTitle = NSLocalizedString("Cancel", comment: "")
+    public var cancelTitle = NSLocalizedString("Cancel", comment: "")
     
     /// A closure to be called when the controller disappears.
-    open var completionCallback : ((UIViewController) -> ())?
+    public var completionCallback : ((UIViewController) -> ())?
     
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -27,17 +27,17 @@ open class SelectorAlertController<T: Equatable> : UIAlertController, TypedRowCo
         super.init(coder: aDecoder)
     }
     
-    convenience public init(_ callback: @escaping (UIViewController) -> ()){
+    convenience public init(_ callback: (UIViewController) -> ()){
         self.init()
         completionCallback = callback
     }
     
-    open override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         guard let options = row.dataProvider?.arrayData else { return }
-        addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: nil))
+        addAction(UIAlertAction(title: cancelTitle, style: .Cancel, handler: nil))
         for option in options {
-            addAction(UIAlertAction(title: row.displayValueFor?(option), style: .default, handler: { [weak self] _ in
+            addAction(UIAlertAction(title: row.displayValueFor?(option), style: .Default, handler: { [weak self] _ in
                 self?.row.value = option
                 self?.completionCallback?(self!)
                 }))

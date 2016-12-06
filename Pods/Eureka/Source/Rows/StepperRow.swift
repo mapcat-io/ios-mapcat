@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: StepperCell
 
-open class StepperCell : Cell<Double>, CellType {
+public class StepperCell : Cell<Double>, CellType {
     
     public typealias Value = Double
     
@@ -18,36 +18,32 @@ open class StepperCell : Cell<Double>, CellType {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         height = { BaseRow.estimatedRowHeight }
     }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
-    open lazy var stepper: UIStepper = {
+    public lazy var stepper: UIStepper = {
         let s = UIStepper()
         s.translatesAutoresizingMaskIntoConstraints = false
         return s
     }()
     
-    open lazy var valueLabel: UILabel = {
+    public lazy var valueLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.numberOfLines = 1
         return l
     }()
     
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        selectionStyle = .none
+        selectionStyle = .None
         
         addSubview(stepper)
         addSubview(valueLabel)
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[v]-[s]-|", options: .alignAllCenterY, metrics: nil, views: ["s": stepper, "v": valueLabel]))
-        addConstraint(NSLayoutConstraint(item: stepper, attribute: .centerY, relatedBy: .equal, toItem: contentView, attribute: .centerY, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: valueLabel, attribute: .centerY, relatedBy: .equal, toItem: stepper, attribute: .centerY, multiplier: 1.0, constant: 0))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[v]-[s]-|", options: .AlignAllCenterY, metrics: nil, views: ["s": stepper, "v": valueLabel]))
+        addConstraint(NSLayoutConstraint(item: stepper, attribute: .CenterY, relatedBy: .Equal, toItem: contentView, attribute: .CenterY, multiplier: 1.0, constant: 0))
+        addConstraint(NSLayoutConstraint(item: valueLabel, attribute: .CenterY, relatedBy: .Equal, toItem: stepper, attribute: .CenterY, multiplier: 1.0, constant: 0))
         
-        stepper.addTarget(self, action: #selector(StepperCell.valueChanged), for: .valueChanged)
+        stepper.addTarget(self, action: #selector(StepperCell.valueChanged), forControlEvents: .ValueChanged)
         stepper.value = row.value ?? 0
         
         valueLabel.textColor = stepper.tintColor
@@ -55,12 +51,12 @@ open class StepperCell : Cell<Double>, CellType {
     }
     
     deinit {
-        stepper.removeTarget(self, action: nil, for: .allEvents)
+        stepper.removeTarget(self, action: nil, forControlEvents: .AllEvents)
     }
     
-    open override func update() {
+    public override func update() {
         super.update()
-        stepper.isEnabled = !row.isDisabled
+        stepper.enabled = !row.isDisabled
         stepper.alpha = row.isDisabled ? 0.3 : 1.0
         valueLabel.alpha = row.isDisabled ? 0.3 : 1.0
     }
@@ -73,7 +69,7 @@ open class StepperCell : Cell<Double>, CellType {
 
 // MARK: StepperRow
 
-open class _StepperRow: Row<Double, StepperCell> {
+public class _StepperRow: Row<Double, StepperCell> {
     required public init(tag: String?) {
         super.init(tag: tag)
         displayValueFor = nil

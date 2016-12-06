@@ -8,76 +8,72 @@
 
 import Foundation
 
-open class DatePickerCell : Cell<Date>, CellType {
+public class DatePickerCell : Cell<NSDate>, CellType {
     
-    open lazy var datePicker: UIDatePicker = { [unowned self] in
+    public lazy var datePicker: UIDatePicker = { [unowned self] in
         let picker = UIDatePicker()
         picker.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(picker)
-        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[picker]-0-|", options: [], metrics: nil, views: ["picker": picker]))
-        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[picker]-0-|", options: [], metrics: nil, views: ["picker": picker]))
-        picker.addTarget(self, action: #selector(DatePickerCell.datePickerValueChanged(_:)), for: .valueChanged)
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[picker]-0-|", options: [], metrics: nil, views: ["picker": picker]))
+        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[picker]-0-|", options: [], metrics: nil, views: ["picker": picker]))
+        picker.addTarget(self, action: #selector(DatePickerCell.datePickerValueChanged(_:)), forControlEvents: .ValueChanged)
         return picker
         }()
     
     public required init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        accessoryType = .none
-        editingAccessoryType =  .none
+        accessoryType = .None
+        editingAccessoryType =  .None
         datePicker.datePickerMode = datePickerMode()
     }
     
     deinit {
-        datePicker.removeTarget(self, action: nil, for: .allEvents)
+        datePicker.removeTarget(self, action: nil, forControlEvents: .AllEvents)
     }
     
-    open override func update() {
+    public override func update() {
         super.update()
-        selectionStyle = row.isDisabled ? .none : .default
-        datePicker.isUserInteractionEnabled = !row.isDisabled
+        selectionStyle = row.isDisabled ? .None : .Default
+        datePicker.userInteractionEnabled = !row.isDisabled
         detailTextLabel?.text = nil
         textLabel?.text = nil
-        datePicker.setDate(row.value ?? Date(), animated: row is CountDownPickerRow)
-        datePicker.minimumDate = (row as? DatePickerRowProtocol)?.minimumDate as Date?
-        datePicker.maximumDate = (row as? DatePickerRowProtocol)?.maximumDate as Date?
+        datePicker.setDate(row.value ?? NSDate(), animated: row is CountDownPickerRow)
+        datePicker.minimumDate = (row as? DatePickerRowProtocol)?.minimumDate
+        datePicker.maximumDate = (row as? DatePickerRowProtocol)?.maximumDate
         if let minuteIntervalValue = (row as? DatePickerRowProtocol)?.minuteInterval{
             datePicker.minuteInterval = minuteIntervalValue
         }
     }
     
-    func datePickerValueChanged(_ sender: UIDatePicker){
+    func datePickerValueChanged(sender: UIDatePicker){
         row?.value = sender.date
     }
     
-    fileprivate func datePickerMode() -> UIDatePickerMode{
+    private func datePickerMode() -> UIDatePickerMode{
         switch row {
         case is DatePickerRow:
-            return .date
+            return .Date
         case is TimePickerRow:
-            return .time
+            return .Time
         case is DateTimePickerRow:
-            return .dateAndTime
+            return .DateAndTime
         case is CountDownPickerRow:
-            return .countDownTimer
+            return .CountDownTimer
         default:
-            return .date
+            return .Date
         }
     }
 }
 
-open class _DatePickerRow : Row<Date, DatePickerCell>, DatePickerRowProtocol {
+public class _DatePickerRow : Row<NSDate, DatePickerCell>, DatePickerRowProtocol {
     
-    open var minimumDate : Date?
-    open var maximumDate : Date?
-    open var minuteInterval : Int?
+    public var minimumDate : NSDate?
+    public var maximumDate : NSDate?
+    public var minuteInterval : Int?
     
     required public init(tag: String?) {
         super.init(tag: tag)

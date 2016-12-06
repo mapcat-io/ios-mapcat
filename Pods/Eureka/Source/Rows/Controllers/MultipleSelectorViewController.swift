@@ -10,33 +10,30 @@ import Foundation
 
 
 /// Selector Controller that enables multiple selection
-open class _MultipleSelectorViewController<T:Hashable, Row: SelectableRowType> : FormViewController, TypedRowControllerType where Row: BaseRow, Row: TypedRowType, Row.Value == T, Row.Cell.Value == T {
+public class _MultipleSelectorViewController<T:Hashable, Row: SelectableRowType where Row: BaseRow, Row: TypedRowType, Row.Value == T, Row.Cell.Value == T> : FormViewController, TypedRowControllerType {
     
     /// The row that pushed or presented this controller
-    open var row: RowOf<Set<T>>!
+    public var row: RowOf<Set<T>>!
     
-    open var selectableRowCellUpdate: ((_ cell: Row.Cell, _ row: Row) -> ())?
+    public var selectableRowCellSetup: ((cell: Row.Cell, row: Row) -> ())?
+    public var selectableRowCellUpdate: ((cell: Row.Cell, row: Row) -> ())?
 
     /// A closure to be called when the controller disappears.
-    open var completionCallback : ((UIViewController) -> ())?
+    public var completionCallback : ((UIViewController) -> ())?
     
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    convenience public init(_ callback: @escaping (UIViewController) -> ()){
+    convenience public init(_ callback: (UIViewController) -> ()){
         self.init(nibName: nil, bundle: nil)
         completionCallback = callback
     }
-
-    public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
-    open override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         guard let options = row.dataProvider?.arrayData else { return }
-        form +++= SelectableSection<Row, Row.Value>(row.title ?? "", selectionType: .multipleSelection) { [weak self] section in
+        form +++ SelectableSection<Row, Row.Value>(row.title ?? "", selectionType: .MultipleSelection) { [weak self] section in
             if let sec = section as? SelectableSection<Row, Row.Value> {
                 sec.onSelectSelectableRow = { _, selectableRow in
                     var newValue: Set<T> = self?.row.value ?? []
@@ -55,6 +52,8 @@ open class _MultipleSelectorViewController<T:Hashable, Row: SelectableRowType> :
                     $0.title = String(o.first!)
                     $0.selectableValue = o.first!
                     $0.value = self?.row.value?.contains(o.first!) ?? false ? o.first! : nil
+                }.cellSetup { [weak self] cell, row in
+                    self?.selectableRowCellSetup?(cell: cell, row: row)
                 }.cellUpdate { [weak self] cell, row in
                     self?.selectableRowCellUpdate?(cell: cell, row: row)
                 }
@@ -66,7 +65,7 @@ open class _MultipleSelectorViewController<T:Hashable, Row: SelectableRowType> :
 }
 
 
-open class MultipleSelectorViewController<T:Hashable> : _MultipleSelectorViewController<T, ListCheckRow<T>> {
+public class MultipleSelectorViewController<T:Hashable> : _MultipleSelectorViewController<T, ListCheckRow<T>> {
 }
 
 

@@ -235,17 +235,17 @@
                         <viewControllerLayoutGuide type="bottom" id="UAl-K6-ex1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jLU-41-xGm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="383" height="374"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="acI-aS-cPx">
-                                <rect key="frame" x="-4" y="64" width="383" height="184"/>
+                                <rect key="frame" x="-4" y="0.0" width="391" height="184"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="184" id="Kjp-w5-SLh"/>
                                 </constraints>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NpT-8N-P90">
-                                <rect key="frame" x="68" y="229" width="239" height="38"/>
+                                <rect key="frame" x="72" y="165" width="239" height="38"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="button-round" translatesAutoresizingMaskIntoConstraints="NO" id="7vS-2f-gYo">
                                         <rect key="frame" x="0.0" y="0.0" width="239" height="38"/>
@@ -280,26 +280,26 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTc-eX-aJ2">
-                                <rect key="frame" x="167" y="291" width="41" height="20"/>
+                                <rect key="frame" x="171" y="227" width="41" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FS-pb-4Ez">
-                                <rect key="frame" x="157" y="319" width="60" height="20"/>
+                                <rect key="frame" x="161.5" y="255" width="60" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FmX-xl-zdk">
-                                <rect key="frame" x="-4" y="411" width="383" height="207"/>
+                                <rect key="frame" x="-4" y="347" width="391" height="27"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.08235294118" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="RHm-fp-41n" kind="embed" identifier="FormEmbeddedSegue" id="TId-gC-wZB"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bs-R2-91z">
-                                <rect key="frame" x="171" y="355" width="32" height="32"/>
+                                <rect key="frame" x="175.5" y="291" width="32" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <state key="normal" title="Yelp">
                                     <color key="titleColor" red="0.89411764705882357" green="0.015686274509803921" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -529,6 +529,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Places" id="hcr-Bd-YfZ"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="HbP-h7-1hA">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <attributedString key="attributedTitle">
                             <fragment content="Pull to Refresh">
@@ -684,7 +685,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cbc-e6-Z9G"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Y5b-ca-dgA">
-                        <rect key="frame" x="0.0" y="0.0" width="383" height="207"/>
+                        <rect key="frame" x="0.0" y="0.0" width="391" height="27"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -725,6 +726,6 @@
         <image name="search-icon-unselected" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KBl-7Q-T49"/>
+        <segue reference="rPv-lH-h1G"/>
     </inferredMetricsTieBreakers>
 </document>

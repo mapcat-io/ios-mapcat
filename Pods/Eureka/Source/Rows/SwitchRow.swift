@@ -10,48 +10,44 @@ import Foundation
 
 // MARK: SwitchCell
 
-open class SwitchCell : Cell<Bool>, CellType {
+public class SwitchCell : Cell<Bool>, CellType {
     
     public typealias Value = Bool
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
-    open var switchControl: UISwitch? {
+    public var switchControl: UISwitch? {
         return accessoryView as? UISwitch
     }
     
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        selectionStyle = .none
+        selectionStyle = .None
         accessoryView = UISwitch()
         editingAccessoryView = accessoryView
-        switchControl?.addTarget(self, action: #selector(SwitchCell.valueChanged), for: .valueChanged)
+        switchControl?.addTarget(self, action: #selector(SwitchCell.valueChanged), forControlEvents: .ValueChanged)
     }
     
     deinit {
-        switchControl?.removeTarget(self, action: nil, for: .allEvents)
+        switchControl?.removeTarget(self, action: nil, forControlEvents: .AllEvents)
     }
     
-    open override func update() {
+    public override func update() {
         super.update()
-        switchControl?.isOn = row.value ?? false
-        switchControl?.isEnabled = !row.isDisabled
+        switchControl?.on = row.value ?? false
+        switchControl?.enabled = !row.isDisabled
     }
     
     func valueChanged() {
-        row.value = switchControl?.isOn ?? false
+        row.value = switchControl?.on.boolValue ?? false
     }
 }
 
 // MARK: SwitchRow
 
-open class _SwitchRow: Row<Bool, SwitchCell> {
+public class _SwitchRow: Row<Bool, SwitchCell> {
     required public init(tag: String?) {
         super.init(tag: tag)
         displayValueFor = nil

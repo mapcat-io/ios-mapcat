@@ -8,39 +8,35 @@
 
 import Foundation
 
-open class ListCheckCell<T: Equatable> : Cell<T>, CellType {
+public class ListCheckCell<T: Equatable> : Cell<T>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
-    open override func update() {
+    public override func update() {
         super.update()
-        accessoryType = row.value != nil ? .checkmark : .none
+        accessoryType = row.value != nil ? .Checkmark : .None
         editingAccessoryType = accessoryType
-        selectionStyle = .default
+        selectionStyle = .Default
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         tintColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         if row.isDisabled {
             tintColor = UIColor(red: red, green: green, blue: blue, alpha: 0.3)
-            selectionStyle = .none
+            selectionStyle = .None
         }
         else {
             tintColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
         }
     }
     
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        accessoryType =  .checkmark
+        accessoryType =  .Checkmark
         editingAccessoryType = accessoryType
     }
     
-    open override func didSelect() {
+    public override func didSelect() {
         row.deselect()
         row.updateCell()
     }

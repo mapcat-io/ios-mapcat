@@ -10,19 +10,15 @@ import Foundation
 
 // MARK: LabelCell
 
-open class LabelCellOf<T: Equatable>: Cell<T>, CellType {
+public class LabelCellOf<T: Equatable>: Cell<T>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
-    open override func setup() {
+    public override func setup() {
         super.setup()
-        selectionStyle = .none
+        selectionStyle = .None
     }
 }
 
@@ -30,7 +26,7 @@ public typealias LabelCell = LabelCellOf<String>
 
 // MARK: LabelRow
 
-open class _LabelRow: Row<String, LabelCell> {
+public class _LabelRow: Row<String, LabelCell> {
     required public init(tag: String?) {
         super.init(tag: tag)
     }
