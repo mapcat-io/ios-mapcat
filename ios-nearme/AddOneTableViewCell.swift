@@ -14,7 +14,7 @@ class AddOneTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     
     
-    func configureWithResult(result: JSON) {
+    func configureWithResult(_ result: JSON) {
         
         let name = result["name"].string!
         let address = result["location"]["address"].string ?? nil

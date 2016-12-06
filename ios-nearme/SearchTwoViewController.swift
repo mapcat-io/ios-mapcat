@@ -25,7 +25,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
 
     override func viewDidLoad() {
         searchTwoTableContainerView.alpha = 0 // set the container view to alpha zero with no results
-        mapView.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexString: "#CECED2"), thickness: 2)
+        mapView.layer.addBorder(UIRectEdge.bottom, color: UIColor(hexString: "#CECED2"), thickness: 2)
         
         super.viewDidLoad()
         // animate spinner
@@ -40,24 +40,24 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         centerMapOnLocation(location)
         
         // set labels
-        navTitle.title = q.capitalizedString
+        navTitle.title = q.capitalized
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = false // show the navigation controller top bar
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false // show the navigation controller top bar
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SearchResultsSegue" {
-            if let destination = segue.destinationViewController as? SearchThreeViewController, let annotationView = sender as? MKPinAnnotationView {
+            if let destination = segue.destination as? SearchThreeViewController, let annotationView = sender as? MKPinAnnotationView {
                 destination.result = self.results[Int(annotationView.reuseIdentifier!)!]
                 destination.q = self.q
             }
         }
         if segue.identifier == "SearchResultsEmbeddedSegue" {
-            let toView = segue.destinationViewController as! SearchTwoTableViewController
-            toView.q = self.q.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            let toView = segue.destination as! SearchTwoTableViewController
+            toView.q = self.q.trimmingCharacters(in: CharacterSet.whitespaces)
             Alamofire.request(.GET, "http://www.mapcat.io/api/v2/items", parameters: ["q" : toView.q, "long": self.currentLocation.longitude, "lat": self.currentLocation.latitude])
                 .responseJSON { response in
                     var JSONObject = JSON(response.result.value!)
@@ -96,7 +96,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
 
         }
         if segue.identifier == "unwindToSearch" {
-            let toView = segue.destinationViewController as! SearchOneViewController
+            let toView = segue.destination as! SearchOneViewController
             toView.triggerKeyboard = true
             toView.q = ""
         }
@@ -104,27 +104,27 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: MKMapView Helper Methods
     let regionRadius: CLLocationDistance = 3000
-    func centerMapOnLocation(location: CLLocation) {
+    func centerMapOnLocation(_ location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius * 3.0, regionRadius * 3.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        performSegueWithIdentifier("SearchResultsSegue", sender: view)
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        performSegue(withIdentifier: "SearchResultsSegue", sender: view)
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
         
         // to get the identifier of the pin to segue to SearchResultsSegue
         let customAnnotation = annotation as? CustomAnnotation
         let identifier = customAnnotation!.id! as String
-        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
         if annotationView == nil {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-            annotationView?.rightCalloutAccessoryView = UIButton(type: .InfoLight)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
         } else {
             annotationView?.annotation = annotation
         }

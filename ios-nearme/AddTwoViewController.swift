@@ -38,7 +38,7 @@ class AddTwoViewController: FormViewController {
         let popularRows = uniq(options)
         
         // set view
-        navTitle.title = title.capitalizedString
+        navTitle.title = title.capitalized
         
         // form
         var sectionAddItem = Section("Add Item")
@@ -70,7 +70,7 @@ class AddTwoViewController: FormViewController {
         
     }
     
-    @IBAction func submitButtonDidTouch(sender: AnyObject) {
+    @IBAction func submitButtonDidTouch(_ sender: AnyObject) {
         // get all the values
         var parameters: [String: AnyObject] = [:]
         var items: [String: AnyObject] = [:]
@@ -84,8 +84,8 @@ class AddTwoViewController: FormViewController {
 
         let sourceDeviceId: AnyObject = (accounts.getDeviceId() as? AnyObject)!
         parameters["source"] = ["name": "webView", "deviceId": sourceDeviceId]
-        parameters["foursquare"] = result.object ?? "not set"
-        parameters["items"] = items
+        parameters["foursquare"] = result.object ?? "not set" as AnyObject?
+        parameters["items"] = items as AnyObject?
 
         Alamofire.request(.POST, "http://www.mapcat.io/api/v2/post-items", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
@@ -113,7 +113,7 @@ class AddTwoViewController: FormViewController {
 //        }
 //    }
     
-    func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source: S) -> [T] {
+    func uniq<S : Sequence, T : Hashable>(_ source: S) -> [T] where S.Iterator.Element == T {
         var buffer = [T]()
         var added = Set<T>()
         for elem in source {

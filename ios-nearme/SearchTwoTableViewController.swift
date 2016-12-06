@@ -28,26 +28,26 @@ class SearchTwoTableViewController: UITableViewController {
         
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SearchTwoTableResultCell") as! SearchTwoTableViewCell!
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTwoTableResultCell") as! SearchTwoTableViewCell!
         selectedCell = cell
         let result = results[indexPath.row]
-        cell.configureWithResult(result)
-        return cell
+        cell?.configureWithResult(result)
+        return cell!
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("SearchDetailsSegue", sender: selectedCell)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "SearchDetailsSegue", sender: selectedCell)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SearchDetailsSegue" {
-            let toView = segue.destinationViewController as! SearchThreeViewController
+            let toView = segue.destination as! SearchThreeViewController
             toView.result = results[self.tableView.indexPathForSelectedRow!.row]
         }
     }

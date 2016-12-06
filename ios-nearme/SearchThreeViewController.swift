@@ -63,21 +63,21 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
         // set initial location and boundary of map
         let destination = CLLocation(latitude: lat!, longitude: long!)
         mapView.showsUserLocation = true
-        mapView.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexString: "#CECED2"), thickness: 2)
+        mapView.layer.addBorder(UIRectEdge.bottom, color: UIColor(hexString: "#CECED2"), thickness: 2)
         centerMapOnLocation(destination)
         
         let request = MKDirectionsRequest()
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: lat!, longitude: long!), addressDictionary: nil))
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: userLat!, longitude: userLong!), addressDictionary: nil))
         request.requestsAlternateRoutes = false
-        request.transportType = .Automobile
+        request.transportType = .automobile
         
         let directions = MKDirections(request: request)
         
-        directions.calculateDirectionsWithCompletionHandler { [unowned self] response, error in
+        directions.calculate { [unowned self] response, error in
             guard let unwrappedResponse = response else { return }
             for route in unwrappedResponse.routes {
-                self.mapView.addOverlay(route.polyline)
+                self.mapView.add(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 51.0, left: 16.0, bottom: 51.0, right: 16.0), animated: true)
             }
         }
@@ -97,26 +97,26 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = false // show the navigation controller top bar
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false // show the navigation controller top bar
     }
     
-    @IBAction func directionsButtonDidTouch(sender: AnyObject) {
+    @IBAction func directionsButtonDidTouch(_ sender: AnyObject) {
         launchMaps()
     }
     
-    @IBAction func yelpButtonDidTouch(sender: AnyObject) {
+    @IBAction func yelpButtonDidTouch(_ sender: AnyObject) {
         if (self.yelpUrl != nil) {
-            UIApplication.sharedApplication().openURL(NSURL(string: self.yelpUrl!)!)
+            UIApplication.shared.openURL(URL(string: self.yelpUrl!)!)
         }
         else {
             // do nothing
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FormEmbeddedSegue" {
-            let toView = segue.destinationViewController as! SearchThreeFormViewController
+            let toView = segue.destination as! SearchThreeFormViewController
             toView.items = self.result["things"]
             toView.name = (self.result["_id"]["name"].string ?? nil)!
         }
@@ -124,15 +124,15 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: MKMapView Helper Methods
     let regionRadius: CLLocationDistance = 250
-    func centerMapOnLocation(location: CLLocation) {
+    func centerMapOnLocation(_ location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
-        renderer.strokeColor = UIColor.blueColor()
+        renderer.strokeColor = UIColor.blue
         if overlay is MKPolyline {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor(red:0.92, green:0.36, blue:0.56, alpha:1.0)
@@ -152,7 +152,7 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = name
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        mapItem.openInMapsWithLaunchOptions(launchOptions)
+        mapItem.openInMaps(launchOptions: launchOptions)
     }
 
 

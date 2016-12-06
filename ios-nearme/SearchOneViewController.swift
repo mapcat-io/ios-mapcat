@@ -27,9 +27,9 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     override func viewDidLoad() {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchOneViewController.keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SearchOneViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchOneViewController.keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SearchOneViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         // set UUID if new device
         let accounts = Accounts()
@@ -50,13 +50,13 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
         
         // handle keyboard delegate
         self.searchTextField.delegate = self
-        self.searchTextField.returnKeyType = UIReturnKeyType.Go
-        searchTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
+        self.searchTextField.returnKeyType = UIReturnKeyType.go
+        searchTextField.clearButtonMode = UITextFieldViewMode.whileEditing
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true // hide the navigation controller top bar
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true // hide the navigation controller top bar
         
         searchBarView.animation = "zoomIn"
         searchBarView.animate()
@@ -74,79 +74,79 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
 //        centerMapOnLocation(location)
     }
     
-    @IBAction func searchButtonDidTouch(sender: AnyObject) {
+    @IBAction func searchButtonDidTouch(_ sender: AnyObject) {
         searchTextField.resignFirstResponder()
         if searchTextField.text == "" {
             searchBarView.animation = "shake"
             searchBarView.animate()
         }
         else {
-            self.performSegueWithIdentifier("SearchResultsSegue", sender: self)
+            self.performSegue(withIdentifier: "SearchResultsSegue", sender: self)
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
         if searchTextField.text == "" {
             searchBarView.animation = "shake"
             searchBarView.animate()
         }
         else {
-            performSegueWithIdentifier("SearchResultsSegue", sender: self)
+            performSegue(withIdentifier: "SearchResultsSegue", sender: self)
         }
         return true
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SearchResultsSegue" {
-            let toView = segue.destinationViewController as! SearchTwoViewController
+            let toView = segue.destination as! SearchTwoViewController
             toView.q = self.searchTextField.text!
             toView.currentLocation = locationManager.location!.coordinate
         }
     }
     
-    @IBAction func unwindToSearch(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToSearch(_ segue: UIStoryboardSegue) {}
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
-    func keyboardWillShow(notification:NSNotification) {
+    func keyboardWillShow(_ notification:Notification) {
         // keyboard will show
 //        searchBarHeightConstraint.constant = 44
     }
     
-    func keyboardWillHide(notification:NSNotification) {
+    func keyboardWillHide(_ notification:Notification) {
         // keyboard will hide
 //        searchBarHeightConstraint.constant = 88
     }
     
     // MARK: MKMapView Helper Methods
     let regionRadius: CLLocationDistance = 5000
-    func centerMapOnLocation(location: CLLocation) {
+    func centerMapOnLocation(_ location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius * 3.0, regionRadius * 3.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
     // handles success/failure of location authorization
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == CLAuthorizationStatus.Denied) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if (status == CLAuthorizationStatus.denied) {
             // The user denied authorization
             let alertController = UIAlertController(title: "😿", message:
-                "We need your location to find things around you.", preferredStyle: UIAlertControllerStyle.Alert)
-            alertController.addAction(UIAlertAction(title: "Enable in Settings", style: UIAlertActionStyle.Default, handler:  { action in
-                if let settingsURL = NSURL(string: UIApplicationOpenSettingsURLString) {
-                    UIApplication.sharedApplication().openURL(settingsURL)
+                "We need your location to find things around you.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Enable in Settings", style: UIAlertActionStyle.default, handler:  { action in
+                if let settingsURL = URL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.shared.openURL(settingsURL)
                 }
             }))
-            self.presentViewController(alertController, animated: true, completion: nil)
-        } else if (status == CLAuthorizationStatus.AuthorizedWhenInUse) {
+            self.present(alertController, animated: true, completion: nil)
+        } else if (status == CLAuthorizationStatus.authorizedWhenInUse) {
             // User accepted authorization
             let lat = locationManager.location?.coordinate.latitude
             let long = locationManager.location?.coordinate.longitude
 //            mapView.showsUserLocation = true
-            mapView.showsUserLocation = (status == .AuthorizedWhenInUse)
+            mapView.showsUserLocation = (status == .authorizedWhenInUse)
             let location = CLLocation(latitude: lat!, longitude: long!)
             centerMapOnLocation(location)
         }

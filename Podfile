@@ -7,7 +7,15 @@ use_frameworks!
 target "Mapcat" do
     pod 'Alamofire', '~> 3.3'
     pod 'SwiftyJSON'
-    pod 'KeychainAccess'
     pod 'Eureka'
     pod 'Flurry-iOS-SDK/FlurrySDK'
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '2.3'  ## or '3.0'
+        end
+    end
 end
+end
+

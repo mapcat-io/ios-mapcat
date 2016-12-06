@@ -9,14 +9,14 @@
 import Foundation
 import KeychainAccess
 
-public class Accounts {
+open class Accounts {
     
     let keychain = Keychain()
 
     // set UUID for new devices
     func setDeviceId() {
         if ((keychain["deviceId"]) == nil) {
-            keychain["deviceId"] = NSUUID().UUIDString // Set string.
+            keychain["deviceId"] = UUID().UUIDString // Set string.
         }
         else {
             // do nothing

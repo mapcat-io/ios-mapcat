@@ -35,7 +35,7 @@ class FeedbackOneViewController: FormViewController {
 
     }
     
-    @IBAction func submitButtonDidTouch(sender: AnyObject) {
+    @IBAction func submitButtonDidTouch(_ sender: AnyObject) {
         var parameters: [String: AnyObject] = [:]
         
         let sourceDeviceId: AnyObject = (accounts.getDeviceId() as? AnyObject)!
