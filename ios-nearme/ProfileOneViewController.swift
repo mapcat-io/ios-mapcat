@@ -10,6 +10,7 @@ import UIKit
 import Eureka
 import Accounts
 import Alamofire
+import SwiftyJSON
 
 class ProfileOneViewController: FormViewController {
     

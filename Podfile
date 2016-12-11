@@ -10,6 +10,7 @@ target "Mapcat" do
     pod 'Eureka', '~> 2.0.0-beta.1'
     pod 'Flurry-iOS-SDK/FlurrySDK'
     pod 'KeychainAccess'
+    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|

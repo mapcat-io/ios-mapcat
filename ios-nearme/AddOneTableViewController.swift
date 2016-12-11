@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Alamofire
+import SwiftyJSON
 
 class AddOneTableViewController: UITableViewController {
     

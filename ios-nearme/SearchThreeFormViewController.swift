@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 import Alamofire
+import SwiftyJSON
 
 class SearchThreeFormViewController: FormViewController {
     
