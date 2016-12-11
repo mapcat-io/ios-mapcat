@@ -1,21 +1,24 @@
 PODS:
-  - Alamofire (3.5.1)
-  - Eureka (1.7.0)
+  - Alamofire (4.2.0)
+  - Eureka (2.0.0-beta.1)
   - Flurry-iOS-SDK/FlurrySDK (7.8.2)
+  - KeychainAccess (3.0.1)
   - SwiftyJSON (3.1.3)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.3)
-  - Eureka
+  - Alamofire
+  - Eureka (~> 2.0.0-beta.1)
   - Flurry-iOS-SDK/FlurrySDK
+  - KeychainAccess
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
-  Eureka: 2020d9faeef7b7e9adeb9e3d8af779e5931c1897
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   Flurry-iOS-SDK: 8ed76252016d0162a893363c108a010ab97d424c
+  KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 19867d6fa5e6c36e145f1910ffda1b82b1ba069f
+PODFILE CHECKSUM: 9be552762907aac2b815c51a48233faa28afba50
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.0.1
