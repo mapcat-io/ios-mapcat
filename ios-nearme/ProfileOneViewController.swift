@@ -23,7 +23,7 @@ class ProfileOneViewController: FormViewController {
         let deviceId: String = (accounts.getDeviceId() ?? "No Id Set")!
         super.viewDidLoad()
         // get rank
-        Alamofire.request(.GET, "http://www.mapcat.io/api/v2/item-stats")
+        Alamofire.request("http://www.mapcat.io/api/v2/item-stats")
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.itemStats = JSONObject["items"]
@@ -42,12 +42,12 @@ class ProfileOneViewController: FormViewController {
                         row.textFieldPercentage = 0.0
                     }
                 // get stats
-                Alamofire.request(.GET, "http://www.mapcat.io/api/v2/item-stats", parameters: ["t" : "profile", "u": sourceDeviceId])
+                Alamofire.request("http://www.mapcat.io/api/v2/item-stats", parameters: ["t" : "profile", "u": sourceDeviceId])
                     .responseJSON { response in
                         let JSONObject = JSON(response.result.value!)
                         self.profileStats = JSONObject["items"][0]
                         // set data
-                        var itemCount = String(self.profileStats["count"])
+                        var itemCount = String(describing: self.profileStats["count"])
                         if itemCount == "null" {
                             itemCount = "0"
                         }

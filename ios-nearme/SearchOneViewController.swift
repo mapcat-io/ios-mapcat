@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import KeychainAccess
 import Accounts
+import Spring
 
 class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITextFieldDelegate {
     
@@ -58,8 +59,9 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true // hide the navigation controller top bar
         
-        searchBarView.animation = "zoomIn"
-        searchBarView.animate()
+        // TODO: fix issue with this animation
+        // searchBarView.animation = "zoomIn"
+        // searchBarView.animate()
         
         // trigger keyboard if needed
         if triggerKeyboard == true {

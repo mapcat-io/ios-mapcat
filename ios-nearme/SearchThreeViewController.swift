@@ -148,7 +148,7 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
         let name = result["_id"]["name"].string
         let lat = result["coordinates"][0][1].double ?? nil
         let long = result["coordinates"][0][0].double ?? nil
-        let addressDictionary = [String(CNPostalAddressStreetKey): String(name)]
+        let addressDictionary = [String(CNPostalAddressStreetKey): String(describing: name)]
         let placemark = MKPlacemark(coordinate: CLLocationCoordinate2DMake(lat!, long!), addressDictionary: addressDictionary)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = name

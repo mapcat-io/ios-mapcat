@@ -15,6 +15,10 @@ open class CustomCell<T: Equatable> : Cell<T>, CellType {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     lazy open var trueImage: UIImage = {
         return UIImage(named: "check_mark")!
     }()
@@ -25,7 +29,7 @@ open class CustomCell<T: Equatable> : Cell<T>, CellType {
     
     open override func update() {
         super.update()
-        accessoryType = .None
+        accessoryType = .none
         imageView?.image = row.value != nil ? trueImage : falseImage
     }
     
@@ -39,12 +43,4 @@ open class CustomCell<T: Equatable> : Cell<T>, CellType {
         row.deselect()
     }
     
-}
-
-public final class CustomRow<T: Equatable>: Row<T, CustomCell<T>>, SelectableRowType, RowType {
-    public var selectableValue: T?
-    required public init(tag: String?) {
-        super.init(tag: tag)
-        displayValueFor = nil
-    }
 }

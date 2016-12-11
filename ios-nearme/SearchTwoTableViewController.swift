@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Accounts
 import Alamofire
+import SwiftyJSON
 
 class SearchTwoTableViewController: UITableViewController {
     

@@ -16,7 +16,7 @@ open class Accounts {
     // set UUID for new devices
     func setDeviceId() {
         if ((keychain["deviceId"]) == nil) {
-            keychain["deviceId"] = UUID().UUIDString // Set string.
+            keychain["deviceId"] = UUID().uuidString // Set string.
         }
         else {
             // do nothing

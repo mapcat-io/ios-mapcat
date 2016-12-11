@@ -31,7 +31,7 @@ class AddOneTableViewController: UITableViewController {
         long = (locationManager.location?.coordinate.longitude)!
         
         // get top things for subsequent view
-        Alamofire.request(.GET, "http://www.mapcat.io/api/v2/top-things")
+        Alamofire.request("http://www.mapcat.io/api/v2/top-things")
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.topThings = JSONObject["items"]
@@ -44,7 +44,7 @@ class AddOneTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // get places results to populate table
-        Alamofire.request(.GET, "http://www.mapcat.io/api/v2/places", parameters: ["lat" : lat, "long": long])
+        Alamofire.request("http://www.mapcat.io/api/v2/places", parameters: ["lat" : lat, "long": long])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.results = JSONObject["venues"]
@@ -84,7 +84,7 @@ class AddOneTableViewController: UITableViewController {
         // Updating data on pull to refresh
         lat = (locationManager.location?.coordinate.latitude)!
         long = (locationManager.location?.coordinate.longitude)!
-        Alamofire.request(.GET, "http://www.mapcat.io/api/v2/places", parameters: ["lat" : lat, "long": long])
+        Alamofire.request("http://www.mapcat.io/api/v2/places", parameters: ["lat" : lat, "long": long])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.results = JSONObject["venues"]

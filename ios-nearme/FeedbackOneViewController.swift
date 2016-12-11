@@ -30,7 +30,7 @@ class FeedbackOneViewController: FormViewController {
         form +++ Section()
             <<< TextAreaRow("note") {
                 $0.placeholder = "Because .."
-                $0.textAreaHeight = .Dynamic(initialTextViewHeight: 150)
+                $0.textAreaHeight = .dynamic(initialTextViewHeight: 150)
             }
 
     }
@@ -45,20 +45,20 @@ class FeedbackOneViewController: FormViewController {
         parameters["note"] = valuesDictionary["note"] as? AnyObject
         parameters["deviceId"] = sourceDeviceId
         
-        Alamofire.request(.POST, "http://www.mapcat.io/api/v2/post-feedback", parameters: parameters, encoding: .JSON)
+        Alamofire.request("http://www.mapcat.io/api/v2/post-feedback", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in
                 switch response.result {
-                case .Success:
+                case .success(_):
                     let alertController = UIAlertController(title: "😻", message:
-                        "Feedback successfully submitted!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("unwindToSearch", sender: self) }))
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                case .Failure(let error):
+                        "Feedback successfully submitted!", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.default, handler:  { action in self.performSegue(withIdentifier: "unwindToSearch", sender: self) }))
+                    self.present(alertController, animated: true, completion: nil)
+                case .failure(let error):
                     // display error alert
                     let alertController = UIAlertController(title: "😿", message:
-                        "There was an error submitting your feedback.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default,handler: nil))
-                    self.presentViewController(alertController, animated: true, completion: nil)
+                        "There was an error submitting your feedback.", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default,handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
                 }
         }
         

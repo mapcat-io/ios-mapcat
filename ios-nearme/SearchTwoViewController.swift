@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Alamofire
+import SwiftyJSON
 
 class SearchTwoViewController: UIViewController, MKMapViewDelegate {
 
@@ -58,7 +59,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         if segue.identifier == "SearchResultsEmbeddedSegue" {
             let toView = segue.destination as! SearchTwoTableViewController
             toView.q = self.q.trimmingCharacters(in: CharacterSet.whitespaces)
-            Alamofire.request(.GET, "http://www.mapcat.io/api/v2/items", parameters: ["q" : toView.q, "long": self.currentLocation.longitude, "lat": self.currentLocation.latitude])
+            Alamofire.request("http://www.mapcat.io/api/v2/items", parameters: ["q" : toView.q, "long": self.currentLocation.longitude, "lat": self.currentLocation.latitude])
                 .responseJSON { response in
                     var JSONObject = JSON(response.result.value!)
                     self.results = JSONObject["items"].arrayValue
@@ -88,9 +89,9 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                         // remove spinner
                         self.activityIndicator.stopAnimating()
                         let alertController = UIAlertController(title: "😿", message:
-                            "There are no results.", preferredStyle: UIAlertControllerStyle.Alert)
-                        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("unwindToSearch", sender: self) }))
-                        self.presentViewController(alertController, animated: true, completion: nil)
+                            "There are no results.", preferredStyle: UIAlertControllerStyle.alert)
+                        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler:  { action in self.performSegue(withIdentifier: "unwindToSearch", sender: self) }))
+                        self.present(alertController, animated: true, completion: nil)
                     }
             }
 
