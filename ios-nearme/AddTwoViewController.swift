@@ -73,17 +73,17 @@ class AddTwoViewController: FormViewController {
         let valuesDictionary = form.values()
         for (key, value) in valuesDictionary {
             if value != nil {
-                let temp : AnyObject! = value as? AnyObject
+                let temp : AnyObject! = value as AnyObject
                 items[key] = temp
             }
         }
 
-        let sourceDeviceId: AnyObject = (accounts.getDeviceId() as? AnyObject)!
+        let sourceDeviceId: AnyObject = (accounts.getDeviceId() as AnyObject)
         parameters["source"] = ["name": "webView", "deviceId": sourceDeviceId] as AnyObject
         parameters["foursquare"] = result.object as AnyObject?? ?? "not set" as AnyObject?
         parameters["items"] = items as AnyObject?
 
-        Alamofire.request("http://www.mapcat.io/api/v2/post-items", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+        Alamofire.request("http://127.0.0.1:3911/api/v2/post-items", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in
                 switch response.result {
                 case .success(_):
@@ -91,7 +91,7 @@ class AddTwoViewController: FormViewController {
                         "Items successfully submitted!", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.default, handler:  { action in self.performSegue(withIdentifier: "unwindToPlaces", sender: self) }))
                     self.present(alertController, animated: true, completion: nil)
-                case .failure(let error):
+                case .failure(_):
                     // display error alert
                     let alertController = UIAlertController(title: "😿", message:
                         "There was an error submitting the items.", preferredStyle: UIAlertControllerStyle.alert)

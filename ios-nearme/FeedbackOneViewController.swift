@@ -45,7 +45,7 @@ class FeedbackOneViewController: FormViewController {
         parameters["note"] = valuesDictionary["note"] as? AnyObject
         parameters["deviceId"] = sourceDeviceId
         
-        Alamofire.request("http://www.mapcat.io/api/v2/post-feedback", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+        Alamofire.request("http://127.0.0.1:3911/api/v2/post-feedback", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in
                 switch response.result {
                 case .success(_):

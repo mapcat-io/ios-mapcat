@@ -28,7 +28,7 @@ class SearchThreeFormViewController: FormViewController {
             }
         }
         
-        Alamofire.request("http://www.mapcat.io/api/v2/items-in-place", parameters: ["q" : self.name])
+        Alamofire.request("http://127.0.0.1:3911/api/v2/items-in-place", parameters: ["q" : self.name])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 let items = JSONObject["items"][0]["things"]

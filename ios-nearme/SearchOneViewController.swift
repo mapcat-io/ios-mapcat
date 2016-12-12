@@ -145,11 +145,11 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
             self.present(alertController, animated: true, completion: nil)
         } else if (status == CLAuthorizationStatus.authorizedWhenInUse) {
             // User accepted authorization
-            let lat = locationManager.location?.coordinate.latitude
-            let long = locationManager.location?.coordinate.longitude
+            let lat = 37.7557675
+            let long = -122.4246298
 //            mapView.showsUserLocation = true
             mapView.showsUserLocation = (status == .authorizedWhenInUse)
-            let location = CLLocation(latitude: lat!, longitude: long!)
+            let location = CLLocation(latitude: lat, longitude: long)
             centerMapOnLocation(location)
         }
     }

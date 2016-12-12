@@ -59,7 +59,7 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         if segue.identifier == "SearchResultsEmbeddedSegue" {
             let toView = segue.destination as! SearchTwoTableViewController
             toView.q = self.q.trimmingCharacters(in: CharacterSet.whitespaces)
-            Alamofire.request("http://www.mapcat.io/api/v2/items", parameters: ["q" : toView.q, "long": self.currentLocation.longitude, "lat": self.currentLocation.latitude])
+            Alamofire.request("http://127.0.0.1:3911/api/v2/items", parameters: ["q" : toView.q, "long": self.currentLocation.longitude, "lat": self.currentLocation.latitude])
                 .responseJSON { response in
                     var JSONObject = JSON(response.result.value!)
                     self.results = JSONObject["items"].arrayValue
