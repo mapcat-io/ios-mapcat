@@ -21,9 +21,12 @@ class ProfileOneViewController: FormViewController {
     override func viewDidLoad() {
         let sourceDeviceId: AnyObject = (accounts.getDeviceId() as AnyObject)
         let deviceId: String = (accounts.getDeviceId() ?? "No Id Set")!
+        print("herro")
+        print(sourceDeviceId)
+        print(deviceId)
         super.viewDidLoad()
         // get rank
-        Alamofire.request("http://127.0.0.1:3911o/api/v2/item-stats")
+        Alamofire.request("http://127.0.0.1:3911/api/v2/item-stats")
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.itemStats = JSONObject["items"]
@@ -52,8 +55,8 @@ class ProfileOneViewController: FormViewController {
                             itemCount = "0"
                         }
                         
-                        let places = self.profileStats["places"] ?? []
-                        let placesCount = String(self.profileStats["places"].count) ?? "None"
+                        let places = self.profileStats["places"] 
+                        let placesCount = String(self.profileStats["places"].count) 
                         // display in UI
                         self.form +++ Section("Items Added")
                             <<< TextRow(){ row in
