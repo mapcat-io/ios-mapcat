@@ -3,13 +3,14 @@
 //  ios-mapcat
 //
 //  Created by Jennifer Long on 8/28/16.
-//  Copyright © 2016 Ryan Walton. All rights reserved.
+//  Copyright © 2016 Mapcat. All rights reserved.
 //
 
 import UIKit
 import Eureka
 import Alamofire
 import Accounts
+import Flurry_iOS_SDK
 
 class FeedbackOneViewController: FormViewController {
     
@@ -17,6 +18,8 @@ class FeedbackOneViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Flurry.logEvent("Feedback_View", timed: true)
         
         form +++ Section("What's up?")
             <<< PickerRow<String>("feeling") { (row : PickerRow<String>) -> Void in
@@ -38,14 +41,17 @@ class FeedbackOneViewController: FormViewController {
     @IBAction func submitButtonDidTouch(_ sender: AnyObject) {
         var parameters: [String: AnyObject] = [:]
         
-        let sourceDeviceId: AnyObject = (accounts.getDeviceId() as? AnyObject)!
+        let sourceDeviceId: AnyObject = (accounts.getDeviceId() as AnyObject)
         let valuesDictionary = form.values()
         
-        parameters["feeling"] = valuesDictionary["feeling"] as? AnyObject
-        parameters["note"] = valuesDictionary["note"] as? AnyObject
+        parameters["feeling"] = valuesDictionary["feeling"] as AnyObject
+        parameters["note"] = valuesDictionary["note"] as AnyObject
         parameters["deviceId"] = sourceDeviceId
+        parameters["token"] = "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp" as AnyObject?
         
-        Alamofire.request("http://127.0.0.1:3911/api/v2/post-feedback", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+        Flurry.logEvent("Feedback_Submit", withParameters: ["feeling": parameters["feeling"]!, "note": parameters["note"]!])
+        
+        Alamofire.request("http://api.mapcat.io:3911/api/v2/post-feedback", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in
                 switch response.result {
                 case .success(_):
@@ -59,6 +65,7 @@ class FeedbackOneViewController: FormViewController {
                         "There was an error submitting your feedback.", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default,handler: nil))
                     self.present(alertController, animated: true, completion: nil)
+                    Flurry.logError("PostFeedbackError", message: "Error posting feedback", exception: error as! NSException)
                 }
         }
         

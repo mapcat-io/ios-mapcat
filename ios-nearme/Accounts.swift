@@ -3,11 +3,12 @@
 //  ios-mapcat
 //
 //  Created by Ryan Walton on 7/9/16.
-//  Copyright © 2016 Ryan Walton. All rights reserved.
+//  Copyright © 2016 Mapcat. All rights reserved.
 //
 
 import Foundation
 import KeychainAccess
+import Flurry_iOS_SDK
 
 open class Accounts {
     

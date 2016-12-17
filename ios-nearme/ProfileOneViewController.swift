@@ -3,7 +3,7 @@
 //  ios-mapcat
 //
 //  Created by Ryan Walton on 7/22/16.
-//  Copyright © 2016 Ryan Walton. All rights reserved.
+//  Copyright © 2016 Mapcat. All rights reserved.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ import Eureka
 import Accounts
 import Alamofire
 import SwiftyJSON
+import Flurry_iOS_SDK
 
 class ProfileOneViewController: FormViewController {
     
@@ -19,6 +20,9 @@ class ProfileOneViewController: FormViewController {
     var itemStats: JSON = []
     
     override func viewDidLoad() {
+        
+        Flurry.logEvent("Profile_View", timed: true)
+        
         let sourceDeviceId: AnyObject = (accounts.getDeviceId() as AnyObject)
         let deviceId: String = (accounts.getDeviceId() ?? "No Id Set")!
         print("herro")
@@ -26,7 +30,7 @@ class ProfileOneViewController: FormViewController {
         print(deviceId)
         super.viewDidLoad()
         // get rank
-        Alamofire.request("http://127.0.0.1:3911/api/v2/item-stats")
+        Alamofire.request("http://api.mapcat.io:3911/api/v2/item-stats", parameters: ["token": "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp"])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.itemStats = JSONObject["items"]
@@ -45,7 +49,7 @@ class ProfileOneViewController: FormViewController {
                         row.textFieldPercentage = 0.0
                     }
                 // get stats
-                Alamofire.request("http://127.0.0.1:3911/api/v2/item-stats", parameters: ["t" : "profile", "u": sourceDeviceId])
+                Alamofire.request("http://api.mapcat.io:3911/api/v2/item-stats", parameters: ["t" : "profile", "u": sourceDeviceId, "token": "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp"])
                     .responseJSON { response in
                         let JSONObject = JSON(response.result.value!)
                         self.profileStats = JSONObject["items"][0]

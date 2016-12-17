@@ -3,7 +3,7 @@
 //  ios-mapcat
 //
 //  Created by Ryan Walton on 7/22/16.
-//  Copyright © 2016 Ryan Walton. All rights reserved.
+//  Copyright © 2016 Mapcat. All rights reserved.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ import MapKit
 import Contacts
 import Alamofire
 import SwiftyJSON
+import Flurry_iOS_SDK
 
 class SearchThreeViewController: UIViewController, MKMapViewDelegate {
     
@@ -46,6 +47,8 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
         let lat = result["coordinates"][0][1].double ?? nil
         let long = result["coordinates"][0][0].double ?? nil
         yelpUrl = result["locations"][0]["yelpUrl"].string ?? nil
+        
+        Flurry.logEvent("LocationDetails_View", withParameters: ["location": name as Any, "lat": lat as Any, "long": long as Any, "distanceFromLocation": result["distance"][0]], timed: true)
         
         // update layout for non-existent values (baseline assumes values exist)
         if (address == nil) {
@@ -103,10 +106,12 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func directionsButtonDidTouch(_ sender: AnyObject) {
+        Flurry.logEvent("GetDirections_Submit", withParameters: ["location": result["_id"]["name"] as Any, "lat": result["coordinates"][0][1] as Any, "long": result["coordinates"][0][0] as Any, "distanceFromLocation": result["distance"][0]])
         launchMaps()
     }
     
     @IBAction func yelpButtonDidTouch(_ sender: AnyObject) {
+        Flurry.logEvent("YelpLink_Submit", withParameters: ["location": result["_id"]["name"] as Any, "lat": result["coordinates"][0][1] as Any, "long": result["coordinates"][0][0] as Any, "distanceFromLocation": result["distance"][0], "yelpUrl": self.yelpUrl as Any])
         if (self.yelpUrl != nil) {
             UIApplication.shared.openURL(URL(string: self.yelpUrl!)!)
         }

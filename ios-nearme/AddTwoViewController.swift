@@ -12,6 +12,7 @@ import Alamofire
 import Accounts
 import Eureka
 import SwiftyJSON
+import Flurry_iOS_SDK
 
 class AddTwoViewController: FormViewController {
     
@@ -28,9 +29,11 @@ class AddTwoViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Flurry.logEvent("AddtoMapItems_View", timed: true)
+        
         let title = result["name"].string ?? ""
         // add top-things to options array
-        for (key, subJson) in topThings {
+        for (_, subJson) in topThings {
             if let name = subJson["name"].string {
                 options.append(name)
             }
@@ -82,8 +85,11 @@ class AddTwoViewController: FormViewController {
         parameters["source"] = ["name": "webView", "deviceId": sourceDeviceId] as AnyObject
         parameters["foursquare"] = result.object as AnyObject?? ?? "not set" as AnyObject?
         parameters["items"] = items as AnyObject?
+        parameters["token"] = "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp" as AnyObject?
+        
+        Flurry.logEvent("Items_Submit", withParameters: ["location": result["name"], "lat": result["location"]["lat"], "long": result["location"]["lng"], "itemsCount": parameters["items"]?.count as Any])
 
-        Alamofire.request("http://127.0.0.1:3911/api/v2/post-items", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+        Alamofire.request("http://api.mapcat.io:3911/api/v2/post-items", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in
                 switch response.result {
                 case .success(_):
@@ -91,12 +97,13 @@ class AddTwoViewController: FormViewController {
                         "Items successfully submitted!", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.default, handler:  { action in self.performSegue(withIdentifier: "unwindToPlaces", sender: self) }))
                     self.present(alertController, animated: true, completion: nil)
-                case .failure(_):
+                case .failure(let error):
                     // display error alert
                     let alertController = UIAlertController(title: "😿", message:
                         "There was an error submitting the items.", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default,handler: nil))
                     self.present(alertController, animated: true, completion: nil)
+                    Flurry.logError("PostItemsError", message: "Error retrieving post items", exception: error as! NSException)
                 }
         }
 
