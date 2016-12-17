@@ -3,7 +3,7 @@
 //  ios-mapcat
 //
 //  Created by Ryan Walton on 7/24/16.
-//  Copyright © 2016 Ryan Walton. All rights reserved.
+//  Copyright © 2016 Mapcat. All rights reserved.
 //
 
 import UIKit
@@ -28,7 +28,7 @@ class SearchThreeFormViewController: FormViewController {
             }
         }
         
-        Alamofire.request("http://www.mapcat.io/api/v2/items-in-place", parameters: ["q" : self.name])
+        Alamofire.request("http://api.mapcat.io:3911/api/v2/items-in-place", parameters: ["q" : self.name, "token": "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp"])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 let items = JSONObject["items"][0]["things"]

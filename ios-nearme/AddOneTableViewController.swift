@@ -3,13 +3,14 @@
 //  ios-mapcat
 //
 //  Created by Ryan Walton on 7/22/16.
-//  Copyright © 2016 Ryan Walton. All rights reserved.
+//  Copyright © 2016 Mapcat. All rights reserved.
 //
 
 import UIKit
 import MapKit
 import Alamofire
 import SwiftyJSON
+import Flurry_iOS_SDK
 
 class AddOneTableViewController: UITableViewController {
     
@@ -25,13 +26,15 @@ class AddOneTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Flurry.logEvent("AddtoMapLocations_View", timed: true)
+        
         self.refreshControl?.addTarget(self, action: #selector(AddOneTableViewController.refresh(_:)), for: UIControlEvents.valueChanged)
         
         lat = (locationManager.location?.coordinate.latitude)!
         long = (locationManager.location?.coordinate.longitude)!
         
         // get top things for subsequent view
-        Alamofire.request("http://www.mapcat.io/api/v2/top-things")
+        Alamofire.request("http://api.mapcat.io:3911/api/v2/top-things", parameters: ["token": "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp"])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.topThings = JSONObject["items"]
@@ -44,7 +47,7 @@ class AddOneTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // get places results to populate table
-        Alamofire.request("http://www.mapcat.io/api/v2/places", parameters: ["lat" : lat, "long": long])
+        Alamofire.request("http://api.mapcat.io:3911/api/v2/places", parameters: ["lat" : lat, "long": long, "token": "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp"])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.results = JSONObject["venues"]
@@ -84,7 +87,7 @@ class AddOneTableViewController: UITableViewController {
         // Updating data on pull to refresh
         lat = (locationManager.location?.coordinate.latitude)!
         long = (locationManager.location?.coordinate.longitude)!
-        Alamofire.request("http://www.mapcat.io/api/v2/places", parameters: ["lat" : lat, "long": long])
+        Alamofire.request("http://api.mapcat.io:3911/api/v2/places", parameters: ["lat" : lat, "long": long, "token": "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp"])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 self.results = JSONObject["venues"]
