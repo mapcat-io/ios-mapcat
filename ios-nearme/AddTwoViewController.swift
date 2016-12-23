@@ -97,13 +97,12 @@ class AddTwoViewController: FormViewController {
                         "Items successfully submitted!", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.default, handler:  { action in self.performSegue(withIdentifier: "unwindToPlaces", sender: self) }))
                     self.present(alertController, animated: true, completion: nil)
-                case .failure(let error):
+                case .failure(_):
                     // display error alert
                     let alertController = UIAlertController(title: "😿", message:
                         "There was an error submitting the items.", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default,handler: nil))
                     self.present(alertController, animated: true, completion: nil)
-                    Flurry.logError("PostItemsError", message: "Error retrieving post items", exception: error as! NSException)
                 }
         }
 

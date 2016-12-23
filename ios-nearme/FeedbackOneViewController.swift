@@ -59,13 +59,12 @@ class FeedbackOneViewController: FormViewController {
                         "Feedback successfully submitted!", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.default, handler:  { action in self.performSegue(withIdentifier: "unwindToSearch", sender: self) }))
                     self.present(alertController, animated: true, completion: nil)
-                case .failure(let error):
+                case .failure(_):
                     // display error alert
                     let alertController = UIAlertController(title: "😿", message:
                         "There was an error submitting your feedback.", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default,handler: nil))
                     self.present(alertController, animated: true, completion: nil)
-                    Flurry.logError("PostFeedbackError", message: "Error posting feedback", exception: error as! NSException)
                 }
         }
         
