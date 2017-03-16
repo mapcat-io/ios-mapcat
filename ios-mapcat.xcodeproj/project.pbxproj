@@ -412,13 +412,16 @@
 					6C47BF4C1BD0AD5000D52EF4 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 7G2B3DFR32;
+						LastSwiftMigration = 0820;
 					};
 					6C47BF631BD0AD5100D52EF4 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 6C47BF4C1BD0AD5000D52EF4;
 					};
 					6C47BF6E1BD0AD5100D52EF4 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 6C47BF4C1BD0AD5000D52EF4;
 					};
 				};
@@ -713,6 +716,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ios.Mapcat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -731,6 +735,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ios.Mapcat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -743,7 +748,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ryang24.ios-nearmeTests";
 				PRODUCT_NAME = "ios-mapcatTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-mapcat.app/ios-mapcat";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mapcat.app/Mapcat";
 			};
 			name = Debug;
 		};
@@ -755,7 +761,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ryang24.ios-nearmeTests";
 				PRODUCT_NAME = "ios-mapcatTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-mapcat.app/ios-mapcat";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mapcat.app/Mapcat";
 			};
 			name = Release;
 		};
@@ -766,6 +773,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ryang24.ios-nearmeUITests";
 				PRODUCT_NAME = "ios-mapcatTests";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "ios-nearme";
 				USES_XCTRUNNER = YES;
 			};
@@ -778,6 +786,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ryang24.ios-nearmeUITests";
 				PRODUCT_NAME = "ios-mapcatTests";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "ios-nearme";
 				USES_XCTRUNNER = YES;
 			};

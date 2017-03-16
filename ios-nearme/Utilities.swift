@@ -9,16 +9,17 @@
 import UIKit
 import CoreLocation
 
-public class Utilities  {
+open class Utilities  {
     
-    public class func populateDistanceBetween(var results: JSON, currentLocation: CLLocation) -> JSON {
+    public class func populateDistanceBetween(_ results: JSON, currentLocation: CLLocation) -> JSON {
+        var results = results
         for (key, _) in results {
             let intKey: Int = Int(key)!
             var thisItem: JSON = results[intKey]
             let geoLat = thisItem["locations"][0][1].double ?? 37.763299
             let geoLong = thisItem["locations"][0][0].double ?? -122.419356
             let destination = CLLocation(latitude: geoLat, longitude: geoLong)
-            let distanceBetween: CLLocationDistance = destination.distanceFromLocation(currentLocation)
+            let distanceBetween: CLLocationDistance = destination.distance(from: currentLocation)
             thisItem["distance"].double =  distanceBetween
             results[intKey] = thisItem
         }
@@ -26,23 +27,23 @@ public class Utilities  {
     }
     
 
-    public class func getDataFromUrl(url:NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) in
-            completion(data: data, response: response, error: error)
-            }.resume()
+    open class func getDataFromUrl(_ url:URL, completion: @escaping ((_ data: Data?, _ response: URLResponse?, _ error: NSError? ) -> Void)) {
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+            completion(data, response, error)
+            }) .resume()
     }
     
     // return string from JSONSwifty Array object, with seperator
-    public class func joinArrayWithSeparator(data: JSON, separator: String) -> String {
+    open class func joinArrayWithSeparator(_ data: JSON, separator: String) -> String {
         var string: String = ""
         for (key, subJson) in data {
             let str = subJson.string
             if key == "0" && str != nil {
-                string.appendContentsOf(str!)
+                string.append(str!)
             }
             else {
                 if str != nil {
-                    string.appendContentsOf(separator + str!)
+                    string.append(separator + str!)
                 }
             }
         }

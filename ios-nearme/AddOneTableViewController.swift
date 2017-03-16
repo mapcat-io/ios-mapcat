@@ -24,7 +24,7 @@ class AddOneTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refreshControl?.addTarget(self, action: #selector(AddOneTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(AddOneTableViewController.refresh(_:)), for: UIControlEvents.valueChanged)
         
         lat = (locationManager.location?.coordinate.latitude)!
         long = (locationManager.location?.coordinate.longitude)!
@@ -41,7 +41,7 @@ class AddOneTableViewController: UITableViewController {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         // get places results to populate table
         Alamofire.request(.GET, "http://www.mapcat.io/api/v2/places", parameters: ["lat" : lat, "long": long])
             .responseJSON { response in
@@ -51,35 +51,35 @@ class AddOneTableViewController: UITableViewController {
         }
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AddOneTableResultCell") as! AddOneTableViewCell!
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AddOneTableResultCell") as! AddOneTableViewCell!
         selectedCell = cell
         let result = results[indexPath.row]
-        cell.configureWithResult(result)
-        return cell
+        cell?.configureWithResult(result)
+        return cell!
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("AddSubmitSegue", sender: selectedCell)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "AddSubmitSegue", sender: selectedCell)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddSubmitSegue" {
-            let toView = segue.destinationViewController as! AddTwoViewController
+            let toView = segue.destination as! AddTwoViewController
             toView.result = results[self.tableView.indexPathForSelectedRow!.row]
             toView.topThings = self.topThings
             
         }
     }
 
-    @IBAction func unwindToPlaces(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToPlaces(_ segue: UIStoryboardSegue) {}
     
-    func refresh(sender:AnyObject) {
+    func refresh(_ sender:AnyObject) {
         // Updating data on pull to refresh
         lat = (locationManager.location?.coordinate.latitude)!
         long = (locationManager.location?.coordinate.longitude)!

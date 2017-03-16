@@ -9,31 +9,31 @@
 import UIKit
 import Eureka
 
-public class CustomCell<T: Equatable> : Cell<T>, CellType {
+open class CustomCell<T: Equatable> : Cell<T>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    lazy public var trueImage: UIImage = {
+    lazy open var trueImage: UIImage = {
         return UIImage(named: "check_mark")!
     }()
     
-    lazy public var falseImage: UIImage = {
+    lazy open var falseImage: UIImage = {
         return UIImage(named: "check_mark_nil")!
     }()
     
-    public override func update() {
+    open override func update() {
         super.update()
         accessoryType = .None
         imageView?.image = row.value != nil ? trueImage : falseImage
     }
     
-    public override func setup() {
+    open override func setup() {
         super.setup()
     }
     
-    public override func didSelect() {
+    open override func didSelect() {
         row.reload()
         row.select()
         row.deselect()

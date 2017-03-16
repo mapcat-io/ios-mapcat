@@ -15,12 +15,12 @@ class SearchTwoTableViewCell: UITableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    func configureWithResult(result: JSON) {
+    func configureWithResult(_ result: JSON) {
         
         // set data
         let name = result["_id"]["name"].string ?? nil
         let distance = result["distance"][0].double ?? nil
-        let things = Utilities.joinArrayWithSeparator(result["things"], separator: ", ").capitalizedString
+        let things = Utilities.joinArrayWithSeparator(result["things"], separator: ", ").capitalized
         
         // set to UI
         nameLabel.text = name
