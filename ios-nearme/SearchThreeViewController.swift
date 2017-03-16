@@ -106,18 +106,12 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func directionsButtonDidTouch(_ sender: AnyObject) {
-<<<<<<< HEAD
-=======
         Flurry.logEvent("GetDirections_Submit", withParameters: ["location": result["_id"]["name"] as Any, "lat": result["coordinates"][0][1] as Any, "long": result["coordinates"][0][0] as Any, "distanceFromLocation": result["distance"][0]])
->>>>>>> e4d4c712428b856818be62af2f255797a4053edd
         launchMaps()
     }
     
     @IBAction func yelpButtonDidTouch(_ sender: AnyObject) {
-<<<<<<< HEAD
-=======
         Flurry.logEvent("YelpLink_Submit", withParameters: ["location": result["_id"]["name"] as Any, "lat": result["coordinates"][0][1] as Any, "long": result["coordinates"][0][0] as Any, "distanceFromLocation": result["distance"][0], "yelpUrl": self.yelpUrl as Any])
->>>>>>> e4d4c712428b856818be62af2f255797a4053edd
         if (self.yelpUrl != nil) {
             UIApplication.shared.openURL(URL(string: self.yelpUrl!)!)
         }

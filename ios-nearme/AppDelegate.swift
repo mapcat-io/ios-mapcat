@@ -49,11 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         feedbackTab.selectedImage = UIImage(named:"feedback-icon-selected")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         feedbackTab.image = UIImage(named:"feedback-icon-unselected")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-<<<<<<< HEAD
-=======
         
         Flurry.logAllPageViews(forTarget: mainTabController)
->>>>>>> e4d4c712428b856818be62af2f255797a4053edd
         
         return true
     }

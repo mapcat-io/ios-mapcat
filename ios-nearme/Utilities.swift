@@ -27,16 +27,6 @@ open class Utilities  {
         return results
     }
     
-<<<<<<< HEAD
-
-    open class func getDataFromUrl(_ url:URL, completion: @escaping ((_ data: Data?, _ response: URLResponse?, _ error: NSError? ) -> Void)) {
-        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            completion(data, response, error)
-            }) .resume()
-    }
-    
-=======
->>>>>>> e4d4c712428b856818be62af2f255797a4053edd
     // return string from JSONSwifty Array object, with seperator
     open class func joinArrayWithSeparator(_ data: JSON, separator: String) -> String {
         var string: String = ""

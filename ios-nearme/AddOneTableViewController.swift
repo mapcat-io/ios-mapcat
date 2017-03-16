@@ -26,11 +26,8 @@ class AddOneTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-<<<<<<< HEAD
-=======
         Flurry.logEvent("AddtoMapLocations_View", timed: true)
         
->>>>>>> e4d4c712428b856818be62af2f255797a4053edd
         self.refreshControl?.addTarget(self, action: #selector(AddOneTableViewController.refresh(_:)), for: UIControlEvents.valueChanged)
         
         lat = (locationManager.location?.coordinate.latitude)!

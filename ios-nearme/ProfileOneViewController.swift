@@ -9,9 +9,9 @@
 import UIKit
 import Eureka
 import Accounts
-import Alamofire
 import SwiftyJSON
 import Flurry_iOS_SDK
+import Alamofire
 
 class ProfileOneViewController: FormViewController {
     

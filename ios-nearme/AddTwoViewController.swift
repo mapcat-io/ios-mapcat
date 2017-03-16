@@ -81,12 +81,6 @@ class AddTwoViewController: FormViewController {
             }
         }
 
-<<<<<<< HEAD
-        let sourceDeviceId: AnyObject = (accounts.getDeviceId() as? AnyObject)!
-        parameters["source"] = ["name": "webView", "deviceId": sourceDeviceId]
-        parameters["foursquare"] = result.object ?? "not set" as AnyObject?
-        parameters["items"] = items as AnyObject?
-=======
         let sourceDeviceId: AnyObject = (accounts.getDeviceId() as AnyObject)
         parameters["source"] = ["name": "webView", "deviceId": sourceDeviceId] as AnyObject
         parameters["foursquare"] = result.object as AnyObject?? ?? "not set" as AnyObject?
@@ -94,7 +88,6 @@ class AddTwoViewController: FormViewController {
         parameters["token"] = "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp" as AnyObject?
         
         Flurry.logEvent("Items_Submit", withParameters: ["location": result["name"], "lat": result["location"]["lat"], "long": result["location"]["lng"], "itemsCount": parameters["items"]?.count as Any])
->>>>>>> e4d4c712428b856818be62af2f255797a4053edd
 
         Alamofire.request("http://api.mapcat.io:3911/api/v2/post-items", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in

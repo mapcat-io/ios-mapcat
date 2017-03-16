@@ -29,15 +29,10 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     override func viewDidLoad() {
         
-<<<<<<< HEAD
-        NotificationCenter.default.addObserver(self, selector: #selector(SearchOneViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-=======
         Flurry.logEvent("Home_View", timed: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(SearchOneViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
->>>>>>> e4d4c712428b856818be62af2f255797a4053edd
         NotificationCenter.default.addObserver(self, selector: #selector(SearchOneViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         // set UUID if new device
@@ -118,10 +113,7 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SearchResultsSegue" {
-<<<<<<< HEAD
-=======
             Flurry.logEvent("Search_Submit", withParameters: ["q": self.searchTextField.text!, "lat": locationManager.location!.coordinate.latitude, "long": locationManager.location!.coordinate.longitude])
->>>>>>> e4d4c712428b856818be62af2f255797a4053edd
             let toView = segue.destination as! SearchTwoViewController
             toView.q = self.searchTextField.text!
             toView.currentLocation = locationManager.location!.coordinate
@@ -166,14 +158,8 @@ class SearchOneViewController: UIViewController, CLLocationManagerDelegate, MKMa
             self.present(alertController, animated: true, completion: nil)
         } else if (status == CLAuthorizationStatus.authorizedWhenInUse) {
             // User accepted authorization
-<<<<<<< HEAD
-            let lat = locationManager.location?.coordinate.latitude
-            let long = locationManager.location?.coordinate.longitude
-//            mapView.showsUserLocation = true
-=======
             let lat = locationManager.location?.coordinate.latitude // 37.7557675
             let long = locationManager.location?.coordinate.longitude // -122.4246298
->>>>>>> e4d4c712428b856818be62af2f255797a4053edd
             mapView.showsUserLocation = (status == .authorizedWhenInUse)
             let location = CLLocation(latitude: lat!, longitude: long!)
             centerMapOnLocation(location)
