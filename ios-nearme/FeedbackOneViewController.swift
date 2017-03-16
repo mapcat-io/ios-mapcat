@@ -3,13 +3,14 @@
 //  ios-mapcat
 //
 //  Created by Jennifer Long on 8/28/16.
-//  Copyright © 2016 Ryan Walton. All rights reserved.
+//  Copyright © 2016 Mapcat. All rights reserved.
 //
 
 import UIKit
 import Eureka
 import Alamofire
 import Accounts
+import Flurry_iOS_SDK
 
 class FeedbackOneViewController: FormViewController {
     
@@ -17,6 +18,8 @@ class FeedbackOneViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Flurry.logEvent("Feedback_View", timed: true)
         
         form +++ Section("What's up?")
             <<< PickerRow<String>("feeling") { (row : PickerRow<String>) -> Void in
@@ -30,7 +33,7 @@ class FeedbackOneViewController: FormViewController {
         form +++ Section()
             <<< TextAreaRow("note") {
                 $0.placeholder = "Because .."
-                $0.textAreaHeight = .Dynamic(initialTextViewHeight: 150)
+                $0.textAreaHeight = .dynamic(initialTextViewHeight: 150)
             }
 
     }
@@ -38,27 +41,30 @@ class FeedbackOneViewController: FormViewController {
     @IBAction func submitButtonDidTouch(_ sender: AnyObject) {
         var parameters: [String: AnyObject] = [:]
         
-        let sourceDeviceId: AnyObject = (accounts.getDeviceId() as? AnyObject)!
+        let sourceDeviceId: AnyObject = (accounts.getDeviceId() as AnyObject)
         let valuesDictionary = form.values()
         
-        parameters["feeling"] = valuesDictionary["feeling"] as? AnyObject
-        parameters["note"] = valuesDictionary["note"] as? AnyObject
+        parameters["feeling"] = valuesDictionary["feeling"] as AnyObject
+        parameters["note"] = valuesDictionary["note"] as AnyObject
         parameters["deviceId"] = sourceDeviceId
+        parameters["token"] = "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp" as AnyObject?
         
-        Alamofire.request(.POST, "http://www.mapcat.io/api/v2/post-feedback", parameters: parameters, encoding: .JSON)
+        Flurry.logEvent("Feedback_Submit", withParameters: ["feeling": parameters["feeling"]!, "note": parameters["note"]!])
+        
+        Alamofire.request("http://api.mapcat.io:3911/api/v2/post-feedback", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in
                 switch response.result {
-                case .Success:
+                case .success(_):
                     let alertController = UIAlertController(title: "😻", message:
-                        "Feedback successfully submitted!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("unwindToSearch", sender: self) }))
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                case .Failure(let error):
+                        "Feedback successfully submitted!", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.default, handler:  { action in self.performSegue(withIdentifier: "unwindToSearch", sender: self) }))
+                    self.present(alertController, animated: true, completion: nil)
+                case .failure(_):
                     // display error alert
                     let alertController = UIAlertController(title: "😿", message:
-                        "There was an error submitting your feedback.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default,handler: nil))
-                    self.presentViewController(alertController, animated: true, completion: nil)
+                        "There was an error submitting your feedback.", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default,handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
                 }
         }
         

@@ -3,13 +3,14 @@
 //  ios-mapcat
 //
 //  Created by Ryan Walton on 7/22/16.
-//  Copyright © 2016 Ryan Walton. All rights reserved.
+//  Copyright © 2016 Mapcat. All rights reserved.
 //
 
 import UIKit
 import MapKit
 import Accounts
 import Alamofire
+import SwiftyJSON
 
 class SearchTwoTableViewController: UITableViewController {
     

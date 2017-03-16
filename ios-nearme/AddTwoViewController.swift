@@ -12,6 +12,7 @@ import Alamofire
 import Accounts
 import Eureka
 import SwiftyJSON
+import Flurry_iOS_SDK
 
 class AddTwoViewController: FormViewController {
     
@@ -28,9 +29,11 @@ class AddTwoViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Flurry.logEvent("AddtoMapItems_View", timed: true)
+        
         let title = result["name"].string ?? ""
         // add top-things to options array
-        for (key, subJson) in topThings {
+        for (_, subJson) in topThings {
             if let name = subJson["name"].string {
                 options.append(name)
             }
@@ -51,20 +54,16 @@ class AddTwoViewController: FormViewController {
                     // add new item on cell select
                     sectionAddItem.insert(TextRow("AddItem" + String(self.counter)){ row in
                         row.placeholder = "Name"
-                        }, atIndex: 1)
+                        }, at: 1)
                     self.counter += 1
                 })
         
-        form +++ SelectableSection<CustomRow<String>, String>("Popular Items", selectionType: .MultipleSelection)
+        form +++ SelectableSection<ListCheckRow<String>>("Popular Items", selectionType: .multipleSelection)
         for option in popularRows {
-            form.last! <<< CustomRow<String>(option){ row in
+            form.last! <<< ListCheckRow<String>(option){ row in
                 row.title = option
                 row.selectableValue = option
                 row.value = nil
-                }.cellSetup { cell, _ in
-                    cell.trueImage = UIImage(named: "check_mark")!
-                    cell.falseImage = UIImage(named: "check_mark_nil")!
-                    cell.accessoryView?.frame = CGRectMake(0, 0, 34, 34)
             }
         }
         
@@ -77,30 +76,40 @@ class AddTwoViewController: FormViewController {
         let valuesDictionary = form.values()
         for (key, value) in valuesDictionary {
             if value != nil {
-                let temp : AnyObject! = value as? AnyObject
+                let temp : AnyObject! = value as AnyObject
                 items[key] = temp
             }
         }
 
+<<<<<<< HEAD
         let sourceDeviceId: AnyObject = (accounts.getDeviceId() as? AnyObject)!
         parameters["source"] = ["name": "webView", "deviceId": sourceDeviceId]
         parameters["foursquare"] = result.object ?? "not set" as AnyObject?
         parameters["items"] = items as AnyObject?
+=======
+        let sourceDeviceId: AnyObject = (accounts.getDeviceId() as AnyObject)
+        parameters["source"] = ["name": "webView", "deviceId": sourceDeviceId] as AnyObject
+        parameters["foursquare"] = result.object as AnyObject?? ?? "not set" as AnyObject?
+        parameters["items"] = items as AnyObject?
+        parameters["token"] = "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp" as AnyObject?
+        
+        Flurry.logEvent("Items_Submit", withParameters: ["location": result["name"], "lat": result["location"]["lat"], "long": result["location"]["lng"], "itemsCount": parameters["items"]?.count as Any])
+>>>>>>> e4d4c712428b856818be62af2f255797a4053edd
 
-        Alamofire.request(.POST, "http://www.mapcat.io/api/v2/post-items", parameters: parameters, encoding: .JSON)
+        Alamofire.request("http://api.mapcat.io:3911/api/v2/post-items", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in
                 switch response.result {
-                case .Success:
+                case .success(_):
                     let alertController = UIAlertController(title: "😻", message:
-                        "Items successfully submitted!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("unwindToPlaces", sender: self) }))
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                case .Failure(let error):
+                        "Items successfully submitted!", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Thanks", style: UIAlertActionStyle.default, handler:  { action in self.performSegue(withIdentifier: "unwindToPlaces", sender: self) }))
+                    self.present(alertController, animated: true, completion: nil)
+                case .failure(_):
                     // display error alert
                     let alertController = UIAlertController(title: "😿", message:
-                        "There was an error submitting the items.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.Default,handler: nil))
-                    self.presentViewController(alertController, animated: true, completion: nil)
+                        "There was an error submitting the items.", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.default,handler: nil))
+                    self.present(alertController, animated: true, completion: nil)
                 }
         }
 

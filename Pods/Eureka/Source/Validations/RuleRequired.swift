@@ -1,6 +1,8 @@
-// The MIT License (MIT)
+//  RuleRequire.swift
+//  Eureka ( https://github.com/xmartlabs/Eureka )
 //
-// Copyright (c) 2015 Meng To (meng@designcode.io)
+//  Copyright (c) 2016 Xmartlabs SRL ( http://xmartlabs.com )
+//
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -9,25 +11,30 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-public func insertBlurView (_ view: UIView, style: UIBlurEffectStyle) -> UIVisualEffectView {
-    view.backgroundColor = UIColor.clear
+public struct RuleRequired<T: Equatable>: RuleType {
     
-    let blurEffect = UIBlurEffect(style: style)
-    let blurEffectView = UIVisualEffectView(effect: blurEffect)
-    blurEffectView.frame = view.bounds
-    view.insertSubview(blurEffectView, at: 0)
-    return blurEffectView
+    public init(){}
+    
+    public var id: String?
+    public var validationError = ValidationError(msg: "Field required!")
+    
+    public func isValid(value: T?) -> ValidationError? {
+        if let str = value as? String {
+            return str.isEmpty ? validationError : nil
+        }
+        return value != nil ? nil : validationError
+    }
 }

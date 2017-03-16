@@ -3,12 +3,14 @@
 //  ios-mapcat
 //
 //  Created by Ryan Walton on 7/22/16.
-//  Copyright © 2016 Ryan Walton. All rights reserved.
+//  Copyright © 2016 Mapcat. All rights reserved.
 //
 
 import UIKit
 import MapKit
 import Alamofire
+import SwiftyJSON
+import Flurry_iOS_SDK
 
 class SearchTwoViewController: UIViewController, MKMapViewDelegate {
 
@@ -24,6 +26,9 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
     var currentLocation: CLLocationCoordinate2D!
 
     override func viewDidLoad() {
+        
+        Flurry.logEvent("SearchResults_View", timed: true)
+        
         searchTwoTableContainerView.alpha = 0 // set the container view to alpha zero with no results
         mapView.layer.addBorder(UIRectEdge.bottom, color: UIColor(hexString: "#CECED2"), thickness: 2)
         
@@ -58,7 +63,11 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
         if segue.identifier == "SearchResultsEmbeddedSegue" {
             let toView = segue.destination as! SearchTwoTableViewController
             toView.q = self.q.trimmingCharacters(in: CharacterSet.whitespaces)
+<<<<<<< HEAD
             Alamofire.request(.GET, "http://www.mapcat.io/api/v2/items", parameters: ["q" : toView.q, "long": self.currentLocation.longitude, "lat": self.currentLocation.latitude])
+=======
+            Alamofire.request("http://api.mapcat.io:3911/api/v2/items", parameters: ["q" : toView.q, "long": self.currentLocation.longitude, "lat": self.currentLocation.latitude, "token": "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp"])
+>>>>>>> e4d4c712428b856818be62af2f255797a4053edd
                 .responseJSON { response in
                     var JSONObject = JSON(response.result.value!)
                     self.results = JSONObject["items"].arrayValue
@@ -82,15 +91,16 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                         toView.tableView.reloadData()
                         // display results
                         self.searchTwoTableContainerView.alpha = 1 // display container view now with results
-                
+                        Flurry.logEvent("Search_Results", withParameters: ["q": self.q, "lat": self.locationManager.location!.coordinate.latitude, "long": self.locationManager.location!.coordinate.longitude, "itemsCount": self.results.count])
                     } else {
                         //= no results
                         // remove spinner
                         self.activityIndicator.stopAnimating()
                         let alertController = UIAlertController(title: "😿", message:
-                            "There are no results.", preferredStyle: UIAlertControllerStyle.Alert)
-                        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler:  { action in self.performSegueWithIdentifier("unwindToSearch", sender: self) }))
-                        self.presentViewController(alertController, animated: true, completion: nil)
+                            "There are no results.", preferredStyle: UIAlertControllerStyle.alert)
+                        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler:  { action in self.performSegue(withIdentifier: "unwindToSearch", sender: self) }))
+                        self.present(alertController, animated: true, completion: nil)
+                        Flurry.logEvent("Search_Results", withParameters: ["q": self.q, "lat": self.locationManager.location!.coordinate.latitude, "long": self.locationManager.location!.coordinate.longitude, "itemsCount": 0])
                     }
             }
 

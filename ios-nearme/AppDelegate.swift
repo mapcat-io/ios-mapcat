@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Initialize Flurry anal
-        Flurry.startSession("QX7RWJ5Z4J3TWQJPVVSS");
+        // Initialize Flurry analytics
+        Flurry.startSession("QX7RWJ5Z4J3TWQJPVVSS")
         
         //= Main Tab Controller
         let mainTabController = self.window!.rootViewController as! UITabBarController
@@ -49,6 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         feedbackTab.selectedImage = UIImage(named:"feedback-icon-selected")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         feedbackTab.image = UIImage(named:"feedback-icon-unselected")!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+<<<<<<< HEAD
+=======
+        
+        Flurry.logAllPageViews(forTarget: mainTabController)
+>>>>>>> e4d4c712428b856818be62af2f255797a4053edd
         
         return true
     }
