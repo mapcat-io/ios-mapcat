@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.2.0)
-  - Eureka (2.0.0-beta.1)
+  - Alamofire (4.4.0)
+  - Eureka (2.0.1)
   - Flurry-iOS-SDK/FlurrySDK (7.8.2)
   - KeychainAccess (3.0.1)
   - Spring (1.0.3)
@@ -8,7 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Eureka (~> 2.0.0-beta.1)
+  - Eureka
   - Flurry-iOS-SDK/FlurrySDK
   - KeychainAccess
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
@@ -25,13 +25,13 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
-  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
-  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   Flurry-iOS-SDK: 8ed76252016d0162a893363c108a010ab97d424c
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 9396a43e2d8c85516d8eb2f2ae40098316e8401b
+PODFILE CHECKSUM: 108ef9706af46049150b3c43aa27e9b45034de90
 
 COCOAPODS: 1.2.1.beta.1
