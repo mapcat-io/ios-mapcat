@@ -11,18 +11,8 @@ DEPENDENCIES:
   - Eureka
   - Flurry-iOS-SDK/FlurrySDK
   - KeychainAccess
-  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - Spring
   - SwiftyJSON
-
-EXTERNAL SOURCES:
-  Spring:
-    :branch: swift3
-    :git: https://github.com/MengTo/Spring.git
-
-CHECKOUT OPTIONS:
-  Spring:
-    :commit: 3a9227c6e9157e7b47f5ac1ee5abab2a56b50002
-    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -32,6 +22,6 @@ SPEC CHECKSUMS:
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 108ef9706af46049150b3c43aa27e9b45034de90
+PODFILE CHECKSUM: f635b93debff59ac72a3295fc55e375f65af0189
 
 COCOAPODS: 1.2.1.beta.1
