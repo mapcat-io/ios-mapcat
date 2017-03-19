@@ -71,8 +71,8 @@ class SearchTwoViewController: UIViewController, MKMapViewDelegate {
                         //= add map pins to mapView
                         var counter: Int = 0
                         for item in self.results {
-                            let lat = item["coordinates"][0][1].double
-                            let long = item["coordinates"][0][0].double
+                            let lat = item["coordinates"][1].double
+                            let long = item["coordinates"][0].double
                             let pinLocation = CLLocationCoordinate2DMake(lat!, long!)
                             let title = item["_id"]["name"].string ?? "No Name"
                             let dropPin = CustomAnnotation(coordinate: pinLocation, title: title, id: String(counter))
