@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.2.0)
+  - Alamofire (4.4.0)
   - Eureka (2.0.1)
   - Flurry-iOS-SDK/FlurrySDK (7.8.2)
   - KeychainAccess (3.0.1)
@@ -25,7 +25,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
-  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
   Flurry-iOS-SDK: 8ed76252016d0162a893363c108a010ab97d424c
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
