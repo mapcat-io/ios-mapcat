@@ -7,7 +7,7 @@ use_frameworks!
 target "Mapcat" do
     pod 'Alamofire'
     pod 'SwiftyJSON'
-    pod 'Eureka', '~> 2.0.0-beta.1'
+    pod 'Eureka'
     pod 'Flurry-iOS-SDK/FlurrySDK'
     pod 'KeychainAccess'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
