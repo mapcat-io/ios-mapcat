@@ -125,6 +125,7 @@ class SearchThreeViewController: UIViewController, MKMapViewDelegate {
             let toView = segue.destination as! SearchThreeFormViewController
             toView.items = self.result["things"]
             toView.name = (self.result["_id"]["name"].string ?? nil)!
+            toView.lochash = (self.result["location"]["lochash"].string ?? nil)!
         }
     }
     
