@@ -2,7 +2,7 @@
 //  SearchThreeFormViewController.swift
 //  ios-mapcat
 //
-//  Created by Ryan Walton on 7/24/16.
+//  Created by Jen Long on 7/24/16.
 //  Copyright © 2016 Mapcat. All rights reserved.
 //
 
