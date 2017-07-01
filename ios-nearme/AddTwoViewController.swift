@@ -89,7 +89,7 @@ class AddTwoViewController: FormViewController {
         
         Flurry.logEvent("Items_Submit", withParameters: ["location": result["name"], "lat": result["location"]["lat"], "long": result["location"]["lng"], "itemsCount": parameters["items"]?.count as Any])
 
-        Alamofire.request("http://api.mapcat.io:3911/api/v2/post-items", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+        Alamofire.request("http://104.196.227.137:3911/api/v2/post-items", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .responseJSON { response in
                 switch response.result {
                 case .success(_):

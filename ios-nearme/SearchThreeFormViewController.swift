@@ -29,7 +29,7 @@ class SearchThreeFormViewController: FormViewController {
             }
         }
         
-        Alamofire.request("http://api.mapcat.io:3911/api/v2/items-in-place", parameters: ["lochash" : self.lochash, "token": "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp"])
+        Alamofire.request("http://api.mapcat.io:3911/api/v2.6/items-in-place", parameters: ["lochash" : self.lochash, "token": "N2ax2YzrL5MkY0WAIpKEWv2EGA8D4eqp"])
             .responseJSON { response in
                 let JSONObject = JSON(response.result.value!)
                 let items = JSONObject["items"][0]["things"]
